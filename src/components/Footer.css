@@ -1,0 +1,224 @@
+/* FOOTER */
+.footer {
+  background: #06060f;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* CTA BAR */
+.footer-cta-bar {
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 36px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(91,33,245,0.15), rgba(168,85,247,0.08));
+  border: 1px solid rgba(91,33,245,0.2);
+}
+
+.footer-cta-inner h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.footer-cta-inner p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+/* MAIN */
+.footer-main {
+  padding: 52px 0 38px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.15fr 1.1fr;
+  gap: 36px;
+}
+
+/* BRAND */
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.footer-logo-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+.footer-logo-text span { color: #a78bfa; }
+
+.footer-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.75;
+  margin-bottom: 12px;
+  max-width: 300px;
+}
+
+.footer-tagline {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7b9aff;
+  margin-bottom: 22px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.6);
+  transition: transform 0.22s, background 0.22s, border-color 0.22s, color 0.22s;
+}
+.social-link svg { width: 18px; height: 18px; fill: currentColor; }
+.social-link:hover {
+  transform: translateY(-3px);
+  background: rgba(91,33,245,0.8);
+  border-color: rgba(91,33,245,0.5);
+  color: #fff;
+}
+
+/* HEADINGS */
+.footer-heading {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 18px;
+  letter-spacing: 0.3px;
+}
+
+/* LINKS */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-links a:hover { color: #a78bfa; transform: translateX(4px); }
+.link-arrow { color: #5b21f5; font-size: 16px; }
+
+/* CONTACT LIST */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.footer-contact:hover { color: #a78bfa; }
+
+.fc-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(91,33,245,0.15);
+  border: 1px solid rgba(91,33,245,0.25);
+  font-size: 16px;
+  color: #a78bfa;
+  flex-shrink: 0;
+}
+
+.footer-contact span {
+  display: flex;
+  flex-direction: column;
+}
+.footer-contact small {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 2px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 18px 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin: 0;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.footer-legal a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.2s;
+}
+.footer-legal a:hover { color: #a78bfa; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-cta-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-main { padding: 38px 0 28px; }
+  .footer-cta-inner { padding: 22px 18px; }
+  .footer-bottom-inner { flex-direction: column; }
+}

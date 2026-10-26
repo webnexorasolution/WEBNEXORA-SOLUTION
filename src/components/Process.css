@@ -1,0 +1,74 @@
+/* PROCESS */
+.process-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-mid);
+}
+
+.process-orb {
+  width: 350px;
+  height: 350px;
+  top: -60px;
+  right: -80px;
+  background: rgba(6,182,212,0.1);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-card {
+  position: relative;
+  padding: 28px 24px;
+  border-radius: 16px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(91,33,245,0.4);
+}
+
+.step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(91,33,245,0.4), rgba(168,85,247,0.2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.step-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+/* CONNECTOR (horizontal line between steps on desktop) */
+.step-connector {
+  display: none; /* Using CSS grid gap as visual separator */
+}
+
+@media (max-width: 900px) {
+  .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
