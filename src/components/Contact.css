@@ -25,12 +25,18 @@
   display: grid;
   grid-template-columns: 1fr 1.25fr;
   gap: 56px;
-  align-items: start;
+  align-items: stretch;
   position: relative;
   z-index: 1;
 }
 
 /* LEFT */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .contact-info h2 {
   font-family: var(--font-heading);
   font-size: clamp(30px, 3.6vw, 44px);
@@ -45,7 +51,7 @@
   color: #6A6860;
   font-size: 16px;
   line-height: 1.75;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
 }
 
 /* CONTACT DETAILS */
@@ -148,7 +154,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 18px;
+  padding: 14px 18px;
   border-radius: 16px;
   background: #FFFFFF;
   border: var(--stroke);
@@ -157,6 +163,7 @@
   font-weight: 600;
   color: #4A4841;
   line-height: 1.45;
+  margin-top: auto;
 }
 
 .sla-dot {
@@ -170,16 +177,27 @@
 
 /* FORM WRAPPER — Pure White Master Bento Card */
 .contact-form-wrap {
-  padding: 38px 36px;
+  padding: 44px 40px;
   border-radius: var(--radius-lg);
   background: #FFFFFF;
   border: var(--stroke);
   box-shadow: var(--neu-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
 }
 
 .contact-form h3 {
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: #121212;
   margin-bottom: 24px;
@@ -189,18 +207,18 @@
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 18px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
   color: #4A4841;
   letter-spacing: 0.01em;
@@ -213,9 +231,9 @@
   background: #F4F2EC;
   border: 1px solid #E2DFD6;
   border-radius: 14px;
-  padding: 13px 18px;
+  padding: 14px 18px;
   color: #121212;
-  font-size: 14px;
+  font-size: 14.5px;
   font-family: var(--font-body);
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   outline: none;
@@ -239,16 +257,24 @@
   color: #121212;
 }
 
-.form-group textarea {
+.form-group-message {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.form-group-message textarea {
+  flex: 1;
+  min-height: 140px;
   resize: vertical;
-  min-height: 110px;
 }
 
 .submit-btn {
   width: 100%;
-  margin-top: 8px;
-  font-size: 14.5px;
-  padding: 14px 24px;
+  margin-top: auto;
+  font-size: 15px;
+  padding: 16px 26px;
   border-radius: 9999px;
   background: #121212;
   color: #FFFFFF;
@@ -259,13 +285,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  transition: background 0.2s, transform 0.2s;
+  gap: 10px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .submit-btn:hover {
   background: #242424;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(18, 18, 18, 0.35);
 }
 
 /* SUCCESS */

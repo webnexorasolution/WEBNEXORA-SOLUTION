@@ -155,12 +155,12 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="form-group">
+              <div className="form-group form-group-message">
                 <label htmlFor="cf-message">Message *</label>
                 <textarea
                   id="cf-message"
                   name="message"
-                  rows={4}
+                  rows={5}
                   placeholder="Tell us about your project..."
                   value={form.message}
                   onChange={handleChange}
