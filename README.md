@@ -11,21 +11,23 @@ Repository: **[https://github.com/webnexorasolution/WEBNEXORA-SOLUTION](https://
 ## 🚀 Key Features
 
 - **Multi-Page Architecture**:
-  - **Home (`/`)**: Hero section, services grid, interactive why-us showcase, portfolio preview, 4-step process, and instant contact form.
-  - **About Agency (`/about`)**: Company story, mission, core values, leadership, and stats.
+  - **Home (`/`)**: Hero section with live sprint roadmap, services grid, interactive why-us showcase, portfolio preview, 4-step process, and instant contact form.
+  - **About Agency (`/about`)**: Company story, mission, core values, leadership, and head-to-head agency benchmark comparison table.
   - **Services (`/services`)**: Full service catalog with 3D interactive flip cards, detailed feature breakdowns, and service tiers.
   - **Portfolio (`/portfolio`)**: Interactive category filtering (Corporate, E-Commerce, SaaS, Web Apps), metrics, and live demo links.
   - **Process (`/process`)**: Deep-dive interactive breakdown of our 4-phase agile delivery roadmap.
   - **Contact & Scope Planner (`/contact`)**: Dual-channel contact desk featuring direct client hotlines and an interactive Project Scope Planner with budget and timeline calculators.
+  - **Agency Admin Console (`/admin`)**: Passkey-protected internal operations portal for managing inquiries, tracking pipeline stages (`New`, `Contacted`, `Proposal Sent`, `Converted`), 1-click WhatsApp/Call/Email outreach, and CSV spreadsheet exports.
 
 - **Custom UI Components**:
-  - **CustomSelect**: Luxury animated dropdown with smooth popover physics, categorized icons, active checkmarks, and click-outside detection.
+  - **CustomSelect**: Luxury animated dropdown with smooth popover physics, compact categorized icons, active checkmarks, and click-outside detection.
   - **ScrollToTop**: Automatic scroll-to-top restoration across all page transitions.
   - **Direct WhatsApp Lead Engine**: Auto-formats client inquiries and connects directly with agency leads.
 
-- **Configurable Environment Architecture**:
+- **Production & Cloud Architecture**:
   - Centralized site configuration module (`src/config/site.js`).
   - `.env` & `.env.example` templates for instant customization of branding, hotlines, emails, WhatsApp numbers, social links, and database credentials.
+  - **Vercel SPA Deployment**: Configured via `vercel.json` with route rewrite rules for clean client-side routing with zero 404s.
   - Ready for Supabase PostgreSQL database integration.
 
 ---
