@@ -9,6 +9,9 @@ import {
   Sparkles,
   TrendingUp,
   Cpu,
+  Globe,
+  Award,
+  Activity,
 } from 'lucide-react';
 import './WhyUs.css';
 
@@ -48,7 +51,10 @@ export default function WhyUs() {
             <span className="eyebrow-dot" />
             The Webnexora Advantage
           </div>
-          <h2>Architected for Conversion, Built for Scale</h2>
+          <h2>
+            Architected for Conversion,{' '}
+            <span className="title-gradient-accent">Built for Scale</span>
+          </h2>
           <p>
             We eliminate digital friction so your business captures more leads, converts more customers,
             and maintains an unshakeable competitive edge.
@@ -93,33 +99,93 @@ export default function WhyUs() {
           </article>
         </div>
 
-        {/* METRICS ROW (Clean White Bento Capsules) */}
-        <div className="why-metrics-bar" data-aos>
-          <div className="why-metric-item">
-            <span className="wm-num">150+</span>
-            <span className="wm-lbl">Deployments Live</span>
+        {/* EXECUTIVE TRUST COMMAND DECK */}
+        <div className="why-metrics-bar executive-trust-bar" data-aos>
+          {/* Subtle luminous ambient glow */}
+          <div className="trust-bar-ambient-glow" />
+
+          {/* Stat 1: Deployments */}
+          <div className="trust-metric-cell">
+            <div className="tm-icon-wrap lime-glow">
+              <Globe size={18} strokeWidth={2.2} />
+            </div>
+            <div className="tm-content">
+              <div className="tm-val-row">
+                <span className="tm-val">150+</span>
+                <span className="tm-badge tm-badge-lime">Global</span>
+              </div>
+              <span className="tm-title">Deployments Live</span>
+              <span className="tm-sub">Enterprise &amp; High-Growth</span>
+            </div>
           </div>
 
-          <div className="why-metric-item">
-            <span className="wm-num">98%</span>
-            <span className="wm-lbl">Client Retention</span>
+          <div className="tm-divider" />
+
+          {/* Stat 2: Retention */}
+          <div className="trust-metric-cell">
+            <div className="tm-icon-wrap emerald-glow">
+              <ShieldCheck size={18} strokeWidth={2.2} />
+            </div>
+            <div className="tm-content">
+              <div className="tm-val-row">
+                <span className="tm-val">98%</span>
+                <span className="tm-badge tm-badge-green">Recurring</span>
+              </div>
+              <span className="tm-title">Client Retention</span>
+              <span className="tm-sub">Long-Term Partnerships</span>
+            </div>
           </div>
 
-          <div className="why-metric-item">
-            <span className="wm-num" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-              5.0 <Star size={17} fill="#121212" color="#121212" />
-            </span>
-            <span className="wm-lbl">5-Star Client Rating</span>
+          <div className="tm-divider" />
+
+          {/* Stat 3: 5-Star Rating */}
+          <div className="trust-metric-cell">
+            <div className="tm-icon-wrap amber-glow">
+              <Award size={18} strokeWidth={2.2} />
+            </div>
+            <div className="tm-content">
+              <div className="tm-val-row">
+                <span className="tm-val">5.0</span>
+                <div className="tm-stars">
+                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                </div>
+              </div>
+              <span className="tm-title">5-Star Verified</span>
+              <span className="tm-sub">Clutch &amp; Google Reviews</span>
+            </div>
           </div>
 
-          <div className="why-metric-item">
-            <span className="wm-num">24/7</span>
-            <span className="wm-lbl">Dedicated Engineering</span>
+          <div className="tm-divider" />
+
+          {/* Stat 4: 24/7 Engineering */}
+          <div className="trust-metric-cell">
+            <div className="tm-icon-wrap cyan-glow">
+              <Activity size={18} strokeWidth={2.2} />
+              <span className="tm-live-ping" />
+            </div>
+            <div className="tm-content">
+              <div className="tm-val-row">
+                <span className="tm-val">24/7</span>
+                <span className="tm-badge tm-badge-cyan">Active QA</span>
+              </div>
+              <span className="tm-title">Dedicated Engineering</span>
+              <span className="tm-sub">Direct Sprint Channels</span>
+            </div>
           </div>
 
-          <Link className="btn btn-primary why-cta" to="/about" id="why-cta-btn">
-            Explore Agency DNA <ArrowRight size={15} />
-          </Link>
+          {/* CTA Button */}
+          <div className="tm-cta-wrap">
+            <Link className="tm-cta-btn" to="/about" id="why-cta-btn">
+              <span>Explore Agency DNA</span>
+              <span className="tm-cta-arrow-pill">
+                <ArrowRight size={14} strokeWidth={2.6} />
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, MessageCircle, Mail, ArrowUpRight, ChevronRight } from 'lucide-react';
+import { Phone, MessageCircle, Mail, ArrowUpRight, Lock, Sparkles, ShieldCheck } from 'lucide-react';
 import siteConfig from '../config/site';
 import './Footer.css';
 
@@ -67,14 +67,23 @@ export default function Footer() {
                 Webnexora <span className="footer-logo-badge">Solution</span>
               </span>
             </Link>
+
             <div className="footer-eng-chip">
               <span className="eng-dot" /> Full-Cycle Web Engineering &amp; Growth Studio
             </div>
+
             <p className="footer-desc">
               Engineering <strong className="text-highlight">high-converting corporate web architectures</strong>,
               scalable headless web applications, and bespoke digital flagship experiences with zero technical debt.
             </p>
-            <div className="footer-tagline">{siteConfig.tagline}</div>
+
+            {/* ONE-LINED TAGLINE PILL */}
+            <div className="footer-tagline-wrap">
+              <div className="footer-tagline">
+                <Sparkles size={11} className="tagline-sparkle" />
+                <span>{siteConfig.tagline}</span>
+              </div>
+            </div>
 
             {/* Socials */}
             <div className="footer-socials">
@@ -94,79 +103,98 @@ export default function Footer() {
           </div>
 
           {/* QUICK LINKS */}
-          <div>
+          <div className="footer-col">
             <h4 className="footer-heading">Quick Links</h4>
-            <nav className="footer-links" aria-label="Footer quick links">
+            <nav className="footer-links-grid" aria-label="Footer quick links">
               {quickLinks.map((l) => (
-                <Link key={l.path} to={l.path} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <ChevronRight size={13} className="link-arrow" />
-                  {l.label}
+                <Link key={l.path} to={l.path} className="footer-nav-item">
+                  <span className="fni-dot" />
+                  <span className="fni-label">{l.label}</span>
+                  <ArrowUpRight size={13} className="fni-arrow" />
                 </Link>
               ))}
             </nav>
           </div>
 
           {/* SERVICES */}
-          <div>
+          <div className="footer-col">
             <h4 className="footer-heading">Services</h4>
-            <nav className="footer-links" aria-label="Footer services">
+            <nav className="footer-links-grid" aria-label="Footer services">
               {serviceLinks.map((s) => (
-                <Link key={s.label} to={s.path} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <ChevronRight size={13} className="link-arrow" />
-                  {s.label}
+                <Link key={s.label} to={s.path} className="footer-nav-item">
+                  <span className="fni-dot" />
+                  <span className="fni-label">{s.label}</span>
+                  <ArrowUpRight size={13} className="fni-arrow" />
                 </Link>
               ))}
             </nav>
           </div>
 
-          {/* CONTACT INFO */}
-          <div>
+          {/* CONTACT INFO (Executive Channel Cards) */}
+          <div className="footer-col">
             <h4 className="footer-heading">Get in Touch</h4>
             <div className="footer-contact-list">
-              <a className="footer-contact" href={`tel:${siteConfig.contact.phoneRaw}`} id="footer-phone">
-                <span className="fc-icon">
-                  <Phone size={15} strokeWidth={2} />
-                </span>
-                <span>
-                  {siteConfig.contact.phone}
-                  <small>Direct Client Hotline</small>
-                </span>
+              <a className="footer-contact-card" href={`tel:${siteConfig.contact.phoneRaw}`} id="footer-phone">
+                <div className="fcc-icon-wrap fcc-icon-dark">
+                  <Phone size={15} strokeWidth={2.2} />
+                </div>
+                <div className="fcc-details">
+                  <span className="fcc-val">{siteConfig.contact.phone}</span>
+                  <span className="fcc-sub">Direct Client Hotline</span>
+                </div>
               </a>
-              <a className="footer-contact" href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener" id="footer-wa">
-                <span className="fc-icon" style={{ color: '#15803D' }}>
-                  <MessageCircle size={15} strokeWidth={2} />
-                </span>
-                <span>
-                  {siteConfig.contact.phone}
-                  <small>Instant WhatsApp Chat</small>
-                </span>
+
+              <a className="footer-contact-card fcc-card-wa" href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener" id="footer-wa">
+                <div className="fcc-icon-wrap fcc-icon-wa">
+                  <MessageCircle size={15} strokeWidth={2.2} />
+                </div>
+                <div className="fcc-details">
+                  <div className="fcc-title-row">
+                    <span className="fcc-val">{siteConfig.contact.phone}</span>
+                    <span className="fcc-live-pill">
+                      <span className="live-pulse-dot" /> Live
+                    </span>
+                  </div>
+                  <span className="fcc-sub">Instant WhatsApp Chat</span>
+                </div>
               </a>
-              <a className="footer-contact" href={`mailto:${siteConfig.contact.email}`} id="footer-email">
-                <span className="fc-icon">
-                  <Mail size={15} strokeWidth={2} />
-                </span>
-                <span>
-                  {siteConfig.contact.email}
-                  <small>Proposal &amp; RFP Desk</small>
-                </span>
+
+              <a className="footer-contact-card" href={`mailto:${siteConfig.contact.email}`} id="footer-email">
+                <div className="fcc-icon-wrap fcc-icon-cyan">
+                  <Mail size={15} strokeWidth={2.2} />
+                </div>
+                <div className="fcc-details">
+                  <span className="fcc-val">{siteConfig.contact.email}</span>
+                  <span className="fcc-sub">Proposal &amp; RFP Desk</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* BOTTOM BAR */}
+      {/* BOTTOM BAR (Elite Studio Signature Bar) */}
       <div className="footer-bottom">
         <div className="footer-container footer-bottom-inner">
-          <p>© {year} Webnexora Solution. All rights reserved.</p>
+          <div className="footer-copyright-wrap">
+            <p className="footer-copyright">© {year} Webnexora Solution. All rights reserved.</p>
+            <div className="footer-status-pill">
+              <span className="status-ping-dot" />
+              <span>All Systems Operational</span>
+            </div>
+          </div>
+
           <div className="footer-legal">
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/privacy" className="footer-legal-link">Privacy Policy</Link>
             <span className="footer-sep">·</span>
-            <Link to="/terms">Terms of Service</Link>
+            <Link to="/terms" className="footer-legal-link">Terms of Service</Link>
             <span className="footer-sep">·</span>
-            <Link to="/contact">Support</Link>
+            <Link to="/contact" className="footer-legal-link">Support</Link>
             <span className="footer-sep">·</span>
-            <Link to="/admin" title="Agency Staff Portal" style={{ opacity: 0.6 }}>Admin Portal</Link>
+            <Link to="/admin" className="footer-admin-btn" title="Agency Staff Portal" id="footer-admin-link">
+              <Lock size={11} strokeWidth={2.4} />
+              <span>Admin Console</span>
+            </Link>
           </div>
         </div>
       </div>

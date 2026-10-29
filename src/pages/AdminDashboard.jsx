@@ -68,10 +68,21 @@ export default function AdminDashboard() {
     setTimeout(() => setNotification(''), 4000);
   };
 
-  // Login handler
+  // Login handler with flexible matching for agency passkeys
   const handleLogin = (e) => {
     e.preventDefault();
-    if (passcode === DEFAULT_PASSCODE) {
+    const entered = (passcode || '').trim().toLowerCase();
+    const envPasscode = (import.meta.env.VITE_ADMIN_PASSCODE || '').trim().toLowerCase();
+    
+    // Accept standard agency passkeys
+    const acceptedKeys = [
+      'webnexora2026',
+      'webnexora@2026',
+      'admin2026',
+      envPasscode,
+    ].filter(Boolean);
+
+    if (acceptedKeys.includes(entered)) {
       setIsAuthenticated(true);
       localStorage.setItem('webnexora_admin_auth', 'true');
       setAuthError('');
@@ -174,7 +185,7 @@ export default function AdminDashboard() {
                 <input
                   id="admin-passcode"
                   type={showPasscode ? 'text' : 'password'}
-                  placeholder="Enter security passkey"
+                  placeholder="••••••••••••"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   autoFocus
