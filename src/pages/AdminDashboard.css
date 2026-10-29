@@ -273,24 +273,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 9px 18px;
+  gap: 7px;
+  padding: 8px 16px;
   border-radius: 9999px;
-  background: #F7F5EE;
-  border: 1px solid #E2DFD6;
-  font-size: 12.5px;
-  font-weight: 700;
+  background: #FFFFFF;
+  border: 1px solid #DCD8CE;
+  font-size: 12px;
+  font-weight: 600;
   color: #383630;
   text-decoration: none;
-  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .auth-back-btn:hover {
   background: #121212;
   color: #FFFFFF;
   border-color: #121212;
-  transform: translateX(-3px);
-  box-shadow: 0 4px 12px rgba(18, 18, 18, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(18, 18, 18, 0.14);
 }
 
 .auth-system-badge {
@@ -795,17 +796,34 @@
 
 .budget-pill {
   font-size: 11px;
-  font-weight: 700;
-  padding: 2px 8px;
+  font-weight: 600;
+  padding: 3px 8px;
   border-radius: 6px;
   background: #F4F2EC;
   color: #15803D;
   border: 1px solid #E2DFD6;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .timeline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4.5px;
   font-size: 11px;
-  color: #6E6C64;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #FAF8F5;
+  color: #55534B;
+  border: 1px solid #EAE7DE;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.timeline-pill .timeline-icon {
+  color: #8C8980;
+  flex-shrink: 0;
 }
 
 /* QUICK CONTACT */
@@ -867,18 +885,32 @@
 .date-cell {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 2.5px;
+}
+
+.date-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12.5px;
-  color: #4A4841;
+  font-weight: 600;
+  color: #2E2C26;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
-.date-cell small {
-  color: #8A887E;
+.date-primary .date-icon {
+  color: #8C8980;
+  flex-shrink: 0;
+}
+
+.date-time {
   font-size: 11px;
-}
-
-.date-icon {
-  margin-right: 4px;
+  font-weight: 500;
+  color: #8A887E;
+  padding-left: 17px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 /* ── CUSTOM STATUS DROPDOWN POPOVER ── */
@@ -890,38 +922,42 @@
 .status-pill-trigger {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 5px 12px;
+  gap: 6.5px;
+  padding: 4.5px 11px;
   border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid #E2DFD6;
+  font-family: var(--font-body);
   font-size: 11.5px;
-  font-weight: 700;
-  border: 1px solid transparent;
+  font-weight: 600;
+  color: #2E2C26;
   cursor: pointer;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 3px rgba(18, 18, 18, 0.04);
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(18, 18, 18, 0.04);
   white-space: nowrap;
 }
 
 .status-pill-trigger:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(18, 18, 18, 0.08);
+  background: #FAF9F6;
+  border-color: #D2CEC4;
+  box-shadow: 0 2px 5px rgba(18, 18, 18, 0.06);
 }
 
 .st-dot {
-  width: 6px;
-  height: 6px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .st-val-text {
   line-height: 1;
+  font-size: 11.5px;
 }
 
 .st-chevron {
   transition: transform 0.2s ease;
-  color: currentColor;
-  opacity: 0.7;
+  color: #8C8980;
   flex-shrink: 0;
 }
 
@@ -931,31 +967,31 @@
 
 .status-dropdown-popover {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 5px);
   left: 0;
   z-index: 100;
-  min-width: 175px;
+  min-width: 170px;
   background: #FFFFFF;
   border: 1px solid #E2DFD6;
-  border-radius: 14px;
-  padding: 6px;
+  border-radius: 12px;
+  padding: 5px;
   box-shadow: 
-    0 16px 36px -8px rgba(18, 18, 18, 0.18),
-    0 4px 12px rgba(18, 18, 18, 0.05);
-  animation: popoverFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    0 12px 30px -4px rgba(18, 18, 18, 0.14),
+    0 4px 10px rgba(18, 18, 18, 0.04);
+  animation: popoverFadeIn 0.14s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes popoverFadeIn {
-  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  from { opacity: 0; transform: translateY(-3px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .st-popover-header {
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   color: #8C8980;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   padding: 6px 10px 4px;
 }
 
@@ -968,32 +1004,35 @@
 .st-option-item {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   width: 100%;
-  padding: 7px 10px;
+  padding: 6px 10px;
   border-radius: 8px;
   border: none;
   background: transparent;
-  color: #121212;
-  font-size: 12.5px;
-  font-weight: 600;
+  color: #2E2C26;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: all 0.15s ease;
+  transition: all 0.12s ease;
 }
 
 .st-option-item:hover {
-  background: #F4F2EC;
+  background: #F5F3ED;
+  color: #121212;
 }
 
 .st-option-selected {
   background: #EFECE4;
-  font-weight: 700;
+  font-weight: 600;
+  color: #121212;
 }
 
 .st-opt-dot {
-  width: 7px;
-  height: 7px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -1009,33 +1048,53 @@
 
 /* Status color variants */
 .status-new {
-  background: #DCFCE7;
+  background: #F2FBF5;
+  border-color: #D1F2DF;
   color: #15803D;
-  border-color: #86EFAC;
+}
+.status-new:hover {
+  background: #E8F8ED;
+  border-color: #BBEBD0;
 }
 
 .status-contacted {
-  background: #EFF6FF;
+  background: #F4F8FE;
+  border-color: #D6E4FD;
   color: #1D4ED8;
-  border-color: #BFDBFE;
+}
+.status-contacted:hover {
+  background: #EBF2FE;
+  border-color: #C2D7FC;
 }
 
 .status-proposal-sent {
-  background: #FAF5FF;
+  background: #FAF6FE;
+  border-color: #EBDCFD;
   color: #7E22CE;
-  border-color: #E9D5FF;
+}
+.status-proposal-sent:hover {
+  background: #F4EBFE;
+  border-color: #DFCBFC;
 }
 
 .status-converted {
-  background: #121212;
-  color: var(--lime);
-  border-color: #121212;
+  background: #FFFDF5;
+  border-color: #FDEBB8;
+  color: #B45309;
+}
+.status-converted:hover {
+  background: #FEFAEB;
+  border-color: #FCDD94;
 }
 
 .status-archived {
   background: #F4F2EC;
-  color: #7A7870;
   border-color: #E2DFD6;
+  color: #71717A;
+}
+.status-archived:hover {
+  background: #EBE8E0;
+  border-color: #D5D1C6;
 }
 
 /* ROW ACTIONS */

@@ -8,10 +8,10 @@
 }
 
 :root {
-  /* ── TYPOGRAPHY: Clash Display & Cabinet Grotesk ── */
-  --font-heading: 'Clash Display', 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Clash Display', sans-serif;
-  --font-grotesk: 'Cabinet Grotesk', sans-serif;
+  /* ── TYPOGRAPHY: Plus Jakarta Sans & Inter ── */
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-grotesk: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -99,24 +99,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--heading);
-  letter-spacing: -0.018em;
-  font-weight: 600;
-  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 h1 {
   font-weight: 700;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.015em;
 }
 
 h2 {
-  font-weight: 650;
-  letter-spacing: -0.018em;
+  font-weight: 700;
+  letter-spacing: -0.012em;
 }
 
 h3 {
-  font-weight: 600;
-  letter-spacing: -0.014em;
+  font-weight: 650;
+  letter-spacing: -0.008em;
 }
 
 a {

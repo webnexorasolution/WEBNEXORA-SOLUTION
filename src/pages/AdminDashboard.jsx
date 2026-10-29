@@ -55,12 +55,12 @@ function StatusDropdown({ status, onSelect }) {
 
   const getStatusColor = (st) => {
     switch (st) {
-      case 'New': return { dot: '#16A34A', bg: '#DCFCE7', text: '#15803D' };
-      case 'Contacted': return { dot: '#2563EB', bg: '#EFF6FF', text: '#1D4ED8' };
-      case 'Proposal Sent': return { dot: '#9333EA', bg: '#FAF5FF', text: '#7E22CE' };
-      case 'Converted': return { dot: '#EEFD44', bg: '#121212', text: '#EEFD44' };
-      case 'Archived': return { dot: '#71717A', bg: '#F4F2EC', text: '#71717A' };
-      default: return { dot: '#71717A', bg: '#F4F2EC', text: '#71717A' };
+      case 'New': return { dot: '#10B981', label: 'New' };
+      case 'Contacted': return { dot: '#3B82F6', label: 'Contacted' };
+      case 'Proposal Sent': return { dot: '#8B5CF6', label: 'Proposal Sent' };
+      case 'Converted': return { dot: '#F59E0B', label: 'Converted' };
+      case 'Archived': return { dot: '#6B7280', label: 'Archived' };
+      default: return { dot: '#6B7280', label: st };
     }
   };
 
@@ -76,7 +76,7 @@ function StatusDropdown({ status, onSelect }) {
       >
         <span className="st-dot" style={{ backgroundColor: currentTheme.dot }} />
         <span className="st-val-text">{status}</span>
-        <ChevronDown size={12} className={`st-chevron ${open ? 'st-chevron-open' : ''}`} />
+        <ChevronDown size={11} strokeWidth={2.4} className={`st-chevron ${open ? 'st-chevron-open' : ''}`} />
       </button>
 
       {open && (
@@ -98,7 +98,7 @@ function StatusDropdown({ status, onSelect }) {
                 >
                   <span className="st-opt-dot" style={{ backgroundColor: optTheme.dot }} />
                   <span className="st-opt-label">{opt}</span>
-                  {isSelected && <Check size={13} className="st-opt-check" />}
+                  {isSelected && <Check size={12} strokeWidth={2.5} className="st-opt-check" />}
                 </button>
               );
             })}
@@ -512,7 +512,12 @@ export default function AdminDashboard() {
                             <span className="svc-tag">{item.service}</span>
                             <div className="scope-meta">
                               {item.budget && <span className="budget-pill">{item.budget}</span>}
-                              {item.timeline && <span className="timeline-pill">⏱️ {item.timeline}</span>}
+                              {item.timeline && (
+                                <span className="timeline-pill">
+                                  <Clock size={11} strokeWidth={2} className="timeline-icon" />
+                                  <span>{item.timeline}</span>
+                                </span>
+                              )}
                             </div>
                           </div>
                         </td>
@@ -555,20 +560,23 @@ export default function AdminDashboard() {
                         {/* SUBMITTED DATE */}
                         <td>
                           <div className="date-cell">
-                            <Calendar size={13} className="date-icon" />
-                            <span>
-                              {new Date(item.createdAt).toLocaleDateString('en-IN', {
-                                day: 'numeric',
-                                month: 'short',
-                                year: 'numeric',
-                              })}
-                            </span>
-                            <small>
+                            <div className="date-primary">
+                              <Calendar size={12} strokeWidth={2} className="date-icon" />
+                              <span>
+                                {new Date(item.createdAt).toLocaleDateString('en-US', {
+                                  day: 'numeric',
+                                  month: 'short',
+                                  year: 'numeric',
+                                })}
+                              </span>
+                            </div>
+                            <span className="date-time">
                               {new Date(item.createdAt).toLocaleTimeString([], {
                                 hour: '2-digit',
                                 minute: '2-digit',
+                                hour12: true,
                               })}
-                            </small>
+                            </span>
                           </div>
                         </td>
 
