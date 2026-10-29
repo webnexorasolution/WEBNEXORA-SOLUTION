@@ -25,6 +25,8 @@ const serviceOptions = [
   { value: 'Digital Marketing', label: 'Digital Marketing', icon: <TrendingUp size={16} /> },
 ];
 
+import inquiryService from '../services/inquiryService';
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
@@ -34,6 +36,15 @@ export default function Contact() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    inquiryService.saveInquiry({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      service: form.service || 'Website Development',
+      message: form.message,
+      source: 'Home Contact Section',
+    });
+
     const text = `Hello ${siteConfig.name}! I'd like to discuss a project.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nMessage: ${form.message}`;
     const wa = siteConfig.getWhatsAppUrl(text);
     window.open(wa, '_blank', 'noopener');

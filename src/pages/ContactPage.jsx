@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import CustomSelect from '../components/ui/CustomSelect';
 import siteConfig from '../config/site';
+import inquiryService from '../services/inquiryService';
 import './ContactPage.css';
 
 const servicesList = [
@@ -67,6 +68,18 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    inquiryService.saveInquiry({
+      name: form.name,
+      company: form.company,
+      email: form.email,
+      phone: form.phone,
+      service: form.service,
+      budget: form.budget,
+      timeline: form.timeline,
+      message: form.message,
+      source: 'Contact Scope Planner',
+    });
+
     const formatted = `*New ${siteConfig.name} Project Inquiry*
 • *Name:* ${form.name}
 • *Company:* ${form.company || 'N/A'}

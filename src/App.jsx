@@ -44,13 +44,17 @@ function useAOSObserver() {
   }, [location.pathname]);
 }
 
+import AdminDashboard from './pages/AdminDashboard';
+
 export default function App() {
   useAOSObserver();
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
 
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      {!isAdmin && <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -59,10 +63,11 @@ export default function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
-      <Footer />
-      <ScrollTopBtn />
+      {!isAdmin && <Footer />}
+      {!isAdmin && <ScrollTopBtn />}
     </>
   );
 }

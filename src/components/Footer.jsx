@@ -162,6 +162,8 @@ export default function Footer() {
             <Link to="/terms">Terms of Service</Link>
             <span className="footer-sep">·</span>
             <Link to="/contact">Support</Link>
+            <span className="footer-sep">·</span>
+            <Link to="/admin" title="Agency Staff Portal" style={{ opacity: 0.6 }}>Admin Portal</Link>
           </div>
         </div>
       </div>
