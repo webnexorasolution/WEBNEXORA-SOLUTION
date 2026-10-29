@@ -68,7 +68,9 @@ export default function Services() {
       <div className="srv-orb orb" />
       <div className="container">
         <div className="section-head" data-aos>
-          <div className="eyebrow">Our Core Expertise</div>
+          <div className="eyebrow">
+            <span className="eyebrow-dot" /> Our Core Expertise
+          </div>
           <h2>
             Digital Solutions{' '}
             <span className="title-highlight">Engineered for Growth.</span>

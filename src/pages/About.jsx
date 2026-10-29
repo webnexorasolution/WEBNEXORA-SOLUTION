@@ -176,7 +176,9 @@ export default function About() {
       <section className="section about-values-section">
         <div className="container">
           <div className="section-head" data-aos>
-            <div className="eyebrow">Our Guiding Pillars</div>
+            <div className="eyebrow">
+              <span className="eyebrow-dot" /> Our Guiding Pillars
+            </div>
             <h2>What Sets Our Work Apart</h2>
             <p>Every line of code we write and every layout we design is governed by four core commitments.</p>
           </div>
@@ -222,7 +224,9 @@ export default function About() {
       <section className="section about-comparison-section">
         <div className="container">
           <div className="section-head" data-aos>
-            <div className="eyebrow">The Webnexora Standard</div>
+            <div className="eyebrow">
+              <span className="eyebrow-dot" /> The Webnexora Standard
+            </div>
             <h2>Why Companies Choose Us Over Others</h2>
             <p>A transparent comparison of how we approach digital projects differently.</p>
           </div>

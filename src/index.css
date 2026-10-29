@@ -162,35 +162,46 @@ img {
   position: relative;
 }
 
-/* ── CRISP VISIBLE EYEBROW PILL ── */
+/* ── REFINED EXECUTIVE EYEBROW PILL ── */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
   width: fit-content;
   max-width: max-content;
-  gap: 8px;
-  padding: 7px 18px;
+  gap: 7.5px;
+  padding: 5.5px 14px;
   border-radius: 9999px;
   background: #FFFFFF;
-  border: var(--stroke);
-  box-shadow: var(--neu-shadow-sm);
+  border: 1px solid #CAC6BB;
+  box-shadow: 
+    0 1px 3px rgba(18, 18, 18, 0.05),
+    0 4px 12px rgba(18, 18, 18, 0.02);
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--dark);
-  margin-bottom: 20px;
+  color: #1A1916;
+  margin-bottom: 18px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eyebrow:hover {
+  border-color: #AFA99B;
+  box-shadow: 
+    0 2px 6px rgba(18, 18, 18, 0.07),
+    0 6px 16px rgba(18, 18, 18, 0.03);
 }
 
 .eyebrow-dot {
-  width: 7px;
-  height: 7px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background: var(--lime);
-  border: 1.5px solid var(--dark);
+  background: #121212;
+  box-shadow: 0 0 0 2px var(--lime);
   display: inline-block;
+  flex-shrink: 0;
 }
 
 /* ── SECTION HEAD ── */

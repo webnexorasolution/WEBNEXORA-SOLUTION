@@ -133,7 +133,9 @@ export default function ProcessPage() {
       <section className="section process-promises-section">
         <div className="container">
           <div className="section-head" data-aos>
-            <div className="eyebrow">Our Commitment</div>
+            <div className="eyebrow">
+              <span className="eyebrow-dot" /> Our Commitment
+            </div>
             <h2>The Webnexora Client Guarantee</h2>
             <p>Four ironclad standards that protect your investment and ensure an exceptional partnership.</p>
           </div>

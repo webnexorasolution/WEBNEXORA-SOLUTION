@@ -29,7 +29,9 @@ export default function Process() {
 
       <div className="container">
         <div className="section-head" data-aos>
-          <div className="eyebrow">How We Work</div>
+          <div className="eyebrow">
+            <span className="eyebrow-dot" /> How We Work
+          </div>
           <h2>
             A Simple, <span className="title-highlight">Clear Process.</span>
           </h2>

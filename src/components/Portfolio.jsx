@@ -33,7 +33,9 @@ export default function Portfolio() {
 
       <div className="container">
         <div className="section-head" data-aos>
-          <div className="eyebrow">Proven Outcomes</div>
+          <div className="eyebrow">
+            <span className="eyebrow-dot" /> Proven Outcomes
+          </div>
           <h2>
             Featured <span className="title-highlight">Client Projects.</span>
           </h2>

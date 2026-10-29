@@ -204,7 +204,9 @@ export default function ServicesPage() {
       <section className="section included-section">
         <div className="container">
           <div className="section-head" data-aos>
-            <div className="eyebrow">The Standard Package</div>
+            <div className="eyebrow">
+              <span className="eyebrow-dot" /> The Standard Package
+            </div>
             <h2>Included in Every Webnexora Project</h2>
             <p>We believe essential performance, security, and mobile optimizations should never be expensive add-ons.</p>
           </div>
@@ -250,7 +252,9 @@ export default function ServicesPage() {
       <section className="section faq-section">
         <div className="container">
           <div className="section-head" data-aos>
-            <div className="eyebrow">Clear Answers</div>
+            <div className="eyebrow">
+              <span className="eyebrow-dot" /> Clear Answers
+            </div>
             <h2>Frequently Asked Questions</h2>
             <p>Everything you need to know about working with Webnexora Solution.</p>
           </div>
