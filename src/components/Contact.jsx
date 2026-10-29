@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import siteConfig from '../config/site';
 import './Contact.css';
 
 export default function Contact() {
@@ -11,9 +12,8 @@ export default function Contact() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const wa = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(
-      `Hello Webnexora Solution! I'd like to discuss a project.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nMessage: ${form.message}`
-    )}`;
+    const text = `Hello ${siteConfig.name}! I'd like to discuss a project.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nMessage: ${form.message}`;
+    const wa = siteConfig.getWhatsAppUrl(text);
     window.open(wa, '_blank', 'noopener');
     setSent(true);
     setTimeout(() => setSent(false), 5000);
@@ -37,7 +37,7 @@ export default function Contact() {
           <div className="contact-details">
             <a
               className="contact-item"
-              href="https://wa.me/91XXXXXXXXXX"
+              href={siteConfig.getWhatsAppUrl()}
               target="_blank"
               rel="noopener"
               id="contact-whatsapp"
@@ -47,33 +47,33 @@ export default function Contact() {
               </div>
               <div className="ci-content">
                 <strong>Instant WhatsApp Chat</strong>
-                <span>+91 XXXXX XXXXX · Quick response (9 AM – 9 PM)</span>
+                <span>{siteConfig.contact.phone} · Quick response ({siteConfig.contact.officeHours})</span>
               </div>
               <span className="contact-item-tag tag-lime">
                 Chat ↗
               </span>
             </a>
 
-            <a className="contact-item" href="tel:+91XXXXXXXXXX" id="contact-phone">
+            <a className="contact-item" href={`tel:${siteConfig.contact.phoneRaw}`} id="contact-phone">
               <div className="ci-icon">
                 <Phone size={20} strokeWidth={2} />
               </div>
               <div className="ci-content">
                 <strong>Direct Client Hotline</strong>
-                <span>+91 XXXXX XXXXX · Talk directly with our tech leads</span>
+                <span>{siteConfig.contact.phone} · Talk directly with our tech leads</span>
               </div>
               <span className="contact-item-tag">
                 Call ↗
               </span>
             </a>
 
-            <a className="contact-item" href="mailto:hello@webnexora.com" id="contact-email">
+            <a className="contact-item" href={`mailto:${siteConfig.contact.email}`} id="contact-email">
               <div className="ci-icon">
                 <Mail size={20} strokeWidth={2} />
               </div>
               <div className="ci-content">
                 <strong>Email Inquiries & RFP</strong>
-                <span>hello@webnexora.com · Send specs & project briefs</span>
+                <span>{siteConfig.contact.email} · Send specs & project briefs</span>
               </div>
               <span className="contact-item-tag">
                 Email ↗

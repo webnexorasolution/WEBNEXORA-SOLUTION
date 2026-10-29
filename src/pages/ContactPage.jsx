@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight, Clock } from 'lucide-react';
+import siteConfig from '../config/site';
 import './ContactPage.css';
 
 const servicesList = [
@@ -38,7 +39,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formatted = `*New Webnexora Project Inquiry*
+    const formatted = `*New ${siteConfig.name} Project Inquiry*
 • *Name:* ${form.name}
 • *Company:* ${form.company || 'N/A'}
 • *Email:* ${form.email}
@@ -48,7 +49,7 @@ export default function ContactPage() {
 • *Timeline:* ${form.timeline}
 • *Details:* ${form.message}`;
 
-    const waUrl = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(formatted)}`;
+    const waUrl = siteConfig.getWhatsAppUrl(formatted);
     window.open(waUrl, '_blank', 'noopener');
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 6000);
@@ -90,7 +91,7 @@ export default function ContactPage() {
               <div className="direct-channels-list">
                 <a
                   className="channel-card"
-                  href="https://wa.me/91XXXXXXXXXX"
+                  href={siteConfig.getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener"
                   id="cp-wa"
@@ -100,32 +101,32 @@ export default function ContactPage() {
                   </div>
                   <div className="channel-content">
                     <strong>Instant WhatsApp Chat</strong>
-                    <span>+91 XXXXX XXXXX (Available 9 AM – 9 PM)</span>
+                    <span>{siteConfig.contact.phone} (Available {siteConfig.contact.officeHours})</span>
                   </div>
                   <span className="channel-pill-tag tag-lime">Instant</span>
                 </a>
 
-                <a className="channel-card" href="tel:+91XXXXXXXXXX" id="cp-phone">
+                <a className="channel-card" href={`tel:${siteConfig.contact.phoneRaw}`} id="cp-phone">
                   <div className="channel-icon">
                     <Phone size={20} strokeWidth={2} />
                   </div>
                   <div className="channel-content">
                     <strong>Direct Client Hotline</strong>
-                    <span>+91 XXXXX XXXXX</span>
+                    <span>{siteConfig.contact.phone}</span>
                   </div>
                   <span className="channel-pill-tag">Direct</span>
                 </a>
 
-                <div className="channel-card">
+                <a className="channel-card" href={`mailto:${siteConfig.contact.email}`} id="cp-email">
                   <div className="channel-icon">
                     <Mail size={20} strokeWidth={2} />
                   </div>
                   <div className="channel-content">
                     <strong>Email Enquiries</strong>
-                    <span>hello@webnexora.com</span>
+                    <span>{siteConfig.contact.email}</span>
                   </div>
                   <span className="channel-pill-tag">RFP Desk</span>
-                </div>
+                </a>
               </div>
 
               <div className="sla-banner">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, MessageCircle, Mail, ArrowUpRight, ChevronRight } from 'lucide-react';
+import siteConfig from '../config/site';
 import './Footer.css';
 
 const year = new Date().getFullYear();
@@ -70,20 +71,20 @@ export default function Footer() {
               Premier digital agency engineering high-converting corporate websites, modern web
               applications, and bespoke digital experiences.
             </p>
-            <div className="footer-tagline">Precision Engineering · Clean UX · Measurable Growth</div>
+            <div className="footer-tagline">{siteConfig.tagline}</div>
 
             {/* Socials */}
             <div className="footer-socials">
-              <a className="social-link" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a className="social-link" href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <svg viewBox="0 0 24 24"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.2v3.2H10V21z"/></svg>
               </a>
-              <a className="social-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a className="social-link" href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2zm0 2A3.2 3.2 0 0 0 4 7.2v9.6A3.2 3.2 0 0 0 7.2 20h9.6a3.2 3.2 0 0 0 3.2-3.2V7.2A3.2 3.2 0 0 0 16.8 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
               </a>
-              <a className="social-link" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a className="social-link" href={siteConfig.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24"><path d="M5.2 3a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM3.3 9h3.8v12H3.3zM9.5 9h3.6v1.6h.1A4 4 0 0 1 16.8 8.7c4 0 4.7 2.5 4.7 5.8V21h-3.8v-5.8c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9.5z"/></svg>
               </a>
-              <a className="social-link" href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <a className="social-link" href={siteConfig.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                 <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>
               </a>
             </div>
@@ -119,33 +120,33 @@ export default function Footer() {
           <div>
             <h4 className="footer-heading">Get in Touch</h4>
             <div className="footer-contact-list">
-              <a className="footer-contact" href="tel:+91XXXXXXXXXX" id="footer-phone">
+              <a className="footer-contact" href={`tel:${siteConfig.contact.phoneRaw}`} id="footer-phone">
                 <span className="fc-icon">
                   <Phone size={15} strokeWidth={2} />
                 </span>
                 <span>
-                  +91 XXXXX XXXXX
+                  {siteConfig.contact.phone}
                   <small>Direct Client Hotline</small>
                 </span>
               </a>
-              <a className="footer-contact" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" id="footer-wa">
+              <a className="footer-contact" href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener" id="footer-wa">
                 <span className="fc-icon" style={{ color: '#15803D' }}>
                   <MessageCircle size={15} strokeWidth={2} />
                 </span>
                 <span>
-                  +91 XXXXX XXXXX
+                  {siteConfig.contact.phone}
                   <small>Instant WhatsApp Chat</small>
                 </span>
               </a>
-              <div className="footer-contact">
+              <a className="footer-contact" href={`mailto:${siteConfig.contact.email}`} id="footer-email">
                 <span className="fc-icon">
                   <Mail size={15} strokeWidth={2} />
                 </span>
                 <span>
-                  contact@webnexora.com
+                  {siteConfig.contact.email}
                   <small>Proposal &amp; RFP Desk</small>
                 </span>
-              </div>
+              </a>
             </div>
           </div>
         </div>
