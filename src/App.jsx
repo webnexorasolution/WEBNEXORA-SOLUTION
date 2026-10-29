@@ -1,15 +1,22 @@
 import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import WhyUs from './components/WhyUs';
-import Portfolio from './components/Portfolio';
-import Process from './components/Process';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import ServicesPage from './pages/ServicesPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ProcessPage from './pages/ProcessPage';
+import ContactPage from './pages/ContactPage';
+
+import { ArrowUp } from 'lucide-react';
 import './App.css';
 
 function useAOSObserver() {
+  const location = useLocation();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -28,14 +35,13 @@ function useAOSObserver() {
     };
 
     observeAll();
-    // Re-observe after short delay to catch lazy-rendered elements
-    const t = setTimeout(observeAll, 300);
+    const t = setTimeout(observeAll, 200);
 
     return () => {
       clearTimeout(t);
       observer.disconnect();
     };
-  }, []);
+  }, [location.pathname]);
 }
 
 export default function App() {
@@ -43,18 +49,19 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main>
-        <Hero />
-        <Services />
-        <WhyUs />
-        <Portfolio />
-        <Process />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/process" element={<ProcessPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
-
-      {/* Scroll-to-top button */}
       <ScrollTopBtn />
     </>
   );
@@ -77,32 +84,12 @@ function ScrollTopBtn() {
   return (
     <button
       id="scroll-top-btn"
+      className="scroll-top-btn"
       onClick={handleClick}
       aria-label="Scroll to top"
       title="Back to top"
-      style={{
-        position: 'fixed',
-        bottom: '28px',
-        right: '24px',
-        width: '44px',
-        height: '44px',
-        borderRadius: '12px',
-        background: 'linear-gradient(135deg, #5b21f5, #7c3aff)',
-        border: 'none',
-        color: '#fff',
-        fontSize: '20px',
-        cursor: 'pointer',
-        zIndex: 999,
-        opacity: 0,
-        pointerEvents: 'none',
-        transition: 'opacity 0.3s, transform 0.2s',
-        boxShadow: '0 6px 20px rgba(91,33,245,0.4)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
     >
-      ↑
+      <ArrowUp size={20} strokeWidth={2.5} />
     </button>
   );
 }

@@ -1,77 +1,113 @@
 import { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import './Navbar.css';
 
-const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Process', href: '#process' },
-  { label: 'Contact', href: '#contact' },
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Services', path: '/services' },
+  { label: 'Portfolio', path: '/portfolio' },
+  { label: 'Process', path: '/process' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState('home');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleNav = (href) => {
-    setOpen(false);
-    setActive(href.replace('#', ''));
-  };
+  const closeDrawer = () => setOpen(false);
 
   return (
     <header className={`navbar${scrolled ? ' scrolled' : ''}`} id="navbar">
       <div className="nav-container">
-        <a className="nav-logo" href="#home" aria-label="Webnexora Solution Home">
+        {/* LOGO */}
+        <Link className="nav-logo" to="/" aria-label="Webnexora Solution Home" onClick={closeDrawer}>
           <span className="logo-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <defs>
-                <linearGradient id="lg1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#5b21f5"/>
-                  <stop offset="1" stopColor="#a855f7"/>
-                </linearGradient>
-              </defs>
-              <rect width="32" height="32" rx="9" fill="url(#lg1)"/>
-              <path d="M7 10l4 12 5-8 5 8 4-12" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+              <rect width="32" height="32" rx="9" fill="#121212" />
+              <path
+                d="M8 11L12 21L16 13L20 21L24 11"
+                stroke="#EEFD44"
+                strokeWidth="2.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </span>
-          <span className="logo-text">Webnexora <span>Solution</span></span>
-        </a>
+          <span className="logo-text">
+            Webnexora <span className="logo-badge">Solution</span>
+          </span>
+        </Link>
 
+        {/* DESKTOP NAV LINKS */}
         <nav className="nav-links" aria-label="Main navigation">
-          {links.map(l => (
-            <a key={l.href} href={l.href}
-              className={`nav-link${active === l.href.replace('#','') ? ' active' : ''}`}
-              onClick={() => handleNav(l.href)}>{l.label}</a>
+          {navItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `nav-link${isActive ? ' active' : ''}`
+              }
+            >
+              {item.label}
+            </NavLink>
           ))}
         </nav>
 
-        <a className="nav-cta btn btn-primary" href="https://wa.me/91XXXXXXXXXX"
-          target="_blank" rel="noopener" id="nav-cta-btn">
-          Get a Free Quote ↗
-        </a>
+        {/* RIGHT ACTIONS: AVAILABILITY STATUS + CTA */}
+        <div className="nav-actions">
+          <div className="nav-availability" title="Accepting new client projects">
+            <span className="avail-dot" />
+            <span className="avail-text">Available for Projects</span>
+          </div>
 
-        <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(!open)}
-          aria-label="Toggle menu" aria-expanded={open}>
-          <span /><span /><span />
+          <Link className="nav-cta" to="/contact" id="nav-cta-btn">
+            <span>Get a Free Quote</span>
+            <ArrowUpRight size={15} className="cta-arrow" />
+          </Link>
+        </div>
+
+        {/* MOBILE HAMBURGER TOGGLE */}
+        <button
+          className={`hamburger${open ? ' open' : ''}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={open}
+        >
+          <span />
+          <span />
+          <span />
         </button>
       </div>
 
+      {/* MOBILE DRAWER */}
       <div className={`mobile-drawer${open ? ' open' : ''}`}>
-        {links.map(l => (
-          <a key={l.href} href={l.href} className="mobile-link" onClick={() => handleNav(l.href)}>{l.label}</a>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            onClick={closeDrawer}
+            className={({ isActive }) =>
+              `mobile-link${isActive ? ' active' : ''}`
+            }
+          >
+            {item.label}
+          </NavLink>
         ))}
-        <a className="btn btn-primary mobile-cta" href="https://wa.me/91XXXXXXXXXX"
-          target="_blank" rel="noopener" onClick={() => setOpen(false)}>
-          Get a Free Quote ↗
-        </a>
+        <Link
+          className="mobile-cta-btn"
+          to="/contact"
+          onClick={closeDrawer}
+        >
+          Get a Free Quote <ArrowUpRight size={15} />
+        </Link>
       </div>
     </header>
   );

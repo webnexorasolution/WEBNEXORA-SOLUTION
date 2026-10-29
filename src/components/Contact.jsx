@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import './Contact.css';
 
 export default function Contact() {
@@ -34,46 +35,56 @@ export default function Contact() {
           </p>
 
           <div className="contact-details">
-            <a className="contact-item" href="tel:+91XXXXXXXXXX" id="contact-phone">
-              <div className="ci-icon">☎</div>
-              <div>
-                <strong>Call Us</strong>
-                <span>+91 XXXXX XXXXX</span>
-              </div>
-            </a>
-            <a className="contact-item" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" id="contact-whatsapp">
-              <div className="ci-icon">✆</div>
-              <div>
-                <strong>WhatsApp</strong>
-                <span>+91 XXXXX XXXXX</span>
-              </div>
-            </a>
-            <div className="contact-item">
-              <div className="ci-icon">✉</div>
-              <div>
-                <strong>Email Us</strong>
-                <span>hello@webnexora.com</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick action buttons */}
-          <div className="contact-actions">
             <a
-              className="btn btn-primary"
+              className="contact-item"
               href="https://wa.me/91XXXXXXXXXX"
               target="_blank"
               rel="noopener"
-              id="contact-wa-btn"
+              id="contact-whatsapp"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2.3 22l5.4-1.4A10 10 0 1 0 12 2zm0 2a7.8 7.8 0 0 1 0 15.6 7.7 7.7 0 0 1-3.8-1l-.4-.2-3.2.8.8-3.1-.3-.5A7.8 7.8 0 0 1 12 4z"/>
-              </svg>
-              Chat on WhatsApp
+              <div className="ci-icon">
+                <MessageCircle size={20} strokeWidth={2} />
+              </div>
+              <div className="ci-content">
+                <strong>Instant WhatsApp Chat</strong>
+                <span>+91 XXXXX XXXXX · Quick response (9 AM – 9 PM)</span>
+              </div>
+              <span className="contact-item-tag tag-lime">
+                Chat ↗
+              </span>
             </a>
-            <a className="btn btn-outline" href="tel:+91XXXXXXXXXX" id="contact-call-btn">
-              Call Now
+
+            <a className="contact-item" href="tel:+91XXXXXXXXXX" id="contact-phone">
+              <div className="ci-icon">
+                <Phone size={20} strokeWidth={2} />
+              </div>
+              <div className="ci-content">
+                <strong>Direct Client Hotline</strong>
+                <span>+91 XXXXX XXXXX · Talk directly with our tech leads</span>
+              </div>
+              <span className="contact-item-tag">
+                Call ↗
+              </span>
             </a>
+
+            <a className="contact-item" href="mailto:hello@webnexora.com" id="contact-email">
+              <div className="ci-icon">
+                <Mail size={20} strokeWidth={2} />
+              </div>
+              <div className="ci-content">
+                <strong>Email Inquiries & RFP</strong>
+                <span>hello@webnexora.com · Send specs & project briefs</span>
+              </div>
+              <span className="contact-item-tag">
+                Email ↗
+              </span>
+            </a>
+          </div>
+
+          {/* Guaranteed SLA & Confidentiality Banner */}
+          <div className="contact-sla-badge">
+            <span className="sla-dot" />
+            <span>Guaranteed initial response within 2 hours · 100% Confidential Consultation</span>
           </div>
         </div>
 
@@ -81,7 +92,9 @@ export default function Contact() {
         <div className="contact-form-wrap glass-card" data-aos>
           {sent ? (
             <div className="form-success">
-              <div className="success-icon">🎉</div>
+              <div className="success-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+                <CheckCircle2 size={44} color="#10b981" strokeWidth={2} />
+              </div>
               <h3>Opening WhatsApp!</h3>
               <p>We'll be in touch shortly. Thank you for reaching out!</p>
             </div>
@@ -155,8 +168,8 @@ export default function Contact() {
                 />
               </div>
 
-              <button className="btn btn-primary submit-btn" type="submit" id="contact-submit-btn">
-                Send Enquiry via WhatsApp ↗
+              <button className="btn btn-primary submit-btn" type="submit" id="contact-submit-btn" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                Send Enquiry via WhatsApp <ArrowUpRight size={16} />
               </button>
             </form>
           )}

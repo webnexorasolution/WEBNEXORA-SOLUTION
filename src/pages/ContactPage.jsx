@@ -1,0 +1,319 @@
+import { useState } from 'react';
+import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight, Clock } from 'lucide-react';
+import './ContactPage.css';
+
+const servicesList = [
+  'Custom Website Development',
+  'E-Commerce Storefront',
+  'WordPress CMS Development',
+  'UI/UX Design & Prototyping',
+  'SEO & Performance Optimization',
+  'Digital Marketing & Growth',
+];
+
+const budgetRanges = [
+  '₹25,000 – ₹50,000',
+  '₹50,000 – ₹1,50,000',
+  '₹1,50,000 – ₹3,00,000',
+  '₹3,00,000+',
+];
+
+export default function ContactPage() {
+  const [form, setForm] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    service: servicesList[0],
+    budget: budgetRanges[1],
+    timeline: 'Within 1 Month',
+    message: '',
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formatted = `*New Webnexora Project Inquiry*
+• *Name:* ${form.name}
+• *Company:* ${form.company || 'N/A'}
+• *Email:* ${form.email}
+• *Phone:* ${form.phone || 'N/A'}
+• *Service:* ${form.service}
+• *Budget:* ${form.budget}
+• *Timeline:* ${form.timeline}
+• *Details:* ${form.message}`;
+
+    const waUrl = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(formatted)}`;
+    window.open(waUrl, '_blank', 'noopener');
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 6000);
+  };
+
+  return (
+    <div className="contact-page">
+      {/* HERO */}
+      <section className="contact-hero">
+        <div className="container">
+          <div className="contact-hero-content" data-aos>
+            <div className="eyebrow">
+              <span className="eyebrow-dot" /> Initiate Your Project
+            </div>
+            <h1>
+              Let's Build Something Exceptional{' '}
+              <span className="gradient-text">For Your Business</span>
+            </h1>
+            <p className="contact-hero-lead">
+              Have an upcoming launch or want to redesign your existing website?
+              Fill out the inquiry form below or reach out directly for an immediate response.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN CONTACT SECTION */}
+      <section className="section contact-main-section">
+        <div className="container contact-page-grid">
+          {/* LEFT: DIRECT INFO & GUARANTEES */}
+          <div className="contact-info-col" data-aos>
+            <div className="contact-info-box bento-card">
+              <h2>Direct Communication Channels</h2>
+              <p className="info-sub">
+                We believe in zero communication friction. Reach our project leads directly
+                via WhatsApp, phone, or email.
+              </p>
+
+              <div className="direct-channels-list">
+                <a
+                  className="channel-card"
+                  href="https://wa.me/91XXXXXXXXXX"
+                  target="_blank"
+                  rel="noopener"
+                  id="cp-wa"
+                >
+                  <div className="channel-icon">
+                    <MessageCircle size={20} strokeWidth={2} />
+                  </div>
+                  <div className="channel-content">
+                    <strong>Instant WhatsApp Chat</strong>
+                    <span>+91 XXXXX XXXXX (Available 9 AM – 9 PM)</span>
+                  </div>
+                  <span className="channel-pill-tag tag-lime">Instant</span>
+                </a>
+
+                <a className="channel-card" href="tel:+91XXXXXXXXXX" id="cp-phone">
+                  <div className="channel-icon">
+                    <Phone size={20} strokeWidth={2} />
+                  </div>
+                  <div className="channel-content">
+                    <strong>Direct Client Hotline</strong>
+                    <span>+91 XXXXX XXXXX</span>
+                  </div>
+                  <span className="channel-pill-tag">Direct</span>
+                </a>
+
+                <div className="channel-card">
+                  <div className="channel-icon">
+                    <Mail size={20} strokeWidth={2} />
+                  </div>
+                  <div className="channel-content">
+                    <strong>Email Enquiries</strong>
+                    <span>hello@webnexora.com</span>
+                  </div>
+                  <span className="channel-pill-tag">RFP Desk</span>
+                </div>
+              </div>
+
+              <div className="sla-banner">
+                <Clock size={15} color="#121212" strokeWidth={2.2} />
+                <span>Guaranteed response within 2 business hours.</span>
+              </div>
+            </div>
+
+            {/* WHAT TO EXPECT CARD */}
+            <div className="expect-box bento-card" data-aos>
+              <h3>What Happens Next?</h3>
+              <div className="expect-steps-list">
+                <div className="expect-step-item">
+                  <span className="step-badge">01</span>
+                  <div className="step-info">
+                    <strong>Discovery Review</strong>
+                    <p>We analyze your business goals, target audience, and existing assets.</p>
+                  </div>
+                </div>
+
+                <div className="expect-step-item">
+                  <span className="step-badge">02</span>
+                  <div className="step-info">
+                    <strong>Strategy Session</strong>
+                    <p>A focused 20-minute call to align on exact scope, tech stack, and roadmap.</p>
+                  </div>
+                </div>
+
+                <div className="expect-step-item">
+                  <span className="step-badge">03</span>
+                  <div className="step-info">
+                    <strong>Written Proposal</strong>
+                    <p>A formal sprint roadmap, guaranteed fixed pricing, and delivery timeline.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT: INTERACTIVE PROJECT SCOPE PLANNER */}
+          <div className="contact-form-col" data-aos>
+            <div className="planner-card glass-card">
+              {submitted ? (
+                <div className="form-success-state">
+                  <div className="success-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
+                    <CheckCircle2 size={48} color="#10b981" strokeWidth={2} />
+                  </div>
+                  <h2>Inquiry Prepared!</h2>
+                  <p>
+                    WhatsApp has opened with your project specifications. Our lead engineer
+                    will connect with you shortly!
+                  </p>
+                </div>
+              ) : (
+                <form className="planner-form" onSubmit={handleSubmit} noValidate>
+                  <div className="planner-header">
+                    <h3>Project Scope Planner</h3>
+                    <p>Provide details to receive an exact roadmap and fixed proposal.</p>
+                  </div>
+
+                  <div className="form-row-2">
+                    <div className="field-group">
+                      <label htmlFor="cp-name">Full Name *</label>
+                      <input
+                        id="cp-name"
+                        type="text"
+                        name="name"
+                        placeholder="John Doe"
+                        value={form.name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="field-group">
+                      <label htmlFor="cp-company">Company / Brand</label>
+                      <input
+                        id="cp-company"
+                        type="text"
+                        name="company"
+                        placeholder="Acme Corp"
+                        value={form.company}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-row-2">
+                    <div className="field-group">
+                      <label htmlFor="cp-email">Work Email *</label>
+                      <input
+                        id="cp-email"
+                        type="email"
+                        name="email"
+                        placeholder="john@example.com"
+                        value={form.email}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="field-group">
+                      <label htmlFor="cp-phone">Phone / WhatsApp</label>
+                      <input
+                        id="cp-phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="+91 XXXXX XXXXX"
+                        value={form.phone}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field-group">
+                    <label htmlFor="cp-service">Primary Service Required</label>
+                    <select
+                      id="cp-service"
+                      name="service"
+                      value={form.service}
+                      onChange={handleChange}
+                    >
+                      {servicesList.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="form-row-2">
+                    <div className="field-group">
+                      <label htmlFor="cp-budget">Estimated Budget</label>
+                      <select
+                        id="cp-budget"
+                        name="budget"
+                        value={form.budget}
+                        onChange={handleChange}
+                      >
+                        {budgetRanges.map((b) => (
+                          <option key={b} value={b}>
+                            {b}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="field-group">
+                      <label htmlFor="cp-timeline">Desired Timeline</label>
+                      <select
+                        id="cp-timeline"
+                        name="timeline"
+                        value={form.timeline}
+                        onChange={handleChange}
+                      >
+                        <option>Urgent (&lt; 2 Weeks)</option>
+                        <option>Within 1 Month</option>
+                        <option>1 to 2 Months</option>
+                        <option>Flexible / Planning Ahead</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="field-group">
+                    <label htmlFor="cp-message">Project Overview &amp; Goals *</label>
+                    <textarea
+                      id="cp-message"
+                      name="message"
+                      rows={4}
+                      placeholder="Tell us about your project, target audience, and key requirements..."
+                      value={form.message}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <button
+                    className="btn btn-primary submit-scope-btn"
+                    type="submit"
+                    id="cp-submit-btn"
+                    style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                  >
+                    Submit Project Inquiry via WhatsApp <ArrowUpRight size={16} />
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

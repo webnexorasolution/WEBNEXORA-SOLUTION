@@ -1,44 +1,43 @@
-import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import './Portfolio.css';
 
 const projects = [
   {
-    tag: 'Business',
-    title: 'Business Website',
-    desc: 'A professional online home for a company — services, story and contact, beautifully presented.',
+    tag: 'E-Commerce',
+    title: 'Modern Retail Storefront',
+    desc: 'High-converting custom store experience with frictionless checkout, dynamic search, and mobile-first speed.',
+    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
+    alt: 'Modern E-commerce online store',
+  },
+  {
+    tag: 'Corporate',
+    title: 'Global Tech Consulting Platform',
+    desc: 'Enterprise corporate web presence featuring clear solution pathways, thought leadership hubs, and interactive lead capture.',
     img: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
     alt: 'Modern business website concept',
   },
   {
-    tag: 'E-Commerce',
-    title: 'Online Store',
-    desc: 'A product-focused storefront with smooth browsing, cart, and checkout experience.',
-    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
-    alt: 'E-commerce online store',
-  },
-  {
-    tag: 'Portfolio',
-    title: 'Portfolio Website',
-    desc: 'A clean, striking way for professionals and creative teams to present their best work.',
+    tag: 'Creative Agency',
+    title: 'Architecture & Design Studio',
+    desc: 'Striking visual storytelling platform highlighting architectural portfolios with smooth editorial layouts.',
     img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=900&q=80',
     alt: 'Portfolio website on monitor',
   },
 ];
 
 export default function Portfolio() {
-  const ref = useRef(null);
-
   return (
-    <section className="section portfolio-section" id="portfolio" ref={ref}>
+    <section className="section portfolio-section" id="portfolio">
       <div className="port-orb orb" />
 
       <div className="container">
         <div className="section-head" data-aos>
-          <div className="eyebrow">Project Types</div>
-          <h2>Websites We Can Help You Build</h2>
+          <div className="eyebrow">Proven Outcomes</div>
+          <h2>Featured Client Projects</h2>
           <p>
-            Explore common website categories we specialise in — from business
-            sites to e-commerce and creative portfolios.
+            Explore recent digital experiences we have engineered across diverse industries,
+            designed to elevate brands and drive measurable results.
           </p>
         </div>
 
@@ -48,14 +47,19 @@ export default function Portfolio() {
               key={p.title}
               className="project-card glass-card"
               data-aos
-              style={{ transitionDelay: `${i * 100}ms` }}
+              style={{ transitionDelay: `${i * 90}ms` }}
             >
               <div className="project-img">
                 <img src={p.img} alt={p.alt} loading="lazy" />
                 <div className="project-overlay">
-                  <a className="btn btn-outline port-view-btn" href="#contact" id={`port-view-${i}`}>
-                    View Details →
-                  </a>
+                  <Link
+                    className="btn btn-outline port-view-btn"
+                    to="/portfolio"
+                    id={`port-view-${i}`}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    View Case Study <ArrowRight size={15} />
+                  </Link>
                 </div>
               </div>
               <div className="project-content">
@@ -68,9 +72,14 @@ export default function Portfolio() {
         </div>
 
         <div className="portfolio-bottom" data-aos>
-          <a className="btn btn-outline" href="#contact" id="portfolio-explore-btn">
-            Explore Portfolio →
-          </a>
+          <Link
+            className="btn btn-primary"
+            to="/portfolio"
+            id="portfolio-explore-btn"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+          >
+            View All Projects in Full Portfolio <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>
