@@ -60,7 +60,9 @@ export default function Contact() {
       <div className="container contact-grid">
         {/* LEFT: Info */}
         <div className="contact-info" data-aos>
-          <div className="eyebrow">Get in Touch</div>
+          <div className="eyebrow">
+            <span className="eyebrow-dot" /> Get in Touch
+          </div>
           <h2>Ready to Build Your Website?</h2>
           <p>
             Tell us about your idea. Let's discuss the right digital

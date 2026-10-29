@@ -12,6 +12,7 @@ import {
   ShoppingBag,
   Activity,
   Compass,
+  Target,
 } from 'lucide-react';
 import './Hero.css';
 
@@ -85,8 +86,12 @@ export default function Hero() {
               Clients moving from legacy sites to Webnexora modern architecture report doubled inquiry volume within 60 days.
             </p>
             <div className="lime-tags-row">
-              <span className="lime-tag-chip">⚡ High-Intent Funnels</span>
-              <span className="lime-tag-chip">⚡ Zero Digital Friction</span>
+              <span className="lime-tag-chip">
+                <Target size={13} strokeWidth={2.4} className="chip-icon" /> High-Intent Funnels
+              </span>
+              <span className="lime-tag-chip">
+                <Zap size={13} strokeWidth={2.4} className="chip-icon" /> Zero Digital Friction
+              </span>
             </div>
           </div>
 
