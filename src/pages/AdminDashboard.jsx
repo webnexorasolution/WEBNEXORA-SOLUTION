@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Lock,
@@ -25,6 +25,8 @@ import {
   Building,
   Calendar,
   Wallet,
+  ChevronDown,
+  Check,
 } from 'lucide-react';
 import inquiryService from '../services/inquiryService';
 import siteConfig from '../config/site';
@@ -33,6 +35,79 @@ import './AdminDashboard.css';
 const DEFAULT_PASSCODE = import.meta.env.VITE_ADMIN_PASSCODE || 'webnexora2026';
 
 const STATUS_OPTIONS = ['New', 'Contacted', 'Proposal Sent', 'Converted', 'Archived'];
+
+// Custom status popover component
+function StatusDropdown({ status, onSelect }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [open]);
+
+  const getStatusColor = (st) => {
+    switch (st) {
+      case 'New': return { dot: '#16A34A', bg: '#DCFCE7', text: '#15803D' };
+      case 'Contacted': return { dot: '#2563EB', bg: '#EFF6FF', text: '#1D4ED8' };
+      case 'Proposal Sent': return { dot: '#9333EA', bg: '#FAF5FF', text: '#7E22CE' };
+      case 'Converted': return { dot: '#EEFD44', bg: '#121212', text: '#EEFD44' };
+      case 'Archived': return { dot: '#71717A', bg: '#F4F2EC', text: '#71717A' };
+      default: return { dot: '#71717A', bg: '#F4F2EC', text: '#71717A' };
+    }
+  };
+
+  const currentTheme = getStatusColor(status);
+
+  return (
+    <div className="custom-status-dropdown-wrap" ref={ref}>
+      <button
+        type="button"
+        className={`status-pill-trigger status-${status.toLowerCase().replace(/\s+/g, '-')}`}
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        <span className="st-dot" style={{ backgroundColor: currentTheme.dot }} />
+        <span className="st-val-text">{status}</span>
+        <ChevronDown size={12} className={`st-chevron ${open ? 'st-chevron-open' : ''}`} />
+      </button>
+
+      {open && (
+        <div className="status-dropdown-popover">
+          <div className="st-popover-header">Update Lead Status</div>
+          <div className="st-options-list">
+            {STATUS_OPTIONS.map((opt) => {
+              const isSelected = opt === status;
+              const optTheme = getStatusColor(opt);
+              return (
+                <button
+                  key={opt}
+                  type="button"
+                  className={`st-option-item ${isSelected ? 'st-option-selected' : ''}`}
+                  onClick={() => {
+                    onSelect(opt);
+                    setOpen(false);
+                  }}
+                >
+                  <span className="st-opt-dot" style={{ backgroundColor: optTheme.dot }} />
+                  <span className="st-opt-label">{opt}</span>
+                  {isSelected && <Check size={13} className="st-opt-check" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function AdminDashboard() {
   // Auth state
@@ -499,17 +574,10 @@ export default function AdminDashboard() {
 
                         {/* STATUS DROPDOWN */}
                         <td>
-                          <select
-                            className={`status-select status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}
-                            value={item.status}
-                            onChange={(e) => handleStatusChange(item.id, e.target.value)}
-                          >
-                            {STATUS_OPTIONS.map((st) => (
-                              <option key={st} value={st}>
-                                {st}
-                              </option>
-                            ))}
-                          </select>
+                          <StatusDropdown
+                            status={item.status}
+                            onSelect={(newStatus) => handleStatusChange(item.id, newStatus)}
+                          />
                         </td>
 
                         {/* ACTIONS */}
