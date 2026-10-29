@@ -123,6 +123,9 @@ export default function ContactPage() {
           {/* LEFT: DIRECT INFO & GUARANTEES */}
           <div className="contact-info-col" data-aos>
             <div className="contact-info-box bento-card">
+              <div className="eyebrow" style={{ marginBottom: '12px' }}>
+                <span className="eyebrow-dot" /> Direct Contact
+              </div>
               <h2>
                 Direct Communication <span className="title-highlight">Channels.</span>
               </h2>
@@ -186,6 +189,9 @@ export default function ContactPage() {
 
             {/* WHAT TO EXPECT CARD */}
             <div className="expect-box bento-card" data-aos>
+              <div className="eyebrow" style={{ marginBottom: '12px' }}>
+                <span className="eyebrow-dot" /> 3-Step Process
+              </div>
               <h3>
                 What Happens <span className="title-highlight">Next?</span>
               </h3>
@@ -234,6 +240,9 @@ export default function ContactPage() {
               ) : (
                 <form className="planner-form" onSubmit={handleSubmit} noValidate>
                   <div className="planner-header">
+                    <div className="eyebrow" style={{ marginBottom: '12px' }}>
+                      <span className="eyebrow-dot" /> Fast Scope Intake
+                    </div>
                     <h3>
                       Project Scope <span className="title-highlight">Planner.</span>
                     </h3>

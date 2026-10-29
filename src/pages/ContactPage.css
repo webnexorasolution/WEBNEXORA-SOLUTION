@@ -273,6 +273,27 @@
   box-shadow: var(--neu-shadow-lg);
 }
 
+.planner-header {
+  margin-bottom: 26px;
+}
+
+.planner-header h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  color: #121212;
+  margin-bottom: 8px;
+  letter-spacing: -0.016em;
+  line-height: 1.25;
+}
+
+.planner-header p {
+  color: #6A6860;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .planner-card h2 {
   font-family: var(--font-heading);
   font-size: 24px;

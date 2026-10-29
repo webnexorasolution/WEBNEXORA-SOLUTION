@@ -160,9 +160,19 @@ export default function About() {
                 storefront, or an intuitive web application, our goal is always clear: to build a digital
                 asset that directly increases your revenue and prestige.
               </p>
-              <div className="story-signature">
-                <strong>Webnexora Solution Leadership</strong>
-                <span>Engineering &amp; Strategy Team</span>
+              <div className="story-signature-badge">
+                <div className="sig-badge-icon">
+                  <ShieldCheck size={20} strokeWidth={2.4} color="#121212" />
+                </div>
+                <div className="sig-badge-text">
+                  <div className="sig-badge-title">
+                    <strong>Webnexora Solution Leadership</strong>
+                    <span className="sig-verified-pill">
+                      <span className="sig-dot" /> Verified Authority
+                    </span>
+                  </div>
+                  <span className="sig-badge-sub">Full-Stack Engineering &amp; Strategy Partners</span>
+                </div>
               </div>
             </div>
 
@@ -321,6 +331,9 @@ export default function About() {
       <section className="section about-cta-section">
         <div className="container">
           <div className="about-cta-card glass-card" data-aos>
+            <div className="eyebrow" style={{ margin: '0 auto 16px' }}>
+              <span className="eyebrow-dot" /> Start Your Transformation
+            </div>
             <h2>
               Ready to Elevate Your{' '}
               <span className="title-highlight">Digital Footprint?</span>

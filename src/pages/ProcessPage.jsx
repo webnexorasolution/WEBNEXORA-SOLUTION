@@ -204,6 +204,9 @@ export default function ProcessPage() {
       <section className="section process-cta-section">
         <div className="container">
           <div className="process-cta-banner glass-card" data-aos>
+            <div className="eyebrow" style={{ margin: '0 auto 16px' }}>
+              <span className="eyebrow-dot" /> Next Steps
+            </div>
             <h2>
               Ready to Begin{' '}
               <span className="title-highlight">Stage 01?</span>

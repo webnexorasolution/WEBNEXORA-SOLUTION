@@ -30,8 +30,14 @@ export default function Footer() {
       <div className="footer-cta-bar">
         <div className="footer-container">
           <div className="footer-cta-inner glass-card">
-            <div>
-              <h3>Ready to Build Your Next Digital Project?</h3>
+            <div className="footer-cta-text-wrap">
+              <div className="eyebrow" style={{ marginBottom: '10px' }}>
+                <span className="eyebrow-dot" /> Fast-Track Your Launch
+              </div>
+              <h3>
+                Ready to Build Your Next{' '}
+                <span className="title-highlight">Digital Project?</span>
+              </h3>
               <p>Discuss your goals with our engineering team and receive a comprehensive roadmap.</p>
             </div>
             <Link

@@ -187,6 +187,9 @@ export default function PortfolioPage() {
       <section className="section portfolio-cta-section">
         <div className="container">
           <div className="portfolio-cta-banner glass-card" data-aos>
+            <div className="eyebrow" style={{ margin: '0 auto 16px' }}>
+              <span className="eyebrow-dot" /> Let's Collaborate
+            </div>
             <h2>
               Have a Vision for <span className="title-highlight">Your Brand?</span>
             </h2>

@@ -137,7 +137,15 @@ export default function Contact() {
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
-              <h3>Send a Project Enquiry</h3>
+              <div className="eyebrow" style={{ marginBottom: '12px' }}>
+                <span className="eyebrow-dot" /> Instant Project Intake
+              </div>
+              <h3>
+                Send a <span className="title-highlight">Project Enquiry.</span>
+              </h3>
+              <p className="contact-form-subtitle">
+                Fill in the details below to receive a custom project estimate within 2 hours.
+              </p>
 
               <div className="form-row">
                 <div className="form-group">

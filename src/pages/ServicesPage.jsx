@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import { CardSplitAccordian } from '@/components/ui/card-split-accordian';
+import siteConfig from '../config/site';
 import './ServicesPage.css';
 
 const detailedServices = [
@@ -306,6 +307,9 @@ export default function ServicesPage() {
       <section className="section services-cta-section">
         <div className="container">
           <div className="services-cta-box glass-card" data-aos>
+            <div className="eyebrow" style={{ margin: '0 auto 16px' }}>
+              <span className="eyebrow-dot" /> Custom Engagements
+            </div>
             <h2>
               Have a Unique{' '}
               <span className="title-highlight">Project in Mind?</span>
@@ -321,7 +325,7 @@ export default function ServicesPage() {
               </Link>
               <a
                 className="btn btn-outline"
-                href="https://wa.me/91XXXXXXXXXX"
+                href={siteConfig.getWhatsAppUrl("Hi Webnexora! I'd like to discuss a custom project.")}
                 target="_blank"
                 rel="noopener"
               >

@@ -205,8 +205,16 @@
   font-size: 24px;
   font-weight: 800;
   color: #121212;
-  margin-bottom: 24px;
-  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  letter-spacing: -0.016em;
+  line-height: 1.25;
+}
+
+.contact-form-subtitle {
+  color: #6A6860;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
 }
 
 .form-row {
