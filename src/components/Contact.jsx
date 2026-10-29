@@ -63,7 +63,9 @@ export default function Contact() {
           <div className="eyebrow">
             <span className="eyebrow-dot" /> Get in Touch
           </div>
-          <h2>Ready to Build Your Website?</h2>
+          <h2>
+            Ready to <span className="title-highlight">Build Your Website?</span>
+          </h2>
           <p>
             Tell us about your idea. Let's discuss the right digital
             solution for your business — no obligations, just a great conversation.
@@ -81,12 +83,12 @@ export default function Contact() {
                 <MessageCircle size={20} strokeWidth={2} />
               </div>
               <div className="ci-content">
-                <strong>Instant WhatsApp Chat</strong>
-                <span>{siteConfig.contact.phone} · Quick response ({siteConfig.contact.officeHours})</span>
+                <strong>WhatsApp</strong>
+                <span>{siteConfig.contact.phone}</span>
               </div>
-              <span className="contact-item-tag tag-lime">
-                Chat ↗
-              </span>
+              <div className="contact-item-action" aria-label="Open WhatsApp">
+                <ArrowUpRight size={16} strokeWidth={2.4} />
+              </div>
             </a>
 
             <a className="contact-item" href={`tel:${siteConfig.contact.phoneRaw}`} id="contact-phone">
@@ -94,12 +96,12 @@ export default function Contact() {
                 <Phone size={20} strokeWidth={2} />
               </div>
               <div className="ci-content">
-                <strong>Direct Client Hotline</strong>
-                <span>{siteConfig.contact.phone} · Talk directly with our tech leads</span>
+                <strong>Phone</strong>
+                <span>{siteConfig.contact.phone}</span>
               </div>
-              <span className="contact-item-tag">
-                Call ↗
-              </span>
+              <div className="contact-item-action" aria-label="Call Hotline">
+                <ArrowUpRight size={16} strokeWidth={2.4} />
+              </div>
             </a>
 
             <a className="contact-item" href={`mailto:${siteConfig.contact.email}`} id="contact-email">
@@ -107,12 +109,12 @@ export default function Contact() {
                 <Mail size={20} strokeWidth={2} />
               </div>
               <div className="ci-content">
-                <strong>Email Inquiries & RFP</strong>
-                <span>{siteConfig.contact.email} · Send specs & project briefs</span>
+                <strong>Email</strong>
+                <span>{siteConfig.contact.email}</span>
               </div>
-              <span className="contact-item-tag">
-                Email ↗
-              </span>
+              <div className="contact-item-action" aria-label="Send Email">
+                <ArrowUpRight size={16} strokeWidth={2.4} />
+              </div>
             </a>
           </div>
 

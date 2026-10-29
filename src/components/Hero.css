@@ -31,15 +31,15 @@
   font-family: var(--font-heading);
   font-size: clamp(34px, 4.4vw, 56px);
   font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -0.035em;
+  line-height: 1.15;
+  letter-spacing: -0.016em;
   color: #121212;
   margin: 0 0 20px;
 }
 
 .hero-highlight {
   display: inline;
-  background: linear-gradient(180deg, transparent 65%, rgba(238, 253, 68, 0.85) 65%);
+  background: linear-gradient(180deg, transparent 65%, rgba(238, 253, 68, 0.88) 65%);
   padding: 0 4px;
 }
 

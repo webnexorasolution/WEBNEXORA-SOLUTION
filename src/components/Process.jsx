@@ -30,7 +30,9 @@ export default function Process() {
       <div className="container">
         <div className="section-head" data-aos>
           <div className="eyebrow">How We Work</div>
-          <h2>A Simple, Clear Process</h2>
+          <h2>
+            A Simple, <span className="title-highlight">Clear Process.</span>
+          </h2>
           <p>
             Know what happens at every stage — from the very first conversation
             to the moment your website goes live.

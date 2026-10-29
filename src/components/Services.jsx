@@ -69,7 +69,10 @@ export default function Services() {
       <div className="container">
         <div className="section-head" data-aos>
           <div className="eyebrow">Our Core Expertise</div>
-          <h2>Digital Solutions Engineered for Growth</h2>
+          <h2>
+            Digital Solutions{' '}
+            <span className="title-highlight">Engineered for Growth.</span>
+          </h2>
           <p>
             From custom high-performance websites to full-funnel digital marketing,
             we provide the core digital capabilities your business needs to succeed.

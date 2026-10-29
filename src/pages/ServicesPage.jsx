@@ -139,7 +139,7 @@ export default function ServicesPage() {
             </div>
             <h1>
               Engineered for High Speed,{' '}
-              <span className="gradient-text">Flawless Design &amp; ROI</span>
+              <span className="title-highlight">Flawless Design &amp; ROI</span>
             </h1>
             <p className="services-hero-lead">
               From bespoke web applications and high-converting storefronts to technical SEO

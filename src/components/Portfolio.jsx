@@ -34,7 +34,9 @@ export default function Portfolio() {
       <div className="container">
         <div className="section-head" data-aos>
           <div className="eyebrow">Proven Outcomes</div>
-          <h2>Featured Client Projects</h2>
+          <h2>
+            Featured <span className="title-highlight">Client Projects.</span>
+          </h2>
           <p>
             Explore recent digital experiences we have engineered across diverse industries,
             designed to elevate brands and drive measurable results.

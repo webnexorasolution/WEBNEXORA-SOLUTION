@@ -141,10 +141,12 @@ export default function ContactPage() {
                     <MessageCircle size={20} strokeWidth={2} />
                   </div>
                   <div className="channel-content">
-                    <strong>Instant WhatsApp Chat</strong>
-                    <span>{siteConfig.contact.phone} (Available {siteConfig.contact.officeHours})</span>
+                    <strong>WhatsApp</strong>
+                    <span>{siteConfig.contact.phone}</span>
                   </div>
-                  <span className="channel-pill-tag tag-lime">Instant</span>
+                  <div className="channel-action-btn" aria-label="Open WhatsApp">
+                    <ArrowUpRight size={15} strokeWidth={2.4} />
+                  </div>
                 </a>
 
                 <a className="channel-card" href={`tel:${siteConfig.contact.phoneRaw}`} id="cp-phone">
@@ -152,10 +154,12 @@ export default function ContactPage() {
                     <Phone size={20} strokeWidth={2} />
                   </div>
                   <div className="channel-content">
-                    <strong>Direct Client Hotline</strong>
+                    <strong>Phone</strong>
                     <span>{siteConfig.contact.phone}</span>
                   </div>
-                  <span className="channel-pill-tag">Direct</span>
+                  <div className="channel-action-btn" aria-label="Call Phone">
+                    <ArrowUpRight size={15} strokeWidth={2.4} />
+                  </div>
                 </a>
 
                 <a className="channel-card" href={`mailto:${siteConfig.contact.email}`} id="cp-email">
@@ -163,10 +167,12 @@ export default function ContactPage() {
                     <Mail size={20} strokeWidth={2} />
                   </div>
                   <div className="channel-content">
-                    <strong>Email Enquiries</strong>
+                    <strong>Email</strong>
                     <span>{siteConfig.contact.email}</span>
                   </div>
-                  <span className="channel-pill-tag">RFP Desk</span>
+                  <div className="channel-action-btn" aria-label="Send Email">
+                    <ArrowUpRight size={15} strokeWidth={2.4} />
+                  </div>
                 </a>
               </div>
 

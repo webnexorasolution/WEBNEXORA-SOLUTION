@@ -196,18 +196,32 @@ img {
 /* ── SECTION HEAD ── */
 .section-head {
   text-align: center;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto 56px;
 }
 
 .section-head h2 {
   font-family: var(--font-heading);
-  font-size: clamp(30px, 3.6vw, 44px);
+  font-size: clamp(32px, 3.8vw, 46px);
   font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.03em;
+  line-height: 1.2;
+  letter-spacing: -0.016em;
   margin-bottom: 16px;
-  color: var(--heading);
+  color: #121212;
+}
+
+/* ── SIGNATURE HIGHLIGHTER ACCENT (As in Hero H1) ── */
+.title-highlight,
+.highlight,
+.hero-highlight,
+.title-gradient-accent,
+.gradient-text {
+  display: inline;
+  background: linear-gradient(180deg, transparent 65%, rgba(238, 253, 68, 0.88) 65%);
+  padding: 0 4px;
+  border-radius: 2px;
+  color: #121212;
+  -webkit-text-fill-color: initial;
 }
 
 .section-head p {

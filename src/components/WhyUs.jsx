@@ -53,7 +53,7 @@ export default function WhyUs() {
           </div>
           <h2>
             Architected for Conversion,{' '}
-            <span className="title-gradient-accent">Built for Scale</span>
+            <span className="title-highlight">Built for Scale.</span>
           </h2>
           <p>
             We eliminate digital friction so your business captures more leads, converts more customers,
