@@ -204,8 +204,8 @@ export default function AdminDashboard() {
             <Link to="/" className="auth-back-btn">
               <ArrowLeft size={15} /> Return to Main Website
             </Link>
-            <div className="auth-security-note">
-              <ShieldCheck size={14} /> End-to-End Encrypted Session · 256-Bit SSL
+            <div className="auth-system-badge">
+              <span className="auth-live-indicator" /> Authorized Personnel Only · Webnexora Staff Portal
             </div>
           </div>
         </div>
