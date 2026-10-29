@@ -63,10 +63,15 @@ export default function Navbar() {
 
         {/* RIGHT ACTIONS: AVAILABILITY STATUS + CTA */}
         <div className="nav-actions">
-          <div className="nav-availability" title="Accepting new client projects">
+          <Link
+            className="nav-availability"
+            to="/contact"
+            title="Accepting new client projects — Click to initiate"
+            id="nav-availability-badge"
+          >
             <span className="avail-dot" />
             <span className="avail-text">Available for Projects</span>
-          </div>
+          </Link>
 
           <Link className="nav-cta" to="/contact" id="nav-cta-btn">
             <span>Get a Free Quote</span>
