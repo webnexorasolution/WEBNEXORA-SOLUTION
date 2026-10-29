@@ -116,12 +116,9 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="sprint-status-wrap">
-                  <span className="pill-status-live">
-                    <span className="live-radar-dot" /> Live QA
+                  <span className="sprint-status-badge status-badge-live">
+                    <span className="badge-dot" /> Live QA
                   </span>
-                </div>
-                <div className="sprint-progress-bar">
-                  <div className="sprint-progress-fill" style={{ width: '92%' }} />
                 </div>
               </div>
 
@@ -140,12 +137,9 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="sprint-status-wrap">
-                  <span className="pill-status-confirmed">
-                    <span className="active-dot" /> Confirmed
+                  <span className="sprint-status-badge status-badge-confirmed">
+                    <span className="badge-dot" /> Confirmed
                   </span>
-                </div>
-                <div className="sprint-progress-bar">
-                  <div className="sprint-progress-fill" style={{ width: '68%' }} />
                 </div>
               </div>
 
@@ -164,12 +158,9 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="sprint-status-wrap">
-                  <span className="pill-status-scheduled">
-                    <span className="scheduled-dot" /> Scheduled
+                  <span className="sprint-status-badge status-badge-scheduled">
+                    <span className="badge-dot" /> Scheduled
                   </span>
-                </div>
-                <div className="sprint-progress-bar">
-                  <div className="sprint-progress-fill" style={{ width: '45%' }} />
                 </div>
               </div>
             </div>

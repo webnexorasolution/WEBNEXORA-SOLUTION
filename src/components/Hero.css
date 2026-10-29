@@ -274,41 +274,39 @@
 }
 
 .sprint-item {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px 13px;
+  padding: 11px 15px;
   background: #FFFFFF;
   border: 1px solid #EAE7DE;
   border-radius: 16px;
   box-shadow: 0 2px 6px rgba(18, 18, 18, 0.03);
-  overflow: hidden;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sprint-item:hover {
   border-color: #121212;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(18, 18, 18, 0.08);
+  box-shadow: 0 8px 22px -4px rgba(18, 18, 18, 0.08);
 }
 
 .sprint-item-main {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .sprint-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
   background: #121212;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.2);
+  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.25);
 }
 
 .sprint-avatar-lime {
@@ -330,7 +328,7 @@
 }
 
 .sprint-info strong {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 800;
   color: #121212;
   letter-spacing: -0.015em;
@@ -339,109 +337,93 @@
 .sprint-tags {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-size: 11px;
   color: #7A786F;
   font-weight: 600;
 }
 
 .sprint-tech {
-  color: #403E38;
+  color: #383630;
+  font-weight: 700;
 }
 
 .sprint-sep {
-  color: #C2BFB6;
+  color: #C8C5BC;
 }
 
 .sprint-phase {
   color: #8C8980;
 }
 
+/* EXECUTIVE SPRINT STATUS BADGES (Signature High-Contrast Capsules) */
 .sprint-status-wrap {
   flex-shrink: 0;
 }
 
-.pill-status-live {
+.sprint-status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 10.5px;
-  font-weight: 800;
-  background: #DCFCE7;
-  color: #15803D;
-  border: 1px solid #BBF7D0;
-  padding: 3px 9px;
+  gap: 6px;
+  padding: 5px 12px;
   border-radius: 9999px;
-  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.12);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
-.live-radar-dot {
-  width: 6px;
-  height: 6px;
+/* 1. Live QA: Jet-Black Capsule with Neon Lime Radar Pulse */
+.status-badge-live {
+  background: #121212;
+  color: #FFFFFF;
+  border: 1px solid #121212;
+  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.22);
+}
+
+.status-badge-live .badge-dot {
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background: #16A34A;
-  box-shadow: 0 0 6px #16A34A;
+  background: #EEFD44;
+  box-shadow: 0 0 7px #EEFD44;
   animation: radarPing 1.8s infinite ease-in-out;
 }
 
 @keyframes radarPing {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.5; }
+  50% { transform: scale(1.35); opacity: 0.55; }
 }
 
-.pill-status-confirmed {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10.5px;
-  font-weight: 800;
-  background: #F0FDF4;
-  color: #166534;
-  border: 1px solid #DCFCE7;
-  padding: 3px 9px;
-  border-radius: 9999px;
+/* 2. Confirmed: Jet-Black Capsule with Emerald Signal */
+.status-badge-confirmed {
+  background: #121212;
+  color: #FFFFFF;
+  border: 1px solid #121212;
+  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.18);
 }
 
-.active-dot {
-  width: 6px;
-  height: 6px;
+.status-badge-confirmed .badge-dot {
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background: #16A34A;
+  background: #22C55E;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.85);
 }
 
-.pill-status-scheduled {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10.5px;
-  font-weight: 700;
+/* 3. Scheduled: Warm Sandstone Capsule */
+.status-badge-scheduled {
   background: #F4F2EC;
-  color: #55534D;
-  border: 1px solid #E5E2D8;
-  padding: 3px 9px;
-  border-radius: 9999px;
+  color: #4A4841;
+  border: 1px solid #E2DFD6;
 }
 
-.scheduled-dot {
-  width: 6px;
-  height: 6px;
+.status-badge-scheduled .badge-dot {
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
   background: #8C8980;
-}
-
-.sprint-progress-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: #F0EDE4;
-}
-
-.sprint-progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #121212 0%, #EEFD44 100%);
-  border-radius: 0 2px 2px 0;
 }
 
 .delivery-guarantee-strip {
