@@ -5,21 +5,33 @@ import './Portfolio.css';
 const projects = [
   {
     tag: 'E-Commerce',
-    title: 'Modern Retail Storefront',
+    title: (
+      <>
+        Modern Retail <span className="title-highlight">Storefront.</span>
+      </>
+    ),
     desc: 'High-converting custom store experience with frictionless checkout, dynamic search, and mobile-first speed.',
     img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
     alt: 'Modern E-commerce online store',
   },
   {
     tag: 'Corporate',
-    title: 'Global Tech Consulting Platform',
+    title: (
+      <>
+        Global Tech <span className="title-highlight">Consulting Platform.</span>
+      </>
+    ),
     desc: 'Enterprise corporate web presence featuring clear solution pathways, thought leadership hubs, and interactive lead capture.',
     img: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80',
     alt: 'Modern business website concept',
   },
   {
     tag: 'Creative Agency',
-    title: 'Architecture & Design Studio',
+    title: (
+      <>
+        Architecture &amp; <span className="title-highlight">Design Studio.</span>
+      </>
+    ),
     desc: 'Striking visual storytelling platform highlighting architectural portfolios with smooth editorial layouts.',
     img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=900&q=80',
     alt: 'Portfolio website on monitor',
@@ -48,7 +60,7 @@ export default function Portfolio() {
         <div className="project-grid">
           {projects.map((p, i) => (
             <article
-              key={p.title}
+              key={p.alt}
               className="project-card glass-card"
               data-aos
               style={{ transitionDelay: `${i * 90}ms` }}

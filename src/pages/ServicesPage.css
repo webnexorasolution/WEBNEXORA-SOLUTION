@@ -86,8 +86,10 @@
   font-family: var(--font-heading);
   font-size: clamp(24px, 2.5vw, 32px);
   font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.016em;
   color: #121212;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .svc-tagline {

@@ -19,27 +19,47 @@ import './About.css';
 
 const values = [
   {
+    id: 'precision',
     Icon: Zap,
     color: '#4f46e5',
-    title: 'Engineering Precision',
+    title: (
+      <>
+        Engineering <span className="title-highlight">Precision.</span>
+      </>
+    ),
     desc: 'We write lean, modular, semantic code with zero unnecessary bloat. Every asset is optimized, ensuring sub-second load times and high Core Web Vitals scores.',
   },
   {
+    id: 'conversion',
     Icon: Target,
     color: '#7c3aff',
-    title: 'Conversion-First Design',
+    title: (
+      <>
+        Conversion-First <span className="title-highlight">Design.</span>
+      </>
+    ),
     desc: 'Aesthetics must serve business intent. Our UI/UX design systems are purposefully crafted around user journeys, psychology, and measurable lead generation.',
   },
   {
+    id: 'transparency',
     Icon: Handshake,
     color: '#0284c7',
-    title: 'Radical Transparency',
+    title: (
+      <>
+        Radical <span className="title-highlight">Transparency.</span>
+      </>
+    ),
     desc: 'No vague jargon or hidden costs. We provide clear milestone roadmaps, weekly staging previews, and direct access to your lead engineer throughout the project.',
   },
   {
+    id: 'reliability',
     Icon: ShieldCheck,
     color: '#10b981',
-    title: 'Long-Term Reliability',
+    title: (
+      <>
+        Long-Term <span className="title-highlight">Reliability.</span>
+      </>
+    ),
     desc: 'We build future-proof architectures that scale as your traffic grows. Every project is tested across hundreds of screen sizes and backed by our warranty.',
   },
 ];
@@ -107,7 +127,7 @@ export default function About() {
             </div>
             <h1>
               We Engineer Digital Experiences That{' '}
-              <span className="gradient-text">Drive Measurable Growth</span>
+              <span className="title-highlight">Drive Measurable Growth.</span>
             </h1>
             <p className="about-hero-lead">
               Webnexora Solution was founded on a simple conviction: modern businesses deserve
@@ -123,8 +143,13 @@ export default function About() {
         <div className="container">
           <div className="about-story-grid">
             <div className="story-card glass-card" data-aos>
-              <span className="story-badge">Our Origin &amp; Mission</span>
-              <h2>Crafting the New Standard for Agency Excellence</h2>
+              <div className="eyebrow">
+                <span className="eyebrow-dot" /> Our Origin &amp; Mission
+              </div>
+              <h2>
+                Crafting the New Standard for{' '}
+                <span className="title-highlight">Agency Excellence.</span>
+              </h2>
               <p>
                 Too many digital agencies build slow, generic websites that look impressive on desktop
                 but fail on mobile, rank poorly on search engines, and convert zero visitors into leads.
@@ -179,7 +204,9 @@ export default function About() {
             <div className="eyebrow">
               <span className="eyebrow-dot" /> Our Guiding Pillars
             </div>
-            <h2>What Sets Our Work Apart</h2>
+            <h2>
+              What Sets Our <span className="title-highlight">Work Apart.</span>
+            </h2>
             <p>Every line of code we write and every layout we design is governed by four core commitments.</p>
           </div>
 
@@ -188,7 +215,7 @@ export default function About() {
               const IconComp = v.Icon;
               return (
                 <div
-                  key={v.title}
+                  key={v.id}
                   className="value-card glass-card"
                   data-aos
                   style={{ transitionDelay: `${i * 80}ms` }}
@@ -227,7 +254,9 @@ export default function About() {
             <div className="eyebrow">
               <span className="eyebrow-dot" /> The Webnexora Standard
             </div>
-            <h2>Why Companies Choose Us Over Others</h2>
+            <h2>
+              Why Companies Choose Us <span className="title-highlight">Over Others.</span>
+            </h2>
             <p>A transparent comparison of how we approach digital projects differently.</p>
           </div>
 
@@ -292,7 +321,10 @@ export default function About() {
       <section className="section about-cta-section">
         <div className="container">
           <div className="about-cta-card glass-card" data-aos>
-            <h2>Ready to Elevate Your Digital Footprint?</h2>
+            <h2>
+              Ready to Elevate Your{' '}
+              <span className="title-highlight">Digital Footprint?</span>
+            </h2>
             <p>Let's discuss your project goals, scope, and timeline during a free strategy session.</p>
             <div className="cta-actions">
               <Link

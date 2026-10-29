@@ -9,7 +9,11 @@ const portfolioProjects = [
   {
     id: 1,
     category: 'E-Commerce',
-    title: 'OmniRetail Luxury Storefront',
+    title: (
+      <>
+        OmniRetail Luxury <span className="title-highlight">Storefront.</span>
+      </>
+    ),
     client: 'OmniBrand Global',
     metric: '+214% Checkout Conversion',
     desc: 'Complete redesign and custom storefront build. Optimized for mobile shoppers with one-click payment flows and instant product search.',
@@ -19,7 +23,11 @@ const portfolioProjects = [
   {
     id: 2,
     category: 'Corporate',
-    title: 'Apex Global Consulting Platform',
+    title: (
+      <>
+        Apex Global <span className="title-highlight">Consulting Platform.</span>
+      </>
+    ),
     client: 'Apex Partners International',
     metric: '+180% Inbound Lead Growth',
     desc: 'High-authority corporate web presence with interactive case study libraries, practice area directories, and strategic executive lead capture.',
@@ -29,7 +37,11 @@ const portfolioProjects = [
   {
     id: 3,
     category: 'Creative',
-    title: 'Aura Architectural Studio',
+    title: (
+      <>
+        Aura Architectural <span className="title-highlight">Studio.</span>
+      </>
+    ),
     client: 'Aura Design Group',
     metric: '0.6s Mobile Load Time',
     desc: 'Minimalist editorial digital experience showcasing award-winning architectural portfolios with fluid grid navigation and subtle interactive depth.',
@@ -39,7 +51,11 @@ const portfolioProjects = [
   {
     id: 4,
     category: 'SaaS & Tech',
-    title: 'NovaPay Financial Analytics',
+    title: (
+      <>
+        NovaPay Financial <span className="title-highlight">Analytics.</span>
+      </>
+    ),
     client: 'NovaPay Solutions',
     metric: '99/100 Core Web Vitals',
     desc: 'Enterprise marketing website and product tour for a next-generation payments API platform, designed to convert developer teams and CFOs.',
@@ -49,7 +65,11 @@ const portfolioProjects = [
   {
     id: 5,
     category: 'E-Commerce',
-    title: 'Verdant Organic Botanical Goods',
+    title: (
+      <>
+        Verdant Organic <span className="title-highlight">Botanical Goods.</span>
+      </>
+    ),
     client: 'Verdant Living Inc.',
     metric: '3.4x Repeat Customer Orders',
     desc: 'Direct-to-consumer e-commerce portal with subscription re-ordering, customer loyalty accounts, and seamless multi-channel inventory sync.',
@@ -59,7 +79,11 @@ const portfolioProjects = [
   {
     id: 6,
     category: 'Corporate',
-    title: 'Zenith Legal & Advisory Group',
+    title: (
+      <>
+        Zenith Legal &amp; <span className="title-highlight">Advisory Group.</span>
+      </>
+    ),
     client: 'Zenith Partners LLP',
     metric: '#1 Google Rank on 18 Keywords',
     desc: 'Bespoke website with practice group portals, secure client intake documents, and search engine architecture that dominates local rankings.',
@@ -86,7 +110,7 @@ export default function PortfolioPage() {
             </div>
             <h1>
               Case Studies &amp;{' '}
-              <span className="gradient-text">Featured Outcomes</span>
+              <span className="title-highlight">Featured Outcomes.</span>
             </h1>
             <p className="portfolio-hero-lead">
               Explore how we have partnered with emerging startups and established enterprises
@@ -122,7 +146,7 @@ export default function PortfolioPage() {
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
                 <div className="item-media">
-                  <img src={proj.img} alt={proj.title} loading="lazy" />
+                  <img src={proj.img} alt={proj.client} loading="lazy" />
                   <div className="item-metric-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                     <TrendingUp size={13} strokeWidth={2.5} color="#10b981" /> {proj.metric}
                   </div>
@@ -163,7 +187,9 @@ export default function PortfolioPage() {
       <section className="section portfolio-cta-section">
         <div className="container">
           <div className="portfolio-cta-banner glass-card" data-aos>
-            <h2>Have a Vision for Your Brand?</h2>
+            <h2>
+              Have a Vision for <span className="title-highlight">Your Brand?</span>
+            </h2>
             <p>Let's engineer a digital experience that puts your business at the forefront of your industry.</p>
             <div className="cta-actions">
               <Link

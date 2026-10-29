@@ -5,7 +5,11 @@ import './ProcessPage.css';
 const stages = [
   {
     step: '01',
-    title: 'Discovery & Strategic Alignment',
+    title: (
+      <>
+        Discovery &amp; <span className="title-highlight">Strategic Alignment.</span>
+      </>
+    ),
     duration: 'Week 1',
     desc: 'We begin with an exhaustive technical and business consultation. We dissect your target audience, existing conversion bottlenecks, competitor landscape, and specific business goals.',
     deliverables: [
@@ -17,7 +21,11 @@ const stages = [
   },
   {
     step: '02',
-    title: 'Information Architecture & UI/UX Design',
+    title: (
+      <>
+        Information Architecture &amp; <span className="title-highlight">UI/UX Design.</span>
+      </>
+    ),
     duration: 'Week 1–2',
     desc: 'Before any code is written, we engineer high-fidelity Figma prototypes. We design intuitive page hierarchies, typography systems, and interaction states that guide visitors to conversion.',
     deliverables: [
@@ -29,7 +37,11 @@ const stages = [
   },
   {
     step: '03',
-    title: 'Full-Stack Development & Architecture',
+    title: (
+      <>
+        Full-Stack Development &amp; <span className="title-highlight">Architecture.</span>
+      </>
+    ),
     duration: 'Week 2–3',
     desc: 'Our senior engineers translate approved designs into clean, modular, high-performance code. Built on modern web frameworks without bloated page builders.',
     deliverables: [
@@ -41,7 +53,11 @@ const stages = [
   },
   {
     step: '04',
-    title: 'Quality Assurance, Security & Performance',
+    title: (
+      <>
+        Quality Assurance, Security &amp; <span className="title-highlight">Performance.</span>
+      </>
+    ),
     duration: 'Week 3',
     desc: 'Every page undergoes rigorous multi-device testing. We audit Core Web Vitals, cross-browser compatibility, SSL security headers, and accessibility standards.',
     deliverables: [
@@ -53,7 +69,11 @@ const stages = [
   },
   {
     step: '05',
-    title: 'Launch, Training & Dedicated Warranty',
+    title: (
+      <>
+        Launch, Training &amp; <span className="title-highlight">Dedicated Warranty.</span>
+      </>
+    ),
     duration: 'Week 4 & Beyond',
     desc: 'We manage domain DNS propagation, CDN caching, and search console indexing. Following deployment, we train your team and provide 30 days of complimentary support.',
     deliverables: [
@@ -66,10 +86,10 @@ const stages = [
 ];
 
 const promises = [
-  { Icon: Clock, color: '#4f46e5', title: 'On-Time Milestones', desc: 'We respect your launch deadlines. Every stage is delivered within agreed dates.' },
-  { Icon: MessageSquare, color: '#7c3aff', title: 'Direct Engineer Access', desc: 'No disconnected account managers. Speak directly to the team building your site.' },
-  { Icon: Zap, color: '#f59e0b', title: 'Speed Guarantee', desc: 'If your site scores under 90 on Google PageSpeed, we optimize it at no extra cost.' },
-  { Icon: ShieldCheck, color: '#10b981', title: 'Full Code Ownership', desc: 'You own 100% of your source code, assets, and accounts from day one.' },
+  { id: 'milestones', Icon: Clock, color: '#4f46e5', title: <>On-Time <span className="title-highlight">Milestones.</span></>, desc: 'We respect your launch deadlines. Every stage is delivered within agreed dates.' },
+  { id: 'access', Icon: MessageSquare, color: '#7c3aff', title: <>Direct Engineer <span className="title-highlight">Access.</span></>, desc: 'No disconnected account managers. Speak directly to the team building your site.' },
+  { id: 'speed', Icon: Zap, color: '#f59e0b', title: <>Speed <span className="title-highlight">Guarantee.</span></>, desc: 'If your site scores under 90 on Google PageSpeed, we optimize it at no extra cost.' },
+  { id: 'ownership', Icon: ShieldCheck, color: '#10b981', title: <>Full Code <span className="title-highlight">Ownership.</span></>, desc: 'You own 100% of your source code, assets, and accounts from day one.' },
 ];
 
 export default function ProcessPage() {
@@ -84,7 +104,7 @@ export default function ProcessPage() {
             </div>
             <h1>
               A Rigorous, Transparent Process{' '}
-              <span className="gradient-text">Built for Predictable Results</span>
+              <span className="title-highlight">Built for Predictable Results.</span>
             </h1>
             <p className="process-hero-lead">
               We eliminate guesswork with an agile, 5-stage engineering methodology
@@ -136,7 +156,10 @@ export default function ProcessPage() {
             <div className="eyebrow">
               <span className="eyebrow-dot" /> Our Commitment
             </div>
-            <h2>The Webnexora Client Guarantee</h2>
+            <h2>
+              The Webnexora{' '}
+              <span className="title-highlight">Client Guarantee.</span>
+            </h2>
             <p>Four ironclad standards that protect your investment and ensure an exceptional partnership.</p>
           </div>
 
@@ -145,7 +168,7 @@ export default function ProcessPage() {
               const IconComp = p.Icon;
               return (
                 <div
-                  key={p.title}
+                  key={p.id}
                   className="promise-card glass-card"
                   data-aos
                   style={{ transitionDelay: `${i * 60}ms` }}
@@ -181,7 +204,10 @@ export default function ProcessPage() {
       <section className="section process-cta-section">
         <div className="container">
           <div className="process-cta-banner glass-card" data-aos>
-            <h2>Ready to Begin Stage 01?</h2>
+            <h2>
+              Ready to Begin{' '}
+              <span className="title-highlight">Stage 01?</span>
+            </h2>
             <p>Schedule a preliminary strategy call and receive your project roadmap within 24 hours.</p>
             <div className="cta-actions">
               <Link

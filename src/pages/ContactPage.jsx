@@ -106,8 +106,8 @@ export default function ContactPage() {
               <span className="eyebrow-dot" /> Initiate Your Project
             </div>
             <h1>
-              Let's Build Something Exceptional{' '}
-              <span className="gradient-text">For Your Business</span>
+              Let's Build Something{' '}
+              <span className="title-highlight">Exceptional Together.</span>
             </h1>
             <p className="contact-hero-lead">
               Have an upcoming launch or want to redesign your existing website?
@@ -123,7 +123,9 @@ export default function ContactPage() {
           {/* LEFT: DIRECT INFO & GUARANTEES */}
           <div className="contact-info-col" data-aos>
             <div className="contact-info-box bento-card">
-              <h2>Direct Communication Channels</h2>
+              <h2>
+                Direct Communication <span className="title-highlight">Channels.</span>
+              </h2>
               <p className="info-sub">
                 We believe in zero communication friction. Reach our project leads directly
                 via WhatsApp, phone, or email.
@@ -184,7 +186,9 @@ export default function ContactPage() {
 
             {/* WHAT TO EXPECT CARD */}
             <div className="expect-box bento-card" data-aos>
-              <h3>What Happens Next?</h3>
+              <h3>
+                What Happens <span className="title-highlight">Next?</span>
+              </h3>
               <div className="expect-steps-list">
                 <div className="expect-step-item">
                   <span className="step-badge">01</span>
@@ -230,7 +234,9 @@ export default function ContactPage() {
               ) : (
                 <form className="planner-form" onSubmit={handleSubmit} noValidate>
                   <div className="planner-header">
-                    <h3>Project Scope Planner</h3>
+                    <h3>
+                      Project Scope <span className="title-highlight">Planner.</span>
+                    </h3>
                     <p>Provide details to receive an exact roadmap and fixed proposal.</p>
                   </div>
 

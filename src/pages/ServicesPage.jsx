@@ -16,7 +16,11 @@ const detailedServices = [
   {
     id: 'web-dev',
     badge: 'Core Specialty',
-    title: 'Custom Website Development',
+    title: (
+      <>
+        Custom Website <span className="title-highlight">Development.</span>
+      </>
+    ),
     tagline: 'Lightning-fast, bespoke websites engineered to turn visitors into customers.',
     desc: 'We build tailored digital homes from the ground up without restrictive templates or messy page builder bloat. Built with modern web standards (React, Next.js, and clean semantic code), your site will load instantly and function smoothly across every device.',
     deliverables: [
@@ -30,7 +34,11 @@ const detailedServices = [
   {
     id: 'ecommerce',
     badge: 'High Conversion',
-    title: 'E-Commerce Storefronts',
+    title: (
+      <>
+        E-Commerce <span className="title-highlight">Storefronts.</span>
+      </>
+    ),
     tagline: 'Frictionless online shopping experiences designed to maximize average order value.',
     desc: 'From custom shopping carts to integrated payment processors and inventory management, we engineer storefronts that eliminate checkout friction and increase sales conversion rates.',
     deliverables: [
@@ -44,7 +52,11 @@ const detailedServices = [
   {
     id: 'wordpress',
     badge: 'Easy Management',
-    title: 'WordPress & Headless CMS',
+    title: (
+      <>
+        WordPress &amp; <span className="title-highlight">Headless CMS.</span>
+      </>
+    ),
     tagline: 'User-friendly content management platforms your team can easily update.',
     desc: 'Get the flexibility of WordPress without the security vulnerabilities or sluggish performance. We build lightweight, custom block themes that give your marketing team full editing power while maintaining strict design guardrails.',
     deliverables: [
@@ -58,7 +70,11 @@ const detailedServices = [
   {
     id: 'ui-ux',
     badge: 'Design System',
-    title: 'UI/UX Design & Prototyping',
+    title: (
+      <>
+        UI/UX Design &amp; <span className="title-highlight">Prototyping.</span>
+      </>
+    ),
     tagline: 'Intuitive user journeys and visual design systems that build immediate trust.',
     desc: 'Before writing code, we map user intent and create interactive Figma prototypes. We define typography scales, color palettes, and component states to ensure an impeccable user experience from the first interaction.',
     deliverables: [
@@ -72,7 +88,11 @@ const detailedServices = [
   {
     id: 'seo',
     badge: 'Organic Traffic',
-    title: 'SEO & Performance Optimization',
+    title: (
+      <>
+        SEO &amp; Performance <span className="title-highlight">Optimization.</span>
+      </>
+    ),
     tagline: 'Rank higher on Google and convert searchers into active business inquiries.',
     desc: 'Having a beautiful website is meaningless if customers cannot discover it. We bake technical search engine optimization into every page from day one, ensuring your business ranks for the keywords that matter.',
     deliverables: [
@@ -86,7 +106,11 @@ const detailedServices = [
   {
     id: 'growth',
     badge: 'ROI Focused',
-    title: 'Digital Marketing & Growth',
+    title: (
+      <>
+        Digital Marketing &amp; <span className="title-highlight">Growth.</span>
+      </>
+    ),
     tagline: 'Data-driven marketing campaigns and conversion funnels that scale pipeline.',
     desc: 'We help you distribute your digital presence and capture market share through targeted PPC ads, high-converting landing pages, and analytics funnels that track actual return on ad spend.',
     deliverables: [
@@ -207,7 +231,10 @@ export default function ServicesPage() {
             <div className="eyebrow">
               <span className="eyebrow-dot" /> The Standard Package
             </div>
-            <h2>Included in Every Webnexora Project</h2>
+            <h2>
+              Included in Every{' '}
+              <span className="title-highlight">Webnexora Project.</span>
+            </h2>
             <p>We believe essential performance, security, and mobile optimizations should never be expensive add-ons.</p>
           </div>
 
@@ -255,7 +282,10 @@ export default function ServicesPage() {
             <div className="eyebrow">
               <span className="eyebrow-dot" /> Clear Answers
             </div>
-            <h2>Frequently Asked Questions</h2>
+            <h2>
+              Frequently Asked{' '}
+              <span className="title-highlight">Questions.</span>
+            </h2>
             <p>Everything you need to know about working with Webnexora Solution.</p>
           </div>
 
@@ -276,7 +306,10 @@ export default function ServicesPage() {
       <section className="section services-cta-section">
         <div className="container">
           <div className="services-cta-box glass-card" data-aos>
-            <h2>Have a Unique Project in Mind?</h2>
+            <h2>
+              Have a Unique{' '}
+              <span className="title-highlight">Project in Mind?</span>
+            </h2>
             <p>Let's map out your requirements and deliver a customized, high-converting digital solution.</p>
             <div className="cta-actions">
               <Link

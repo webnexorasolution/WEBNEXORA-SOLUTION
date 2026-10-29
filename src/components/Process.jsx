@@ -3,19 +3,39 @@ import './Process.css';
 
 const steps = [
   {
-    title: 'Discover',
+    id: 'discover',
+    title: (
+      <>
+        Strategic <span className="title-highlight">Discovery.</span>
+      </>
+    ),
     desc: 'We discuss your business, target audience, website goals and required features in detail.',
   },
   {
-    title: 'Plan & Design',
+    id: 'plan-design',
+    title: (
+      <>
+        UI/UX <span className="title-highlight">Design.</span>
+      </>
+    ),
     desc: 'We shape the page structure and visual direction around your brand identity and goals.',
   },
   {
-    title: 'Build & Review',
+    id: 'build-review',
+    title: (
+      <>
+        Engineering &amp; <span className="title-highlight">Review.</span>
+      </>
+    ),
     desc: 'We develop the pages and review the experience across all screen sizes before you approve.',
   },
   {
-    title: 'Launch',
+    id: 'launch',
+    title: (
+      <>
+        Deployment &amp; <span className="title-highlight">Launch.</span>
+      </>
+    ),
     desc: 'After your final review and sign-off, we prepare and deploy your site for the world to see.',
   },
 ];
@@ -44,7 +64,7 @@ export default function Process() {
         <div className="process-grid">
           {steps.map((s, i) => (
             <article
-              key={s.title}
+              key={s.id}
               className="step-card glass-card"
               data-aos
               style={{ transitionDelay: `${i * 100}ms` }}

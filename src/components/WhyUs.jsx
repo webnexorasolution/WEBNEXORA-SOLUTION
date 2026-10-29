@@ -114,7 +114,6 @@ export default function WhyUs() {
                 <span className="tm-val">150+</span>
                 <span className="tm-badge tm-badge-lime">Global</span>
               </div>
-              <span className="tm-title">Deployments Live</span>
             </div>
           </div>
 
@@ -130,7 +129,6 @@ export default function WhyUs() {
                 <span className="tm-val">98%</span>
                 <span className="tm-badge tm-badge-green">Recurring</span>
               </div>
-              <span className="tm-title">Client Retention</span>
             </div>
           </div>
 
@@ -152,7 +150,6 @@ export default function WhyUs() {
                   <Star size={12} fill="#F59E0B" color="#F59E0B" />
                 </div>
               </div>
-              <span className="tm-title">5-Star Verified</span>
             </div>
           </div>
 
@@ -169,7 +166,6 @@ export default function WhyUs() {
                 <span className="tm-val">24/7</span>
                 <span className="tm-badge tm-badge-cyan">Active</span>
               </div>
-              <span className="tm-title">Dedicated Support</span>
             </div>
           </div>
 

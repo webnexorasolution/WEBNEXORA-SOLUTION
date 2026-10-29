@@ -19,7 +19,7 @@
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 22px;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.016em;
   color: #121212;
 }
 
@@ -72,6 +72,7 @@
   color: #121212;
   margin-bottom: 18px;
   line-height: 1.25;
+  letter-spacing: -0.016em;
 }
 
 .story-card p {
@@ -440,6 +441,7 @@
   font-weight: 800;
   color: #121212;
   margin-bottom: 12px;
+  letter-spacing: -0.016em;
 }
 
 .about-cta-card p {
