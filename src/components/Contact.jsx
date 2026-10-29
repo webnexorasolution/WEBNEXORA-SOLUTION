@@ -1,7 +1,29 @@
 import { useState, useRef } from 'react';
-import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import {
+  Phone,
+  MessageCircle,
+  Mail,
+  CheckCircle2,
+  ArrowUpRight,
+  Globe,
+  ShoppingBag,
+  Layers,
+  Palette,
+  Search,
+  TrendingUp,
+} from 'lucide-react';
+import CustomSelect from './ui/CustomSelect';
 import siteConfig from '../config/site';
 import './Contact.css';
+
+const serviceOptions = [
+  { value: 'Website Development', label: 'Website Development', icon: <Globe size={16} /> },
+  { value: 'E-Commerce Website', label: 'E-Commerce Website', icon: <ShoppingBag size={16} /> },
+  { value: 'WordPress Development', label: 'WordPress Development', icon: <Layers size={16} /> },
+  { value: 'UI/UX Design', label: 'UI/UX Design', icon: <Palette size={16} /> },
+  { value: 'SEO Services', label: 'SEO Services', icon: <Search size={16} /> },
+  { value: 'Digital Marketing', label: 'Digital Marketing', icon: <TrendingUp size={16} /> },
+];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
@@ -141,18 +163,16 @@ export default function Contact() {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="cf-service">Service</label>
-                  <select id="cf-service" name="service" value={form.service} onChange={handleChange}>
-                    <option value="">Select a service</option>
-                    <option>Website Development</option>
-                    <option>E-Commerce Website</option>
-                    <option>WordPress Development</option>
-                    <option>UI/UX Design</option>
-                    <option>SEO Services</option>
-                    <option>Digital Marketing</option>
-                  </select>
-                </div>
+                <CustomSelect
+                  id="cf-service"
+                  name="service"
+                  label="Service"
+                  value={form.service}
+                  onChange={handleChange}
+                  options={serviceOptions}
+                  placeholder="Select a service"
+                  className="form-group"
+                />
               </div>
 
               <div className="form-group form-group-message">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight, Clock } from 'lucide-react';
+import CustomSelect from '../components/ui/CustomSelect';
 import siteConfig from '../config/site';
 import './ContactPage.css';
 
@@ -239,53 +240,41 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="field-group">
-                    <label htmlFor="cp-service">Primary Service Required</label>
-                    <select
-                      id="cp-service"
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                    >
-                      {servicesList.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  <CustomSelect
+                    id="cp-service"
+                    name="service"
+                    label="Primary Service Required"
+                    value={form.service}
+                    onChange={handleChange}
+                    options={servicesList}
+                    className="field-group"
+                  />
 
                   <div className="form-row-2">
-                    <div className="field-group">
-                      <label htmlFor="cp-budget">Estimated Budget</label>
-                      <select
-                        id="cp-budget"
-                        name="budget"
-                        value={form.budget}
-                        onChange={handleChange}
-                      >
-                        {budgetRanges.map((b) => (
-                          <option key={b} value={b}>
-                            {b}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                    <CustomSelect
+                      id="cp-budget"
+                      name="budget"
+                      label="Estimated Budget"
+                      value={form.budget}
+                      onChange={handleChange}
+                      options={budgetRanges}
+                      className="field-group"
+                    />
 
-                    <div className="field-group">
-                      <label htmlFor="cp-timeline">Desired Timeline</label>
-                      <select
-                        id="cp-timeline"
-                        name="timeline"
-                        value={form.timeline}
-                        onChange={handleChange}
-                      >
-                        <option>Urgent (&lt; 2 Weeks)</option>
-                        <option>Within 1 Month</option>
-                        <option>1 to 2 Months</option>
-                        <option>Flexible / Planning Ahead</option>
-                      </select>
-                    </div>
+                    <CustomSelect
+                      id="cp-timeline"
+                      name="timeline"
+                      label="Desired Timeline"
+                      value={form.timeline}
+                      onChange={handleChange}
+                      options={[
+                        'Urgent (< 2 Weeks)',
+                        'Within 1 Month',
+                        '1 to 2 Months',
+                        'Flexible / Planning Ahead',
+                      ]}
+                      className="field-group"
+                    />
                   </div>
 
                   <div className="field-group">

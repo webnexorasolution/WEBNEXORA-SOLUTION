@@ -1,0 +1,199 @@
+/* ========================================================
+   CUSTOM SELECT — Luxury Bento Dropdown with Micro-Animations
+   ======================================================== */
+
+.custom-select-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.custom-select-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4A4841;
+  letter-spacing: 0.01em;
+}
+
+.req-star {
+  color: #DC2626;
+  font-weight: 800;
+}
+
+/* TRIGGER BUTTON */
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F4F2EC;
+  border: 1px solid #E2DFD6;
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: #121212;
+  font-size: 14.5px;
+  font-family: var(--font-body);
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.custom-select-trigger:hover {
+  background: #EFECE4;
+  border-color: #D6D2C7;
+}
+
+.custom-select-trigger.is-active,
+.custom-select-trigger:focus {
+  background: #FFFFFF;
+  border-color: #121212;
+  box-shadow: 0 0 0 3px rgba(238, 253, 68, 0.55), 0 4px 12px rgba(18, 18, 18, 0.06);
+}
+
+.trigger-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 8px;
+}
+
+.placeholder-text {
+  color: #949188;
+  font-weight: 500;
+}
+
+.selected-text {
+  color: #121212;
+  font-weight: 600;
+}
+
+/* CHEVRON ICON */
+.select-chevron {
+  color: #6E6C64;
+  flex-shrink: 0;
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s;
+}
+
+.custom-select-trigger.is-active .select-chevron {
+  transform: rotate(180deg);
+  color: #121212;
+}
+
+/* DROPDOWN POPOVER */
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border: 1px solid #E6E3DA;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 20px 40px -6px rgba(32, 28, 22, 0.16),
+              0 8px 16px -2px rgba(32, 28, 22, 0.08),
+              0 0 0 1px rgba(0, 0, 0, 0.03);
+  z-index: 100;
+  animation: selectDropdownIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+}
+
+@keyframes selectDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.custom-select-options-list {
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #E2DFD6 transparent;
+}
+
+.custom-select-options-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-select-options-list::-webkit-scrollbar-thumb {
+  background: #D8D4C8;
+  border-radius: 10px;
+}
+
+/* INDIVIDUAL OPTION */
+.custom-select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2E2D29;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.option-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #6E6C64;
+  transition: color 0.15s;
+}
+
+.custom-select-option:hover {
+  background: #F4F2EC;
+  color: #121212;
+  transform: translateX(3px);
+}
+
+.custom-select-option:hover .option-icon {
+  color: #121212;
+}
+
+/* SELECTED OPTION */
+.custom-select-option.is-selected {
+  background: #121212;
+  color: #FFFFFF;
+}
+
+.custom-select-option.is-selected .option-icon {
+  color: var(--lime);
+}
+
+.option-check {
+  color: var(--lime);
+  flex-shrink: 0;
+  animation: checkPop 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes checkPop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
