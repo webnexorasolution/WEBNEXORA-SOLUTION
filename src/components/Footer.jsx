@@ -67,9 +67,12 @@ export default function Footer() {
                 Webnexora <span className="footer-logo-badge">Solution</span>
               </span>
             </Link>
+            <div className="footer-eng-chip">
+              <span className="eng-dot" /> Full-Cycle Web Engineering &amp; Growth Studio
+            </div>
             <p className="footer-desc">
-              Premier digital agency engineering high-converting corporate websites, modern web
-              applications, and bespoke digital experiences.
+              Engineering <strong className="text-highlight">high-converting corporate web architectures</strong>,
+              scalable headless web applications, and bespoke digital flagship experiences with zero technical debt.
             </p>
             <div className="footer-tagline">{siteConfig.tagline}</div>
 

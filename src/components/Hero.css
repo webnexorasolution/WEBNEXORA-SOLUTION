@@ -274,47 +274,174 @@
 }
 
 .sprint-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  background: #F9F8F5;
-  border: 1px solid #EAE7DF;
-  border-radius: 14px;
+  padding: 10px 14px 13px;
+  background: #FFFFFF;
+  border: 1px solid #EAE7DE;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.03);
+  overflow: hidden;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sprint-item:hover {
+  border-color: #121212;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(18, 18, 18, 0.08);
+}
+
+.sprint-item-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sprint-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.2);
+}
+
+.sprint-avatar-lime {
+  color: #EEFD44;
+}
+
+.sprint-avatar-cyan {
+  color: #38BDF8;
+}
+
+.sprint-avatar-purple {
+  color: #C084FC;
 }
 
 .sprint-info {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .sprint-info strong {
-  font-size: 12.5px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   color: #121212;
+  letter-spacing: -0.015em;
 }
 
-.sprint-info small {
+.sprint-tags {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #7A786F;
+  font-weight: 600;
+}
+
+.sprint-tech {
+  color: #403E38;
+}
+
+.sprint-sep {
+  color: #C2BFB6;
+}
+
+.sprint-phase {
+  color: #8C8980;
+}
+
+.sprint-status-wrap {
+  flex-shrink: 0;
+}
+
+.pill-status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 10.5px;
-  color: #7E7C74;
+  font-weight: 800;
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.12);
+}
+
+.live-radar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 6px #16A34A;
+  animation: radarPing 1.8s infinite ease-in-out;
+}
+
+@keyframes radarPing {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
 }
 
 .pill-status-confirmed {
-  font-size: 10px;
-  font-weight: 700;
-  background: #E8F7ED;
-  color: #15803D;
-  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #DCFCE7;
+  padding: 3px 9px;
   border-radius: 9999px;
 }
 
+.active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16A34A;
+}
+
 .pill-status-scheduled {
-  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
   font-weight: 700;
   background: #F4F2EC;
   color: #55534D;
-  padding: 3px 8px;
+  border: 1px solid #E5E2D8;
+  padding: 3px 9px;
   border-radius: 9999px;
+}
+
+.scheduled-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8C8980;
+}
+
+.sprint-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #F0EDE4;
+}
+
+.sprint-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #121212 0%, #EEFD44 100%);
+  border-radius: 0 2px 2px 0;
 }
 
 .delivery-guarantee-strip {

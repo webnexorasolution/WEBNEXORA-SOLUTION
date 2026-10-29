@@ -9,6 +9,11 @@ import {
   Check,
   ArrowUpRight,
   ArrowRight,
+  Clock,
+  MessageCircle,
+  Code2,
+  Sparkles,
+  Layers,
 } from 'lucide-react';
 import './About.css';
 
@@ -42,23 +47,51 @@ const values = [
 const comparisons = [
   {
     metric: 'Project Timeline',
-    traditional: '4–6 months with scope creep',
-    webnexora: '2–4 weeks with focused, agile delivery',
+    category: 'Velocity',
+    Icon: Clock,
+    traditional: '4–6 months with scope creep and delays',
+    webnexora: '2–4 weeks with focused, agile sprint delivery',
+    highlight: true,
   },
   {
     metric: 'Performance & Speed',
-    traditional: 'Bloated themes scoring < 50 on Google',
-    webnexora: 'Clean architectures scoring 95+ PageSpeed',
+    category: 'Architecture',
+    Icon: Zap,
+    traditional: 'Bloated themes scoring < 50 on Google PageSpeed',
+    webnexora: 'Clean architecture scoring 95+ Core Web Vitals',
+    highlight: true,
   },
   {
-    metric: 'Communication',
-    traditional: 'Delayed tickets and account managers',
-    webnexora: 'Direct WhatsApp & engineer-level Slack access',
+    metric: 'Client Communication',
+    category: 'Collaboration',
+    Icon: MessageCircle,
+    traditional: 'Slow ticketing systems & non-technical middlemen',
+    webnexora: 'Direct WhatsApp & engineer-level Slack channels',
+    highlight: false,
   },
   {
-    metric: 'SEO & Technical Basics',
-    traditional: 'Treated as an expensive add-on',
-    webnexora: 'Built-in semantic schema and meta architecture',
+    metric: 'SEO & Technical Setup',
+    category: 'Optimization',
+    Icon: Layers,
+    traditional: 'Treated as an expensive add-on or ignored',
+    webnexora: 'Built-in semantic schema, meta tags & sitemap',
+    highlight: false,
+  },
+  {
+    metric: 'Codebase Ownership',
+    category: 'IP Rights',
+    Icon: Code2,
+    traditional: 'Proprietary platform lock-in & ongoing license fees',
+    webnexora: '100% Client-Owned Git repo & raw design files',
+    highlight: true,
+  },
+  {
+    metric: 'Post-Launch Support',
+    category: 'Reliability',
+    Icon: ShieldCheck,
+    traditional: 'High hourly billing even for basic fixes',
+    webnexora: '30-Day Hypercare Warranty & Free SLA tuning',
+    highlight: false,
   },
 ];
 
@@ -195,31 +228,57 @@ export default function About() {
           </div>
 
           <div className="comparison-table-wrap glass-card" data-aos>
-            <div className="table-header">
-              <span className="col-metric">Operational Metric</span>
-              <span className="col-trad">Traditional Agencies</span>
-              <span className="col-webn">The Webnexora Approach</span>
+            <div className="table-top-bar">
+              <span className="table-benchmark-tag">
+                <span className="benchmark-dot" /> Direct Head-to-Head Agency Benchmark
+              </span>
+              <span className="table-legend">Audited Standards &amp; Deliverables</span>
             </div>
+
+            <div className="table-header">
+              <div className="col-metric">Operational Metric</div>
+              <div className="col-trad">Traditional Agencies</div>
+              <div className="col-webn">
+                <span className="webn-badge-highlight">
+                  <Sparkles size={13} color="#EEFD44" /> The Webnexora Standard
+                </span>
+              </div>
+            </div>
+
             <div className="table-rows">
-              {comparisons.map((c) => (
-                <div key={c.metric} className="table-row">
-                  <div className="cell-metric">
-                    <strong>{c.metric}</strong>
+              {comparisons.map((c) => {
+                const RowIcon = c.Icon;
+                return (
+                  <div
+                    key={c.metric}
+                    className={`table-row ${c.highlight ? 'row-highlighted' : ''}`}
+                  >
+                    <div className="cell-metric">
+                      <div className="metric-icon-box">
+                        <RowIcon size={15} />
+                      </div>
+                      <div className="metric-text-wrap">
+                        <strong>{c.metric}</strong>
+                        <span className="metric-category">{c.category}</span>
+                      </div>
+                    </div>
+
+                    <div className="cell-trad">
+                      <span className="badge-trad">
+                        <X size={12} strokeWidth={3} />
+                      </span>
+                      <span className="trad-text">{c.traditional}</span>
+                    </div>
+
+                    <div className="cell-webn">
+                      <span className="badge-webn">
+                        <Check size={12} strokeWidth={3} />
+                      </span>
+                      <span className="webn-text">{c.webnexora}</span>
+                    </div>
                   </div>
-                  <div className="cell-trad">
-                    <span className="badge-trad" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                      <X size={12} strokeWidth={3} />
-                    </span>{' '}
-                    {c.traditional}
-                  </div>
-                  <div className="cell-webn">
-                    <span className="badge-webn" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                      <Check size={12} strokeWidth={3} />
-                    </span>{' '}
-                    {c.webnexora}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

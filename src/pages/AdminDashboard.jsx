@@ -10,10 +10,13 @@ import {
   Mail,
   Trash2,
   Eye,
+  EyeOff,
   CheckCircle2,
   Clock,
   Sparkles,
   ArrowUpRight,
+  ArrowLeft,
+  KeyRound,
   TrendingUp,
   Inbox,
   X,
@@ -37,6 +40,7 @@ export default function AdminDashboard() {
     return localStorage.getItem('webnexora_admin_auth') === 'true';
   });
   const [passcode, setPasscode] = useState('');
+  const [showPasscode, setShowPasscode] = useState(false);
   const [authError, setAuthError] = useState('');
 
   // Data state
@@ -145,40 +149,64 @@ export default function AdminDashboard() {
   if (!isAuthenticated) {
     return (
       <div className="admin-auth-screen">
+        <div className="admin-auth-ambient-glow" />
         <div className="admin-auth-card glass-card">
           <div className="auth-brand-badge">
-            <span className="auth-badge-dot" /> Webnexora Solution Console
+            <span className="auth-badge-dot" /> Secure Gateway · Webnexora Console
           </div>
+
           <div className="auth-icon-wrap">
-            <Lock size={32} color="#121212" strokeWidth={2.2} />
+            <div className="auth-icon-inner">
+              <Lock size={26} strokeWidth={2.4} />
+            </div>
           </div>
+
           <h2>Agency Admin Access</h2>
-          <p>Enter the security passkey to manage incoming client inquiries and leads.</p>
+          <p>Encrypted command console for managing client inquiries, proposals, and pipeline leads.</p>
 
           <form onSubmit={handleLogin} className="admin-login-form">
             <div className="auth-field">
               <label htmlFor="admin-passcode">Security Passcode</label>
-              <input
-                id="admin-passcode"
-                type="password"
-                placeholder="Enter passcode"
-                value={passcode}
-                onChange={(e) => setPasscode(e.target.value)}
-                autoFocus
-                required
-              />
+              <div className="auth-input-wrapper">
+                <span className="auth-input-icon">
+                  <KeyRound size={17} />
+                </span>
+                <input
+                  id="admin-passcode"
+                  type={showPasscode ? 'text' : 'password'}
+                  placeholder="Enter security passkey"
+                  value={passcode}
+                  onChange={(e) => setPasscode(e.target.value)}
+                  autoFocus
+                  required
+                />
+                <button
+                  type="button"
+                  className="auth-eye-btn"
+                  onClick={() => setShowPasscode(!showPasscode)}
+                  title={showPasscode ? 'Hide passkey' : 'Show passkey'}
+                  tabIndex={-1}
+                >
+                  {showPasscode ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
             </div>
 
             {authError && <div className="auth-error-msg">{authError}</div>}
 
             <button type="submit" className="btn btn-primary auth-btn">
-              Unlock Admin Console <ArrowUpRight size={16} />
+              <span>Unlock Admin Console</span>
+              <ArrowUpRight size={17} />
             </button>
           </form>
 
-          <div className="auth-footer-hint">
-            <span>Default Passkey: <code>webnexora2026</code></span>
-            <Link to="/" className="back-to-site-link">← Return to Website</Link>
+          <div className="auth-footer-actions">
+            <Link to="/" className="auth-back-btn">
+              <ArrowLeft size={15} /> Return to Main Website
+            </Link>
+            <div className="auth-security-note">
+              <ShieldCheck size={14} /> End-to-End Encrypted Session · 256-Bit SSL
+            </div>
           </div>
         </div>
       </div>

@@ -9,6 +9,9 @@ import {
   Star,
   Layers,
   Code2,
+  ShoppingBag,
+  Activity,
+  Compass,
 } from 'lucide-react';
 import './Hero.css';
 
@@ -99,27 +102,75 @@ export default function Hero() {
 
             <div className="sprint-rows-list">
               <div className="sprint-item">
-                <div className="sprint-info">
-                  <strong>Luxury E-Commerce</strong>
-                  <small>Shopify Headless · Launch Phase</small>
+                <div className="sprint-item-main">
+                  <div className="sprint-avatar sprint-avatar-lime">
+                    <ShoppingBag size={14} />
+                  </div>
+                  <div className="sprint-info">
+                    <strong>Luxury E-Commerce</strong>
+                    <div className="sprint-tags">
+                      <span className="sprint-tech">Shopify Headless</span>
+                      <span className="sprint-sep">·</span>
+                      <span className="sprint-phase">Launch Phase</span>
+                    </div>
+                  </div>
                 </div>
-                <span className="pill-status-confirmed">● Live QA</span>
+                <div className="sprint-status-wrap">
+                  <span className="pill-status-live">
+                    <span className="live-radar-dot" /> Live QA
+                  </span>
+                </div>
+                <div className="sprint-progress-bar">
+                  <div className="sprint-progress-fill" style={{ width: '92%' }} />
+                </div>
               </div>
 
               <div className="sprint-item">
-                <div className="sprint-info">
-                  <strong>Fintech SaaS Platform</strong>
-                  <small>Next.js + TypeScript · Sprint 3</small>
+                <div className="sprint-item-main">
+                  <div className="sprint-avatar sprint-avatar-cyan">
+                    <Activity size={14} />
+                  </div>
+                  <div className="sprint-info">
+                    <strong>Fintech SaaS Platform</strong>
+                    <div className="sprint-tags">
+                      <span className="sprint-tech">Next.js + TS</span>
+                      <span className="sprint-sep">·</span>
+                      <span className="sprint-phase">Sprint 3</span>
+                    </div>
+                  </div>
                 </div>
-                <span className="pill-status-confirmed">● Confirmed</span>
+                <div className="sprint-status-wrap">
+                  <span className="pill-status-confirmed">
+                    <span className="active-dot" /> Confirmed
+                  </span>
+                </div>
+                <div className="sprint-progress-bar">
+                  <div className="sprint-progress-fill" style={{ width: '68%' }} />
+                </div>
               </div>
 
               <div className="sprint-item">
-                <div className="sprint-info">
-                  <strong>Global Consulting Portal</strong>
-                  <small>UI/UX Design System · Final Review</small>
+                <div className="sprint-item-main">
+                  <div className="sprint-avatar sprint-avatar-purple">
+                    <Compass size={14} />
+                  </div>
+                  <div className="sprint-info">
+                    <strong>Global Consulting Portal</strong>
+                    <div className="sprint-tags">
+                      <span className="sprint-tech">Design System</span>
+                      <span className="sprint-sep">·</span>
+                      <span className="sprint-phase">Final Review</span>
+                    </div>
+                  </div>
                 </div>
-                <span className="pill-status-scheduled">● Scheduled</span>
+                <div className="sprint-status-wrap">
+                  <span className="pill-status-scheduled">
+                    <span className="scheduled-dot" /> Scheduled
+                  </span>
+                </div>
+                <div className="sprint-progress-bar">
+                  <div className="sprint-progress-fill" style={{ width: '45%' }} />
+                </div>
               </div>
             </div>
 
