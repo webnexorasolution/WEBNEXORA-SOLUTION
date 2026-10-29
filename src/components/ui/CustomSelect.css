@@ -60,6 +60,23 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.selected-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.selected-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #121212;
+  flex-shrink: 0;
 }
 
 .placeholder-text {
@@ -70,6 +87,9 @@
 .selected-text {
   color: #121212;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* CHEVRON ICON */

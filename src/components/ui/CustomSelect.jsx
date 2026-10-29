@@ -52,6 +52,11 @@ export default function CustomSelect({
       : selectedOption.label
     : '';
 
+  const selectedIcon =
+    selectedOption && typeof selectedOption === 'object' && selectedOption.icon
+      ? selectedOption.icon
+      : null;
+
   return (
     <div className={`custom-select-wrapper ${className}`} ref={selectRef}>
       {label && (
@@ -73,7 +78,10 @@ export default function CustomSelect({
       >
         <span className="trigger-text">
           {displayLabel ? (
-            <span className="selected-text">{displayLabel}</span>
+            <span className="selected-content">
+              {selectedIcon && <span className="selected-icon">{selectedIcon}</span>}
+              <span className="selected-text">{displayLabel}</span>
+            </span>
           ) : (
             <span className="placeholder-text">{placeholder}</span>
           )}

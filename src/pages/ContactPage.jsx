@@ -1,23 +1,50 @@
 import { useState } from 'react';
-import { Phone, MessageCircle, Mail, CheckCircle2, ArrowUpRight, Clock } from 'lucide-react';
+import {
+  Phone,
+  MessageCircle,
+  Mail,
+  CheckCircle2,
+  ArrowUpRight,
+  Clock,
+  Globe,
+  ShoppingBag,
+  Layers,
+  Palette,
+  Search,
+  TrendingUp,
+  Coins,
+  Wallet,
+  Sparkles,
+  Rocket,
+  Zap,
+  Calendar,
+  Hourglass,
+} from 'lucide-react';
 import CustomSelect from '../components/ui/CustomSelect';
 import siteConfig from '../config/site';
 import './ContactPage.css';
 
 const servicesList = [
-  'Custom Website Development',
-  'E-Commerce Storefront',
-  'WordPress CMS Development',
-  'UI/UX Design & Prototyping',
-  'SEO & Performance Optimization',
-  'Digital Marketing & Growth',
+  { value: 'Custom Website Development', label: 'Custom Website Development', icon: <Globe size={16} /> },
+  { value: 'E-Commerce Storefront', label: 'E-Commerce Storefront', icon: <ShoppingBag size={16} /> },
+  { value: 'WordPress CMS Development', label: 'WordPress CMS Development', icon: <Layers size={16} /> },
+  { value: 'UI/UX Design & Prototyping', label: 'UI/UX Design & Prototyping', icon: <Palette size={16} /> },
+  { value: 'SEO & Performance Optimization', label: 'SEO & Performance Optimization', icon: <Search size={16} /> },
+  { value: 'Digital Marketing & Growth', label: 'Digital Marketing & Growth', icon: <TrendingUp size={16} /> },
 ];
 
 const budgetRanges = [
-  '₹25,000 – ₹50,000',
-  '₹50,000 – ₹1,50,000',
-  '₹1,50,000 – ₹3,00,000',
-  '₹3,00,000+',
+  { value: '₹25,000 – ₹50,000', label: '₹25,000 – ₹50,000', icon: <Coins size={16} /> },
+  { value: '₹50,000 – ₹1,50,000', label: '₹50,000 – ₹1,50,000', icon: <Wallet size={16} /> },
+  { value: '₹1,50,000 – ₹3,00,000', label: '₹1,50,000 – ₹3,00,000', icon: <Sparkles size={16} /> },
+  { value: '₹3,00,000+', label: '₹3,00,000+', icon: <Rocket size={16} /> },
+];
+
+const timelineOptions = [
+  { value: 'Urgent (< 2 Weeks)', label: 'Urgent (< 2 Weeks)', icon: <Zap size={16} /> },
+  { value: 'Within 1 Month', label: 'Within 1 Month', icon: <Calendar size={16} /> },
+  { value: '1 to 2 Months', label: '1 to 2 Months', icon: <Clock size={16} /> },
+  { value: 'Flexible / Planning Ahead', label: 'Flexible / Planning Ahead', icon: <Hourglass size={16} /> },
 ];
 
 export default function ContactPage() {
@@ -26,9 +53,9 @@ export default function ContactPage() {
     company: '',
     email: '',
     phone: '',
-    service: servicesList[0],
-    budget: budgetRanges[1],
-    timeline: 'Within 1 Month',
+    service: servicesList[0].value,
+    budget: budgetRanges[1].value,
+    timeline: timelineOptions[1].value,
     message: '',
   });
 
@@ -267,12 +294,7 @@ export default function ContactPage() {
                       label="Desired Timeline"
                       value={form.timeline}
                       onChange={handleChange}
-                      options={[
-                        'Urgent (< 2 Weeks)',
-                        'Within 1 Month',
-                        '1 to 2 Months',
-                        'Flexible / Planning Ahead',
-                      ]}
+                      options={timelineOptions}
                       className="field-group"
                     />
                   </div>
