@@ -73,8 +73,7 @@ export default function Footer() {
             </div>
 
             <p className="footer-desc">
-              Engineering <strong className="text-highlight">high-converting corporate web architectures</strong>,
-              scalable headless web applications, and bespoke digital flagship experiences with zero technical debt.
+              Custom web applications, e-commerce storefronts, and digital flagships engineered for scale.
             </p>
 
             {/* ONE-LINED TAGLINE PILL */}
@@ -130,7 +129,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* CONTACT INFO (Executive Channel Cards) */}
+          {/* CONTACT INFO (Clean & Minimalist Contact Cards) */}
           <div className="footer-col">
             <h4 className="footer-heading">Get in Touch</h4>
             <div className="footer-contact-list">
@@ -138,35 +137,21 @@ export default function Footer() {
                 <div className="fcc-icon-wrap fcc-icon-dark">
                   <Phone size={15} strokeWidth={2.2} />
                 </div>
-                <div className="fcc-details">
-                  <span className="fcc-val">{siteConfig.contact.phone}</span>
-                  <span className="fcc-sub">Direct Client Hotline</span>
-                </div>
+                <span className="fcc-val">{siteConfig.contact.phone}</span>
               </a>
 
               <a className="footer-contact-card fcc-card-wa" href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener" id="footer-wa">
                 <div className="fcc-icon-wrap fcc-icon-wa">
                   <MessageCircle size={15} strokeWidth={2.2} />
                 </div>
-                <div className="fcc-details">
-                  <div className="fcc-title-row">
-                    <span className="fcc-val">{siteConfig.contact.phone}</span>
-                    <span className="fcc-live-pill">
-                      <span className="live-pulse-dot" /> Live
-                    </span>
-                  </div>
-                  <span className="fcc-sub">Instant WhatsApp Chat</span>
-                </div>
+                <span className="fcc-val">{siteConfig.contact.phone}</span>
               </a>
 
               <a className="footer-contact-card" href={`mailto:${siteConfig.contact.email}`} id="footer-email">
                 <div className="fcc-icon-wrap fcc-icon-cyan">
                   <Mail size={15} strokeWidth={2.2} />
                 </div>
-                <div className="fcc-details">
-                  <span className="fcc-val">{siteConfig.contact.email}</span>
-                  <span className="fcc-sub">Proposal &amp; RFP Desk</span>
-                </div>
+                <span className="fcc-val">{siteConfig.contact.email}</span>
               </a>
             </div>
           </div>

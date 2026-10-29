@@ -99,10 +99,18 @@ export default function Hero() {
           <div className="bento-card hero-card-sprints">
             <div className="bento-card-top">
               <div className="bento-card-title-group">
-                <span className="bento-icon-box"><Layers size={16} color="#121212" /></span>
-                <strong>Live Project Roadmap</strong>
+                <span className="bento-icon-box sprint-icon-box">
+                  <Layers size={15} color="#EEFD44" />
+                </span>
+                <div className="bento-title-text-wrap">
+                  <strong className="bento-heading-text">Live Project Roadmap</strong>
+                  <span className="bento-title-sub">Sprint Velocity Tracker</span>
+                </div>
               </div>
-              <span className="status-badge-lime">4 Sprints Active</span>
+              <span className="sprint-status-pill-live">
+                <span className="sprint-pulse-beacon" />
+                <span>4 Sprints Active</span>
+              </span>
             </div>
 
             <div className="sprint-rows-list">

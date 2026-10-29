@@ -271,6 +271,63 @@
   justify-content: space-between;
 }
 
+.sprint-icon-box {
+  background: #121212 !important;
+  border: 1px solid #2A2A2A !important;
+  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.18) !important;
+}
+
+.bento-title-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-heading-text {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #121212;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.bento-title-sub {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #7E7C74;
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+.sprint-status-pill-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #121212;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.16);
+  border: 1px solid #262626;
+}
+
+.sprint-pulse-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #EEFD44;
+  box-shadow: 0 0 6px #EEFD44;
+  animation: sprintBeaconPulse 2s infinite;
+}
+
+@keyframes sprintBeaconPulse {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
 .status-badge-lime {
   font-size: 10.5px;
   font-weight: 800;

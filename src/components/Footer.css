@@ -272,35 +272,32 @@
   transform: translate(0, 0);
 }
 
-/* ── EXECUTIVE CONTACT CARDS ── */
+/* ── EXECUTIVE CONTACT ITEMS (Clean, No White Card Background) ── */
 .footer-contact-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
 .footer-contact-card {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: #FFFFFF;
-  border: 1px solid #E2DFD6;
-  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.04);
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   text-decoration: none;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer-contact-card:hover {
-  transform: translateY(-2px);
-  border-color: #D2CEC3;
-  box-shadow: 0 6px 18px rgba(18, 18, 18, 0.08);
+  transform: translateX(4px);
 }
 
 .fcc-icon-wrap {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -314,20 +311,20 @@
 }
 
 .fcc-icon-dark {
-  background: #F4F2EC;
-  border: 1px solid #E5E2DA;
+  background: rgba(18, 18, 18, 0.07);
+  border: 1px solid rgba(18, 18, 18, 0.1);
   color: #121212;
 }
 
 .fcc-icon-wa {
   background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.28);
-  color: #16A34A;
+  border: 1px solid rgba(34, 197, 94, 0.26);
+  color: #15803D;
 }
 
 .fcc-icon-cyan {
   background: rgba(2, 132, 199, 0.1);
-  border: 1px solid rgba(2, 132, 199, 0.25);
+  border: 1px solid rgba(2, 132, 199, 0.22);
   color: #0284C7;
 }
 

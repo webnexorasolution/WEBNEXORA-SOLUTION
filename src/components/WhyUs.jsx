@@ -115,7 +115,6 @@ export default function WhyUs() {
                 <span className="tm-badge tm-badge-lime">Global</span>
               </div>
               <span className="tm-title">Deployments Live</span>
-              <span className="tm-sub">Enterprise &amp; High-Growth</span>
             </div>
           </div>
 
@@ -132,7 +131,6 @@ export default function WhyUs() {
                 <span className="tm-badge tm-badge-green">Recurring</span>
               </div>
               <span className="tm-title">Client Retention</span>
-              <span className="tm-sub">Long-Term Partnerships</span>
             </div>
           </div>
 
@@ -155,7 +153,6 @@ export default function WhyUs() {
                 </div>
               </div>
               <span className="tm-title">5-Star Verified</span>
-              <span className="tm-sub">Clutch &amp; Google Reviews</span>
             </div>
           </div>
 
@@ -170,10 +167,9 @@ export default function WhyUs() {
             <div className="tm-content">
               <div className="tm-val-row">
                 <span className="tm-val">24/7</span>
-                <span className="tm-badge tm-badge-cyan">Active QA</span>
+                <span className="tm-badge tm-badge-cyan">Active</span>
               </div>
-              <span className="tm-title">Dedicated Engineering</span>
-              <span className="tm-sub">Direct Sprint Channels</span>
+              <span className="tm-title">Dedicated Support</span>
             </div>
           </div>
 
