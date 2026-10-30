@@ -266,12 +266,12 @@
   flex-shrink: 0;
 }
 
-/* ── CARD 2: PRODUCTION VELOCITY / SPRINTS ── */
+/* ── CARD 2: SPRINT ROADMAP & MILESTONE TIMELINE ── */
 .hero-card-sprints {
   justify-content: space-between;
 }
 
-.sprint-icon-box {
+.roadmap-icon-box {
   background: #F4F2EC !important;
   border: 1px solid #EAE7DE !important;
   color: #121212 !important;
@@ -327,121 +327,125 @@
   50% { transform: scale(1.35); opacity: 0.55; }
 }
 
-/* Sprints Unified List Container (eliminates boxes-inside-boxes) */
-.sprint-rows-container {
+/* Visual Milestone Stages Stack */
+.milestone-stages-stack {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  margin: 6px 0 14px;
   background: #FAF8F5;
   border: 1px solid #EAE7DE;
-  border-radius: 16px;
-  overflow: hidden;
-  margin: 6px 0 14px;
+  border-radius: 18px;
+  padding: 16px 16px;
 }
 
-.sprint-item {
+.milestone-stage-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.milestone-row-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 11px 14px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #EAE7DE;
-  border-radius: 0;
-  box-shadow: none;
-  transition: background 0.18s ease;
 }
 
-.sprint-item:last-child {
-  border-bottom: none;
-}
-
-.sprint-item:hover {
-  background: #FFFFFF;
-  transform: none;
-  box-shadow: none;
-}
-
-.sprint-item-main {
+.milestone-label-group {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 9px;
 }
 
-.sprint-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: #FFFFFF;
-  border: 1px solid #E2DFD6;
-  color: #121212;
+/* Step badges */
+.milestone-step-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
   flex-shrink: 0;
 }
 
-.sprint-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.milestone-step-badge.done {
+  background: #121212;
+  color: #EEFD44;
 }
 
-.sprint-info strong {
+.milestone-step-badge.active {
+  background: #121212;
+  position: relative;
+}
+
+.badge-pulse-inner {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EEFD44;
+  box-shadow: 0 0 6px #EEFD44;
+  animation: radarPing 1.8s infinite ease-in-out;
+}
+
+.milestone-step-badge.queued {
+  background: #EAE7DE;
+  color: #7E7C74;
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+/* Label text */
+.milestone-name {
   font-size: 13px;
   font-weight: 700;
   color: #121212;
   letter-spacing: -0.012em;
 }
 
-.sprint-tags {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: #7A786F;
-  font-weight: 500;
-}
-
-.sprint-tech {
-  color: #383630;
+.stage-queued .milestone-name {
+  color: #78766E;
   font-weight: 600;
 }
 
-.sprint-sep {
-  color: #CAC6BB;
-  font-size: 10px;
+/* Right indicators */
+.milestone-pct {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
-.sprint-phase {
-  color: #7A786F;
+.milestone-pct.done {
+  color: #15803D;
+  background: #E8F7ED;
+  padding: 2px 7px;
+  border-radius: 6px;
 }
 
-/* SPRINT STATUS BADGES (Refined, Crisp, Consistent Hierarchy) */
-.sprint-status-wrap {
-  flex-shrink: 0;
+.milestone-pct.queued {
+  color: #8C8980;
+  background: #F0EEE7;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 10.5px;
 }
 
-.sprint-status-badge {
+.milestone-badge-pill.active {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-/* 1. Live QA: Jet-Black Capsule with Neon Lime Ping */
-.status-badge-live {
+  font-size: 11px;
+  font-weight: 800;
   background: #121212;
   color: #FFFFFF;
-  border: 1px solid #121212;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  letter-spacing: -0.01em;
 }
 
-.status-badge-live .badge-dot {
+.pill-pulse-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -455,33 +459,44 @@
   50% { transform: scale(1.35); opacity: 0.55; }
 }
 
-/* 2. In Progress: Jet-Black Capsule with Emerald Signal */
-.status-badge-confirmed {
+/* Progress bar track & fills */
+.milestone-bar-track {
+  width: 100%;
+  height: 6px;
+  background: #EAE7DE;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.milestone-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.milestone-bar-fill.done {
   background: #121212;
-  color: #FFFFFF;
-  border: 1px solid #121212;
 }
 
-.status-badge-confirmed .badge-dot {
-  width: 6px;
-  height: 6px;
+.milestone-bar-fill.active {
+  background: linear-gradient(90deg, #121212 0%, #2A2A2A 50%, #EEFD44 100%);
+}
+
+.bar-spark-glow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: #EEFD44;
+  box-shadow: 0 0 8px #EEFD44;
   border-radius: 50%;
-  background: #22C55E;
-  box-shadow: 0 0 5px rgba(34, 197, 94, 0.85);
 }
 
-/* 3. Scheduled: Warm Sandstone Capsule */
-.status-badge-scheduled {
-  background: #F4F2EC;
-  color: #55534D;
-  border: 1px solid #E2DFD6;
-}
-
-.status-badge-scheduled .badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #A3A096;
+.milestone-bar-fill.queued {
+  background: transparent;
 }
 
 /* Bottom Guarantee Bar */

@@ -95,87 +95,75 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Bento Card 2: PRODUCTION VELOCITY & SPRINT CARD */}
+          {/* Bento Card 2: PRODUCTION VELOCITY & SPRINT ROADMAP */}
           <div className="bento-card hero-card-sprints">
             <div className="bento-card-top">
               <div className="bento-card-title-group">
-                <span className="bento-icon-box sprint-icon-box">
-                  <Layers size={14} strokeWidth={2.2} />
+                <span className="bento-icon-box roadmap-icon-box">
+                  <Activity size={14} strokeWidth={2.4} />
                 </span>
                 <div className="bento-title-text-wrap">
                   <strong className="bento-heading-text">
-                    Live Project <span className="title-highlight">Roadmap.</span>
+                    Sprint <span className="title-highlight">Roadmap.</span>
                   </strong>
-                  <span className="bento-title-sub">Active Production Queue</span>
+                  <span className="bento-title-sub">Live Production Velocity</span>
                 </div>
               </div>
               <span className="sprint-status-pill-live">
                 <span className="sprint-pulse-beacon" />
-                <span>3 Active Sprints</span>
+                <span>Sprint 02 Active</span>
               </span>
             </div>
 
-            <div className="sprint-rows-container">
-              <div className="sprint-item">
-                <div className="sprint-item-main">
-                  <div className="sprint-avatar">
-                    <ShoppingBag size={14} strokeWidth={2.2} />
+            {/* Visual Milestone Stages Stack */}
+            <div className="milestone-stages-stack">
+              {/* Stage 1: Completed */}
+              <div className="milestone-stage-row stage-completed">
+                <div className="milestone-row-top">
+                  <div className="milestone-label-group">
+                    <span className="milestone-step-badge done">
+                      <Check size={11} strokeWidth={3} />
+                    </span>
+                    <span className="milestone-name">UI/UX & Design Architecture</span>
                   </div>
-                  <div className="sprint-info">
-                    <strong>Luxury E-Commerce Flagship</strong>
-                    <div className="sprint-tags">
-                      <span className="sprint-tech">Shopify Headless</span>
-                      <span className="sprint-sep">/</span>
-                      <span className="sprint-phase">Launch Phase</span>
-                    </div>
-                  </div>
+                  <span className="milestone-pct done">100%</span>
                 </div>
-                <div className="sprint-status-wrap">
-                  <span className="sprint-status-badge status-badge-live">
-                    <span className="badge-dot" /> Live QA
-                  </span>
+                <div className="milestone-bar-track">
+                  <div className="milestone-bar-fill done" style={{ width: '100%' }} />
                 </div>
               </div>
 
-              <div className="sprint-item">
-                <div className="sprint-item-main">
-                  <div className="sprint-avatar">
-                    <Activity size={14} strokeWidth={2.2} />
+              {/* Stage 2: Active Production */}
+              <div className="milestone-stage-row stage-active">
+                <div className="milestone-row-top">
+                  <div className="milestone-label-group">
+                    <span className="milestone-step-badge active">
+                      <span className="badge-pulse-inner" />
+                    </span>
+                    <span className="milestone-name">Full-Stack & Headless Dev</span>
                   </div>
-                  <div className="sprint-info">
-                    <strong>Fintech SaaS Platform</strong>
-                    <div className="sprint-tags">
-                      <span className="sprint-tech">Next.js + TS</span>
-                      <span className="sprint-sep">/</span>
-                      <span className="sprint-phase">Sprint 3</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="sprint-status-wrap">
-                  <span className="sprint-status-badge status-badge-confirmed">
-                    <span className="badge-dot" /> In Progress
+                  <span className="milestone-badge-pill active">
+                    <span className="pill-pulse-dot" /> 85% Active
                   </span>
+                </div>
+                <div className="milestone-bar-track">
+                  <div className="milestone-bar-fill active" style={{ width: '85%' }}>
+                    <span className="bar-spark-glow" />
+                  </div>
                 </div>
               </div>
 
-              <div className="sprint-item">
-                <div className="sprint-item-main">
-                  <div className="sprint-avatar">
-                    <Compass size={14} strokeWidth={2.2} />
+              {/* Stage 3: Queued for Launch */}
+              <div className="milestone-stage-row stage-queued">
+                <div className="milestone-row-top">
+                  <div className="milestone-label-group">
+                    <span className="milestone-step-badge queued">03</span>
+                    <span className="milestone-name">Core Web Vitals & Launch QA</span>
                   </div>
-                  <div className="sprint-info">
-                    <strong>Global Advisory Portal</strong>
-                    <div className="sprint-tags">
-                      <span className="sprint-tech">Design System</span>
-                      <span className="sprint-sep">/</span>
-                      <span className="sprint-phase">Final Review</span>
-                    </div>
-                  </div>
+                  <span className="milestone-pct queued">Next</span>
                 </div>
-                <div className="sprint-status-wrap">
-                  <span className="sprint-status-badge status-badge-scheduled">
-                    <span className="badge-dot" /> Scheduled
-                  </span>
+                <div className="milestone-bar-track">
+                  <div className="milestone-bar-fill queued" style={{ width: '0%' }} />
                 </div>
               </div>
             </div>
@@ -183,10 +171,10 @@ export default function Hero() {
             <div className="delivery-guarantee-strip">
               <div className="guarantee-meta">
                 <ShieldCheck size={14} className="guarantee-icon" />
-                <span>On-Time Milestone SLA</span>
+                <span>Avg. Sprint: <strong>14–18 Days</strong></span>
               </div>
               <span className="guarantee-badge">
-                <span className="guarantee-dot">●</span> 100% Guaranteed
+                <span className="guarantee-dot">●</span> 100% On-Time SLA
               </span>
             </div>
           </div>
