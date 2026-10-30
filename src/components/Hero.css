@@ -272,9 +272,10 @@
 }
 
 .sprint-icon-box {
-  background: #121212 !important;
-  border: 1px solid #2A2A2A !important;
-  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.18) !important;
+  background: #F4F2EC !important;
+  border: 1px solid #EAE7DE !important;
+  color: #121212 !important;
+  box-shadow: none !important;
 }
 
 .bento-title-text-wrap {
@@ -284,8 +285,8 @@
 
 .bento-heading-text {
   font-family: var(--font-heading);
-  font-size: 14.5px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   color: #121212;
   letter-spacing: -0.015em;
   line-height: 1.2;
@@ -303,93 +304,80 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #121212;
-  color: #FFFFFF;
+  background: #F4F2EC;
+  color: #121212;
   font-size: 11px;
   font-weight: 700;
   padding: 4px 11px;
   border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.16);
-  border: 1px solid #262626;
+  border: 1px solid #E2DFD6;
 }
 
 .sprint-pulse-beacon {
-  width: 6px;
-  height: 6px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background: #EEFD44;
-  box-shadow: 0 0 6px #EEFD44;
-  animation: sprintBeaconPulse 2s infinite;
+  background: #22C55E;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.85);
+  animation: sprintBeaconPulse 2s infinite ease-in-out;
 }
 
 @keyframes sprintBeaconPulse {
-  0% { transform: scale(0.9); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.5; }
-  100% { transform: scale(0.9); opacity: 1; }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.55; }
 }
 
-.status-badge-lime {
-  font-size: 10.5px;
-  font-weight: 800;
-  background: var(--lime);
-  color: #121212;
-  padding: 4px 10px;
-  border-radius: 9999px;
-}
-
-.sprint-rows-list {
+/* Sprints Unified List Container (eliminates boxes-inside-boxes) */
+.sprint-rows-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
+  background: #FAF8F5;
+  border: 1px solid #EAE7DE;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 6px 0 14px;
 }
 
 .sprint-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 11px 15px;
-  background: #FFFFFF;
-  border: 1px solid #EAE7DE;
-  border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.03);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 11px 14px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #EAE7DE;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.18s ease;
+}
+
+.sprint-item:last-child {
+  border-bottom: none;
 }
 
 .sprint-item:hover {
-  border-color: #121212;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px -4px rgba(18, 18, 18, 0.08);
+  background: #FFFFFF;
+  transform: none;
+  box-shadow: none;
 }
 
 .sprint-item-main {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
 }
 
 .sprint-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: #121212;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #E2DFD6;
+  color: #121212;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.25);
-}
-
-.sprint-avatar-lime {
-  color: #EEFD44;
-}
-
-.sprint-avatar-cyan {
-  color: #38BDF8;
-}
-
-.sprint-avatar-purple {
-  color: #C084FC;
 }
 
 .sprint-info {
@@ -399,35 +387,36 @@
 }
 
 .sprint-info strong {
-  font-size: 13.5px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
   color: #121212;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.012em;
 }
 
 .sprint-tags {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-size: 11px;
   color: #7A786F;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .sprint-tech {
   color: #383630;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .sprint-sep {
-  color: #C8C5BC;
+  color: #CAC6BB;
+  font-size: 10px;
 }
 
 .sprint-phase {
-  color: #8C8980;
+  color: #7A786F;
 }
 
-/* EXECUTIVE SPRINT STATUS BADGES (Signature High-Contrast Capsules) */
+/* SPRINT STATUS BADGES (Refined, Crisp, Consistent Hierarchy) */
 .sprint-status-wrap {
   flex-shrink: 0;
 }
@@ -435,30 +424,29 @@
 .sprint-status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
+  gap: 5px;
+  padding: 4px 10px;
   border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: -0.01em;
   white-space: nowrap;
   transition: all 0.2s ease;
 }
 
-/* 1. Live QA: Jet-Black Capsule with Neon Lime Radar Pulse */
+/* 1. Live QA: Jet-Black Capsule with Neon Lime Ping */
 .status-badge-live {
   background: #121212;
   color: #FFFFFF;
   border: 1px solid #121212;
-  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.22);
 }
 
 .status-badge-live .badge-dot {
-  width: 6.5px;
-  height: 6.5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #EEFD44;
-  box-shadow: 0 0 7px #EEFD44;
+  box-shadow: 0 0 6px #EEFD44;
   animation: radarPing 1.8s infinite ease-in-out;
 }
 
@@ -467,50 +455,74 @@
   50% { transform: scale(1.35); opacity: 0.55; }
 }
 
-/* 2. Confirmed: Jet-Black Capsule with Emerald Signal */
+/* 2. In Progress: Jet-Black Capsule with Emerald Signal */
 .status-badge-confirmed {
   background: #121212;
   color: #FFFFFF;
   border: 1px solid #121212;
-  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.18);
 }
 
 .status-badge-confirmed .badge-dot {
-  width: 6.5px;
-  height: 6.5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #22C55E;
-  box-shadow: 0 0 6px rgba(34, 197, 94, 0.85);
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.85);
 }
 
 /* 3. Scheduled: Warm Sandstone Capsule */
 .status-badge-scheduled {
   background: #F4F2EC;
-  color: #4A4841;
+  color: #55534D;
   border: 1px solid #E2DFD6;
 }
 
 .status-badge-scheduled .badge-dot {
-  width: 6.5px;
-  height: 6.5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #8C8980;
+  background: #A3A096;
 }
 
+/* Bottom Guarantee Bar */
 .delivery-guarantee-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  border-top: 1px solid #EFECE5;
+  padding-top: 12px;
+  border-top: 1px solid #EAE7DE;
+}
+
+.guarantee-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 11.5px;
-  color: #7A786F;
+  color: #55534D;
   font-weight: 600;
 }
 
-.delivery-guarantee-strip strong {
+.guarantee-icon {
+  color: #15803D;
+  flex-shrink: 0;
+}
+
+.guarantee-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
   color: #121212;
-  font-weight: 800;
+  background: #F4F2EC;
+  padding: 3px 9px;
+  border-radius: 6px;
+  border: 1px solid #E2DFD6;
+}
+
+.guarantee-dot {
+  color: #15803D;
+  font-size: 9px;
 }
 
 /* ── CARD 3: SPEED & LIGHTHOUSE SCORE ── */

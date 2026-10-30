@@ -100,30 +100,32 @@ export default function Hero() {
             <div className="bento-card-top">
               <div className="bento-card-title-group">
                 <span className="bento-icon-box sprint-icon-box">
-                  <Layers size={15} color="#EEFD44" />
+                  <Layers size={14} strokeWidth={2.2} />
                 </span>
                 <div className="bento-title-text-wrap">
-                  <strong className="bento-heading-text">Live Project Roadmap</strong>
-                  <span className="bento-title-sub">Sprint Velocity Tracker</span>
+                  <strong className="bento-heading-text">
+                    Live Project <span className="title-highlight">Roadmap.</span>
+                  </strong>
+                  <span className="bento-title-sub">Active Production Queue</span>
                 </div>
               </div>
               <span className="sprint-status-pill-live">
                 <span className="sprint-pulse-beacon" />
-                <span>4 Sprints Active</span>
+                <span>3 Active Sprints</span>
               </span>
             </div>
 
-            <div className="sprint-rows-list">
+            <div className="sprint-rows-container">
               <div className="sprint-item">
                 <div className="sprint-item-main">
-                  <div className="sprint-avatar sprint-avatar-lime">
-                    <ShoppingBag size={14} />
+                  <div className="sprint-avatar">
+                    <ShoppingBag size={14} strokeWidth={2.2} />
                   </div>
                   <div className="sprint-info">
-                    <strong>Luxury E-Commerce</strong>
+                    <strong>Luxury E-Commerce Flagship</strong>
                     <div className="sprint-tags">
                       <span className="sprint-tech">Shopify Headless</span>
-                      <span className="sprint-sep">·</span>
+                      <span className="sprint-sep">/</span>
                       <span className="sprint-phase">Launch Phase</span>
                     </div>
                   </div>
@@ -137,35 +139,35 @@ export default function Hero() {
 
               <div className="sprint-item">
                 <div className="sprint-item-main">
-                  <div className="sprint-avatar sprint-avatar-cyan">
-                    <Activity size={14} />
+                  <div className="sprint-avatar">
+                    <Activity size={14} strokeWidth={2.2} />
                   </div>
                   <div className="sprint-info">
                     <strong>Fintech SaaS Platform</strong>
                     <div className="sprint-tags">
                       <span className="sprint-tech">Next.js + TS</span>
-                      <span className="sprint-sep">·</span>
+                      <span className="sprint-sep">/</span>
                       <span className="sprint-phase">Sprint 3</span>
                     </div>
                   </div>
                 </div>
                 <div className="sprint-status-wrap">
                   <span className="sprint-status-badge status-badge-confirmed">
-                    <span className="badge-dot" /> Confirmed
+                    <span className="badge-dot" /> In Progress
                   </span>
                 </div>
               </div>
 
               <div className="sprint-item">
                 <div className="sprint-item-main">
-                  <div className="sprint-avatar sprint-avatar-purple">
-                    <Compass size={14} />
+                  <div className="sprint-avatar">
+                    <Compass size={14} strokeWidth={2.2} />
                   </div>
                   <div className="sprint-info">
-                    <strong>Global Consulting Portal</strong>
+                    <strong>Global Advisory Portal</strong>
                     <div className="sprint-tags">
                       <span className="sprint-tech">Design System</span>
-                      <span className="sprint-sep">·</span>
+                      <span className="sprint-sep">/</span>
                       <span className="sprint-phase">Final Review</span>
                     </div>
                   </div>
@@ -179,8 +181,13 @@ export default function Hero() {
             </div>
 
             <div className="delivery-guarantee-strip">
-              <span>On-Time Milestone Guarantee</span>
-              <strong>100%</strong>
+              <div className="guarantee-meta">
+                <ShieldCheck size={14} className="guarantee-icon" />
+                <span>On-Time Milestone SLA</span>
+              </div>
+              <span className="guarantee-badge">
+                <span className="guarantee-dot">●</span> 100% Guaranteed
+              </span>
             </div>
           </div>
 
