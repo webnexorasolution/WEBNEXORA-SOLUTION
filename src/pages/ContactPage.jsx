@@ -19,6 +19,10 @@ import {
   Zap,
   Calendar,
   Hourglass,
+  Lock,
+  Check,
+  AlertCircle,
+  ShieldCheck,
 } from 'lucide-react';
 import CustomSelect from '../components/ui/CustomSelect';
 import siteConfig from '../config/site';
@@ -57,19 +61,42 @@ export default function ContactPage() {
     service: servicesList[0].value,
     budget: budgetRanges[1].value,
     timeline: timelineOptions[1].value,
+    website: '',
     message: '',
   });
 
+  const [formErrors, setFormErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submittedInquiry, setSubmittedInquiry] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (formErrors[e.target.name]) {
+      setFormErrors({ ...formErrors, [e.target.name]: null });
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    if (!form.name.trim()) errors.name = 'Full name is required';
+    if (!form.email.trim()) {
+      errors.email = 'Work email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errors.email = 'Enter a valid email address';
+    }
+    if (!form.message.trim()) errors.message = 'Please provide project details';
+    return errors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
     setSubmitting(true);
     try {
       const saved = await inquiryService.saveInquiry({
@@ -80,6 +107,7 @@ export default function ContactPage() {
         service: form.service,
         budget: form.budget,
         timeline: form.timeline,
+        website: form.website,
         message: form.message,
         source: 'Contact Scope Planner',
       });
@@ -88,6 +116,7 @@ export default function ContactPage() {
         referenceId: `#WN-${Date.now().toString().slice(-5)}`,
       });
       setSubmitted(true);
+      setFormErrors({});
       setForm({
         name: '',
         company: '',
@@ -96,10 +125,12 @@ export default function ContactPage() {
         service: servicesList[0].value,
         budget: budgetRanges[1].value,
         timeline: timelineOptions[1].value,
+        website: '',
         message: '',
       });
     } catch (err) {
       console.error('Failed to submit inquiry:', err);
+      setFormErrors({ submit: err.message || 'Submission failed. Please try again.' });
     } finally {
       setSubmitting(false);
     }
@@ -331,7 +362,7 @@ export default function ContactPage() {
               ) : (
                 <form className="planner-form" onSubmit={handleSubmit} noValidate>
                   <div className="planner-header">
-                    <div className="eyebrow" style={{ marginBottom: '12px' }}>
+                    <div className="eyebrow" style={{ marginBottom: '10px' }}>
                       <span className="eyebrow-dot" /> Fast Scope Intake
                     </div>
                     <h3>
@@ -340,9 +371,19 @@ export default function ContactPage() {
                     <p>Provide details to receive an exact roadmap and fixed proposal.</p>
                   </div>
 
+                  {Object.keys(formErrors).length > 0 && (
+                    <div className="form-error-banner" role="alert">
+                      <AlertCircle size={16} />
+                      <span>{formErrors.submit || 'Please complete all required fields highlighted below.'}</span>
+                    </div>
+                  )}
+
                   <div className="form-row-2">
-                    <div className="field-group">
-                      <label htmlFor="cp-name">Full Name *</label>
+                    <div className={`field-group ${formErrors.name ? 'has-error' : ''}`}>
+                      <label htmlFor="cp-name">
+                        Full Name *
+                        {formErrors.name && <span className="field-err-hint">({formErrors.name})</span>}
+                      </label>
                       <input
                         id="cp-name"
                         type="text"
@@ -367,8 +408,11 @@ export default function ContactPage() {
                   </div>
 
                   <div className="form-row-2">
-                    <div className="field-group">
-                      <label htmlFor="cp-email">Work Email *</label>
+                    <div className={`field-group ${formErrors.email ? 'has-error' : ''}`}>
+                      <label htmlFor="cp-email">
+                        Work Email *
+                        {formErrors.email && <span className="field-err-hint">({formErrors.email})</span>}
+                      </label>
                       <input
                         id="cp-email"
                         type="email"
@@ -424,13 +468,29 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {/* EXISTING WEBSITE / REFERENCE URL */}
                   <div className="field-group">
-                    <label htmlFor="cp-message">Project Overview &amp; Goals *</label>
+                    <label htmlFor="cp-website">Current Website / Reference Link <span className="label-sub">(Optional)</span></label>
+                    <input
+                      id="cp-website"
+                      type="url"
+                      name="website"
+                      placeholder="https://yourbrand.com or existing site"
+                      value={form.website}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className={`field-group ${formErrors.message ? 'has-error' : ''}`}>
+                    <label htmlFor="cp-message">
+                      Project Overview &amp; Requirements *
+                      {formErrors.message && <span className="field-err-hint">({formErrors.message})</span>}
+                    </label>
                     <textarea
                       id="cp-message"
                       name="message"
                       rows={4}
-                      placeholder="Tell us about your project, target audience, and key requirements..."
+                      placeholder="Tell us about your project, target audience, core deliverables, and key goals..."
                       value={form.message}
                       onChange={handleChange}
                       required
@@ -442,10 +502,14 @@ export default function ContactPage() {
                     type="submit"
                     id="cp-submit-btn"
                     disabled={submitting}
-                    style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
                   >
                     {submitting ? 'Submitting Scope...' : 'Submit Project Inquiry'} <ArrowUpRight size={16} />
                   </button>
+
+                  <div className="planner-security-note">
+                    <Lock size={12} strokeWidth={2.4} />
+                    <span>100% Confidential • NDA Available on Request • Reply &lt; 2 hrs</span>
+                  </div>
                 </form>
               )}
             </div>

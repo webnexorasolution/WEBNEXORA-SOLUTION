@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MessageCircle, Mail, ArrowUpRight, Lock, Sparkles, ShieldCheck } from 'lucide-react';
+import { Phone, MessageCircle, Mail, ArrowUpRight, Lock, Sparkles, ShieldCheck, Copy, Check } from 'lucide-react';
 import siteConfig from '../config/site';
 import './Footer.css';
 
@@ -24,6 +25,16 @@ const serviceLinks = [
 ];
 
 export default function Footer() {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(siteConfig.contact.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
   return (
     <footer className="footer" id="footer">
       {/* ELEVATED CTA BAR */}
@@ -153,12 +164,24 @@ export default function Footer() {
                 <span className="fcc-val">{siteConfig.contact.phone}</span>
               </a>
 
-              <a className="footer-contact-card" href={`mailto:${siteConfig.contact.email}`} id="footer-email">
-                <div className="fcc-icon-wrap fcc-icon-cyan">
-                  <Mail size={15} strokeWidth={2.2} />
-                </div>
-                <span className="fcc-val">{siteConfig.contact.email}</span>
-              </a>
+              <div className="footer-contact-card footer-email-card" id="footer-email">
+                <a href={`mailto:${siteConfig.contact.email}`} className="footer-email-link">
+                  <div className="fcc-icon-wrap fcc-icon-cyan">
+                    <Mail size={15} strokeWidth={2.2} />
+                  </div>
+                  <span className="fcc-val">{siteConfig.contact.email}</span>
+                </a>
+                <button
+                  type="button"
+                  className="footer-copy-btn"
+                  onClick={handleCopyEmail}
+                  title="Copy email to clipboard"
+                  aria-label="Copy email to clipboard"
+                >
+                  {copiedEmail ? <Check size={13} color="#22C55E" /> : <Copy size={13} />}
+                  <span className="copy-tooltip">{copiedEmail ? 'Copied!' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -173,6 +196,7 @@ export default function Footer() {
               <span className="status-ping-dot" />
               <span>All Systems Operational</span>
             </div>
+            <span className="footer-last-updated">Updated: Oct 2026</span>
           </div>
 
           <div className="footer-legal">

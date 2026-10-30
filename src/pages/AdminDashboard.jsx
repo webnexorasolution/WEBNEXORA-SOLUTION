@@ -28,6 +28,7 @@ import {
   ChevronDown,
   Check,
   Globe,
+  AlertTriangle,
 } from 'lucide-react';
 import inquiryService from '../services/inquiryService';
 import siteConfig from '../config/site';
@@ -125,6 +126,7 @@ export default function AdminDashboard() {
   const [statusFilter, setStatusFilter] = useState('All');
   const [serviceFilter, setServiceFilter] = useState('All');
   const [activeInquiry, setActiveInquiry] = useState(null);
+  const [leadToDelete, setLeadToDelete] = useState(null);
   const [notification, setNotification] = useState('');
 
   // Load inquiries
@@ -182,14 +184,20 @@ export default function AdminDashboard() {
     }
   };
 
-  // Delete inquiry
+  // Delete inquiry request
   const handleDelete = (id, name) => {
-    if (window.confirm(`Are you sure you want to delete inquiry from "${name}"?`)) {
-      inquiryService.deleteInquiry(id);
-      showNotification(`Deleted inquiry from ${name}`);
-      if (activeInquiry && activeInquiry.id === id) {
+    setLeadToDelete({ id, name });
+  };
+
+  // Confirmed delete execution
+  const confirmDelete = () => {
+    if (leadToDelete) {
+      inquiryService.deleteInquiry(leadToDelete.id);
+      showNotification(`Deleted inquiry from ${leadToDelete.name}`);
+      if (activeInquiry && activeInquiry.id === leadToDelete.id) {
         setActiveInquiry(null);
       }
+      setLeadToDelete(null);
     }
   };
 
@@ -701,6 +709,38 @@ export default function AdminDashboard() {
               </div>
               <button className="btn-secondary" onClick={() => setActiveInquiry(null)}>
                 Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* DELETE CONFIRMATION MODAL */}
+      {leadToDelete && (
+        <div className="admin-modal-backdrop" onClick={() => setLeadToDelete(null)}>
+          <div className="admin-confirm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-icon-danger">
+              <AlertTriangle size={26} color="#DC2626" strokeWidth={2.4} />
+            </div>
+            <h4>Confirm Lead Deletion</h4>
+            <p>
+              Are you sure you want to permanently delete the inquiry from <strong>"{leadToDelete.name}"</strong>?
+              This record will be removed from your active agency pipeline.
+            </p>
+            <div className="admin-confirm-actions">
+              <button
+                type="button"
+                className="btn-cancel-modal"
+                onClick={() => setLeadToDelete(null)}
+              >
+                Keep Record
+              </button>
+              <button
+                type="button"
+                className="btn-delete-confirm"
+                onClick={confirmDelete}
+              >
+                Delete Lead
               </button>
             </div>
           </div>

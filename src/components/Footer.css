@@ -401,6 +401,58 @@
   white-space: nowrap;
 }
 
+.footer-email-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.footer-email-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  overflow: hidden;
+}
+
+.footer-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #F4F2EC;
+  border: 1px solid #E2DFD6;
+  color: #55534B;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.footer-copy-btn:hover {
+  background: #121212;
+  color: #FFFFFF;
+  border-color: #121212;
+}
+
+.copy-tooltip {
+  display: none;
+}
+
+.footer-last-updated {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7E7C74;
+  padding: 3px 10px;
+  background: #EAE7DE;
+  border-radius: 9999px;
+  margin-left: 6px;
+}
+
 /* ── BOTTOM BAR (Elite Studio Signature Bar) ── */
 .footer-bottom {
   padding: 24px 0;

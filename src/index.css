@@ -455,3 +455,47 @@ img {
 .mt-2 {
   margin-top: 10px;
 }
+
+/* ========================================================
+   PRINT STYLESHEET (Item 10)
+   Optimizes agency briefs, case studies & quotes for clean PDF export
+   ======================================================== */
+@media print {
+  nav,
+  .navbar,
+  footer,
+  .scroll-top-btn,
+  .scroll-progress-bar,
+  .cookie-banner,
+  .skip-to-content,
+  .channel-action-btn,
+  .submit-scope-btn,
+  .dossier-footer-actions,
+  .admin-topbar-actions {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #121212 !important;
+    font-size: 12pt !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .bento-card,
+  .glass-card,
+  .planner-card {
+    box-shadow: none !important;
+    border: 1px solid #D1D5DB !important;
+    page-break-inside: avoid !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+    color: #121212 !important;
+  }
+}

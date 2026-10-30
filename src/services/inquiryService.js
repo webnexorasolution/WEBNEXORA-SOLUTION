@@ -65,6 +65,28 @@ const INITIAL_INQUIRIES = [
   },
 ];
 
+import { getStoredUTMParams } from '../utils/utmTracker';
+
+// Basic XSS sanitization
+function sanitizeText(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .trim();
+}
+
+// Prevent CSV Formula Injection in spreadsheets
+function sanitizeCSVCell(str) {
+  if (!str) return '""';
+  const clean = String(str).replace(/"/g, '""');
+  if (/^[=+\-@\t\r]/.test(clean)) {
+    return `"'${clean}"`;
+  }
+  return `"${clean}"`;
+}
+
+// ── Service Definition ──
 export const inquiryService = {
   // Load all inquiries from LocalStorage (or initial seed)
   getInquiries() {
@@ -76,35 +98,60 @@ export const inquiryService = {
       }
       return JSON.parse(data);
     } catch (e) {
-      console.error('Error reading inquiries:', e);
       return INITIAL_INQUIRIES;
     }
   },
 
-  // Save new client inquiry directly into DB
+  // Save new client inquiry directly into DB with security & UTM tags
   async saveInquiry(inquiryData) {
+    // 1. Client-Side Rate Limiting (Anti-spam cooldown 15s)
+    const lastSubTime = Number(localStorage.getItem('webnexora_last_sub_time') || 0);
+    const now = Date.now();
+    if (now - lastSubTime < 15000) {
+      const waitSec = Math.ceil((15000 - (now - lastSubTime)) / 1000);
+      throw new Error(`Please wait ${waitSec}s before submitting another inquiry.`);
+    }
+
+    // 2. Capture session UTM attribution
+    const utm = getStoredUTMParams();
+
+    // 3. Sanitize inputs against XSS
+    const sanitizedName = sanitizeText(inquiryData.name) || 'Anonymous';
+    const sanitizedCompany = sanitizeText(inquiryData.company) || 'Direct Client';
+    const sanitizedEmail = sanitizeText(inquiryData.email);
+    const sanitizedPhone = sanitizeText(inquiryData.phone);
+    const sanitizedService = sanitizeText(inquiryData.service) || 'Website Development';
+    const sanitizedBudget = sanitizeText(inquiryData.budget) || 'Flexible';
+    const sanitizedTimeline = sanitizeText(inquiryData.timeline) || 'Flexible';
+    const sanitizedMessage = sanitizeText(inquiryData.message);
+
     const inquiries = this.getInquiries();
     const newInquiry = {
-      id: `inq-${Date.now()}`,
-      name: inquiryData.name || 'Anonymous',
-      company: inquiryData.company || 'Direct Client',
-      email: inquiryData.email || '',
-      phone: inquiryData.phone || '',
-      service: inquiryData.service || 'Website Development',
-      budget: inquiryData.budget || 'Flexible',
-      timeline: inquiryData.timeline || 'Flexible',
-      message: inquiryData.message || '',
+      id: `inq-${now}`,
+      name: sanitizedName,
+      company: sanitizedCompany,
+      email: sanitizedEmail,
+      phone: sanitizedPhone,
+      service: sanitizedService,
+      budget: sanitizedBudget,
+      timeline: sanitizedTimeline,
+      preferredContact: sanitizeText(inquiryData.preferredContact) || 'WhatsApp',
+      deliverables: Array.isArray(inquiryData.deliverables) ? inquiryData.deliverables.map(sanitizeText) : [],
+      message: sanitizedMessage,
       status: 'New',
       createdAt: new Date().toISOString(),
       source: inquiryData.source || 'Website Lead',
+      utmSource: utm.utm_source || 'organic',
+      utmCampaign: utm.utm_campaign || 'direct',
     };
 
     const updated = [newInquiry, ...inquiries];
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      localStorage.setItem('webnexora_last_sub_time', String(now));
       window.dispatchEvent(new Event('webnexora_inquiry_updated'));
     } catch (e) {
-      console.error('Error saving inquiry locally:', e);
+      console.error('Local DB persistence error:', e.message);
     }
 
     // Optional remote Supabase DB sync if configured
@@ -136,7 +183,7 @@ export const inquiryService = {
           }),
         });
       } catch (err) {
-        console.warn('Remote DB sync fallback to local store:', err.message);
+        // Fallback gracefully to local store
       }
     }
 
@@ -170,17 +217,17 @@ export const inquiryService = {
 
     const headers = ['ID', 'Date', 'Name', 'Company', 'Email', 'Phone', 'Service', 'Budget', 'Timeline', 'Status', 'Message'];
     const rows = inquiries.map((i) => [
-      i.id,
-      new Date(i.createdAt).toLocaleString(),
-      `"${(i.name || '').replace(/"/g, '""')}"`,
-      `"${(i.company || '').replace(/"/g, '""')}"`,
-      i.email,
-      i.phone,
-      `"${i.service || ''}"`,
-      `"${i.budget || ''}"`,
-      `"${i.timeline || ''}"`,
-      i.status,
-      `"${(i.message || '').replace(/"/g, '""')}"`,
+      sanitizeCSVCell(i.id),
+      sanitizeCSVCell(new Date(i.createdAt).toLocaleString()),
+      sanitizeCSVCell(i.name),
+      sanitizeCSVCell(i.company),
+      sanitizeCSVCell(i.email),
+      sanitizeCSVCell(i.phone),
+      sanitizeCSVCell(i.service),
+      sanitizeCSVCell(i.budget),
+      sanitizeCSVCell(i.timeline),
+      sanitizeCSVCell(i.status),
+      sanitizeCSVCell(i.message),
     ]);
 
     const csvContent = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');

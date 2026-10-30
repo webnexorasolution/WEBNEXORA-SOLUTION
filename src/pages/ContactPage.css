@@ -178,11 +178,14 @@
 
 /* WHAT TO EXPECT CARD */
 .expect-box {
-  padding: 30px 28px;
+  padding: 32px 28px;
   border-radius: var(--radius-lg);
   background: #ffffff;
   border: var(--stroke);
   box-shadow: var(--neu-shadow);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .expect-box h3 {
@@ -266,15 +269,25 @@
 
 /* PLANNER CARD (FORM) */
 .planner-card {
-  padding: 42px 38px;
+  padding: 38px 36px;
   border-radius: var(--radius-lg);
   background: #ffffff;
   border: var(--stroke);
   box-shadow: var(--neu-shadow-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.planner-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .planner-header {
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
 .planner-header h3 {
@@ -294,19 +307,20 @@
   margin: 0;
 }
 
-.planner-card h2 {
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 800;
-  color: #121212;
-  margin-bottom: 8px;
-}
-
-.planner-card > p {
-  color: #6A6860;
-  font-size: 14.5px;
-  line-height: 1.7;
-  margin-bottom: 28px;
+/* FORM ERROR BANNER (Security & Validation) */
+.form-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  animation: fadeInDossier 0.2s ease;
 }
 
 .form-row-2 {
@@ -318,14 +332,30 @@
 .field-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 18px;
+  gap: 7px;
+  margin-bottom: 16px;
 }
 
 .field-group label {
   font-size: 12.5px;
   font-weight: 700;
   color: #4A4841;
+  display: flex;
+  align-items: center;
+}
+
+.field-err-hint {
+  color: #DC2626;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.field-group.has-error input,
+.field-group.has-error textarea {
+  border-color: #EF4444;
+  background: #FFFDFD;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
 }
 
 /* WARM PILL INPUTS */
@@ -335,7 +365,7 @@
   background: #F4F2EC;
   border: 1px solid #E2DFD6;
   border-radius: 14px;
-  padding: 13px 18px;
+  padding: 12px 16px;
   color: #121212;
   font-size: 14px;
   font-family: var(--font-body);
@@ -363,7 +393,7 @@
 
 .field-group textarea {
   resize: vertical;
-  min-height: 110px;
+  min-height: 95px;
 }
 
 .submit-scope-btn {
@@ -388,6 +418,18 @@
 .submit-scope-btn:hover {
   background: #242424;
   transform: translateY(-2px);
+}
+
+.planner-security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #7E7C74;
+  text-align: center;
 }
 
 /* EXECUTIVE SUCCESS DOSSIER (Detailed & Full-Height to match left box) */
@@ -621,11 +663,6 @@
   transform: translateY(-1px);
 }
 
-@media (max-width: 600px) {
-  .dossier-meta-grid { grid-template-columns: 1fr; }
-  .dossier-footer-actions { grid-template-columns: 1fr; }
-}
-
 @media (max-width: 960px) {
   .contact-page-grid { grid-template-columns: 1fr; gap: 40px; }
   .planner-card { padding: 30px 24px; }
@@ -633,4 +670,6 @@
 
 @media (max-width: 600px) {
   .form-row-2 { grid-template-columns: 1fr; }
+  .dossier-meta-grid { grid-template-columns: 1fr; }
+  .dossier-footer-actions { grid-template-columns: 1fr; }
 }

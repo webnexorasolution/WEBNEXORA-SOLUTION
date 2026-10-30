@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { captureUTMParams } from './utils/utmTracker';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -10,6 +11,7 @@ import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ProcessPage from './pages/ProcessPage';
 import ContactPage from './pages/ContactPage';
+import AdminDashboard from './pages/AdminDashboard';
 
 import { ArrowUp } from 'lucide-react';
 import './App.css';
@@ -18,6 +20,9 @@ function useAOSObserver() {
   const location = useLocation();
 
   useEffect(() => {
+    // Automatically capture marketing campaign UTM parameters
+    captureUTMParams();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,10 +46,8 @@ function useAOSObserver() {
       clearTimeout(t);
       observer.disconnect();
     };
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 }
-
-import AdminDashboard from './pages/AdminDashboard';
 
 export default function App() {
   useAOSObserver();
@@ -53,9 +56,13 @@ export default function App() {
 
   return (
     <>
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
+      <ScrollProgressBar />
       <ScrollToTop />
       {!isAdmin && <Navbar />}
-      <main>
+      <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -68,7 +75,82 @@ export default function App() {
       </main>
       {!isAdmin && <Footer />}
       {!isAdmin && <ScrollTopBtn />}
+      {!isAdmin && <CookieConsent />}
     </>
+  );
+}
+
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const currentProgress = (window.scrollY / totalHeight) * 100;
+        setProgress(Math.min(100, Math.max(0, currentProgress)));
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div
+      className="scroll-progress-bar"
+      style={{ width: `${progress}%` }}
+      aria-hidden="true"
+    />
+  );
+}
+
+function CookieConsent() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('webnexora_cookie_consent');
+    if (!consent) {
+      const timer = setTimeout(() => setVisible(true), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleConsent = (level) => {
+    localStorage.setItem('webnexora_cookie_consent', level);
+    setVisible(false);
+  };
+
+  if (!visible) return null;
+
+  return (
+    <aside className="cookie-banner" role="dialog" aria-label="Privacy and cookies consent">
+      <div className="cookie-banner-content">
+        <div className="cookie-banner-text">
+          <div className="cookie-title">
+            <span className="cookie-dot" /> Privacy &amp; Cookie Policy
+          </div>
+          <p>
+            We use essential local storage &amp; cookies to protect form submissions from CSRF, prevent spam, and optimize agency performance.
+          </p>
+        </div>
+        <div className="cookie-banner-actions">
+          <button
+            type="button"
+            className="btn-cookie-secondary"
+            onClick={() => handleConsent('essential')}
+          >
+            Essential Only
+          </button>
+          <button
+            type="button"
+            className="btn-cookie-primary"
+            onClick={() => handleConsent('all')}
+          >
+            Accept All
+          </button>
+        </div>
+      </div>
+    </aside>
   );
 }
 
