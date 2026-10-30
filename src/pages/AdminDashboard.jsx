@@ -27,6 +27,7 @@ import {
   Wallet,
   ChevronDown,
   Check,
+  Globe,
 } from 'lucide-react';
 import inquiryService from '../services/inquiryService';
 import siteConfig from '../config/site';
@@ -329,8 +330,10 @@ export default function AdminDashboard() {
             <button className="admin-btn-secondary" onClick={handleExport} title="Export CSV">
               <Download size={15} /> Export CSV
             </button>
-            <Link to="/" className="admin-btn-secondary" title="View Public Website">
-              Website ↗
+            <Link to="/" className="admin-btn-secondary admin-btn-site" title="View Public Website">
+              <Globe size={14} className="site-globe-icon" />
+              <span>Live Website</span>
+              <ArrowUpRight size={13} className="site-arrow-icon" />
             </Link>
             <button className="admin-btn-logout" onClick={handleLogout} title="Sign Out">
               <LogOut size={15} /> Logout

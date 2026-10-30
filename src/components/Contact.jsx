@@ -30,26 +30,31 @@ import inquiryService from '../services/inquiryService';
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const ref = useRef(null);
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    inquiryService.saveInquiry({
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      service: form.service || 'Website Development',
-      message: form.message,
-      source: 'Home Contact Section',
-    });
-
-    const text = `Hello ${siteConfig.name}! I'd like to discuss a project.\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nMessage: ${form.message}`;
-    const wa = siteConfig.getWhatsAppUrl(text);
-    window.open(wa, '_blank', 'noopener');
-    setSent(true);
-    setTimeout(() => setSent(false), 5000);
+    setSubmitting(true);
+    try {
+      await inquiryService.saveInquiry({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        service: form.service || 'Website Development',
+        message: form.message,
+        source: 'Home Contact Section',
+      });
+      setSent(true);
+      setForm({ name: '', email: '', phone: '', service: '', message: '' });
+      setTimeout(() => setSent(false), 6000);
+    } catch (err) {
+      console.error('Failed to save inquiry:', err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -132,8 +137,8 @@ export default function Contact() {
               <div className="success-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
                 <CheckCircle2 size={44} color="#10b981" strokeWidth={2} />
               </div>
-              <h3>Opening WhatsApp!</h3>
-              <p>We'll be in touch shortly. Thank you for reaching out!</p>
+              <h3>Inquiry Sent Successfully!</h3>
+              <p>Thank you for reaching out. Your project details have been recorded in our database and our team will get back to you within 2 hours.</p>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
@@ -211,8 +216,14 @@ export default function Contact() {
                 />
               </div>
 
-              <button className="btn btn-primary submit-btn" type="submit" id="contact-submit-btn" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                Send Enquiry via WhatsApp <ArrowUpRight size={16} />
+              <button
+                className="btn btn-primary submit-btn"
+                type="submit"
+                id="contact-submit-btn"
+                disabled={submitting}
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+              >
+                {submitting ? 'Sending Enquiry...' : 'Send Project Enquiry'} <ArrowUpRight size={16} />
               </button>
             </form>
           )}

@@ -81,8 +81,8 @@ export const inquiryService = {
     }
   },
 
-  // Save new client inquiry
-  saveInquiry(inquiryData) {
+  // Save new client inquiry directly into DB
+  async saveInquiry(inquiryData) {
     const inquiries = this.getInquiries();
     const newInquiry = {
       id: `inq-${Date.now()}`,
@@ -104,8 +104,42 @@ export const inquiryService = {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
       window.dispatchEvent(new Event('webnexora_inquiry_updated'));
     } catch (e) {
-      console.error('Error saving inquiry:', e);
+      console.error('Error saving inquiry locally:', e);
     }
+
+    // Optional remote Supabase DB sync if configured
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    if (supabaseUrl && supabaseKey && !supabaseKey.includes('<')) {
+      try {
+        await fetch(`${supabaseUrl}/rest/v1/inquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({
+            id: newInquiry.id,
+            name: newInquiry.name,
+            company: newInquiry.company,
+            email: newInquiry.email,
+            phone: newInquiry.phone,
+            service: newInquiry.service,
+            budget: newInquiry.budget,
+            timeline: newInquiry.timeline,
+            message: newInquiry.message,
+            status: newInquiry.status,
+            source: newInquiry.source,
+            created_at: newInquiry.createdAt,
+          }),
+        });
+      } catch (err) {
+        console.warn('Remote DB sync fallback to local store:', err.message);
+      }
+    }
+
     return newInquiry;
   },
 

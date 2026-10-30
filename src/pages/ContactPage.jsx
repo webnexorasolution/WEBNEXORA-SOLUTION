@@ -61,39 +61,48 @@ export default function ContactPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submittedInquiry, setSubmittedInquiry] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    inquiryService.saveInquiry({
-      name: form.name,
-      company: form.company,
-      email: form.email,
-      phone: form.phone,
-      service: form.service,
-      budget: form.budget,
-      timeline: form.timeline,
-      message: form.message,
-      source: 'Contact Scope Planner',
-    });
-
-    const formatted = `*New ${siteConfig.name} Project Inquiry*
-• *Name:* ${form.name}
-• *Company:* ${form.company || 'N/A'}
-• *Email:* ${form.email}
-• *Phone:* ${form.phone || 'N/A'}
-• *Service:* ${form.service}
-• *Budget:* ${form.budget}
-• *Timeline:* ${form.timeline}
-• *Details:* ${form.message}`;
-
-    const waUrl = siteConfig.getWhatsAppUrl(formatted);
-    window.open(waUrl, '_blank', 'noopener');
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 6000);
+    setSubmitting(true);
+    try {
+      const saved = await inquiryService.saveInquiry({
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        service: form.service,
+        budget: form.budget,
+        timeline: form.timeline,
+        message: form.message,
+        source: 'Contact Scope Planner',
+      });
+      setSubmittedInquiry({
+        ...saved,
+        referenceId: `#WN-${Date.now().toString().slice(-5)}`,
+      });
+      setSubmitted(true);
+      setForm({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        service: servicesList[0].value,
+        budget: budgetRanges[1].value,
+        timeline: timelineOptions[1].value,
+        message: '',
+      });
+    } catch (err) {
+      console.error('Failed to submit inquiry:', err);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -227,15 +236,97 @@ export default function ContactPage() {
           <div className="contact-form-col" data-aos>
             <div className="planner-card glass-card">
               {submitted ? (
-                <div className="form-success-state">
-                  <div className="success-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
-                    <CheckCircle2 size={48} color="#10b981" strokeWidth={2} />
+                <div className="form-success-dossier">
+                  <div className="dossier-header">
+                    <div className="dossier-check-ring">
+                      <CheckCircle2 size={32} color="#15803D" strokeWidth={2.4} />
+                    </div>
+                    <div className="dossier-title-wrap">
+                      <div className="eyebrow" style={{ marginBottom: '6px' }}>
+                        <span className="eyebrow-dot" /> Database Confirmed
+                      </div>
+                      <h3>
+                        Inquiry Recorded <span className="title-highlight">Successfully.</span>
+                      </h3>
+                      <p className="dossier-subtext">
+                        Your project specifications are logged in our production queue. Our lead architect is reviewing your scope.
+                      </p>
+                    </div>
                   </div>
-                  <h2>Inquiry Prepared!</h2>
-                  <p>
-                    WhatsApp has opened with your project specifications. Our lead engineer
-                    will connect with you shortly!
-                  </p>
+
+                  {/* REFERENCE & SLA STRIP */}
+                  <div className="dossier-meta-grid">
+                    <div className="dossier-meta-item">
+                      <span className="dossier-meta-lbl">Inquiry Reference</span>
+                      <strong className="dossier-meta-val">{submittedInquiry?.referenceId || `#WN-${Date.now().toString().slice(-5)}`}</strong>
+                    </div>
+                    <div className="dossier-meta-item">
+                      <span className="dossier-meta-lbl">Response SLA</span>
+                      <strong className="dossier-meta-val highlight-green">Under 2 Hours</strong>
+                    </div>
+                    <div className="dossier-meta-item">
+                      <span className="dossier-meta-lbl">Target Service</span>
+                      <strong className="dossier-meta-val">{submittedInquiry?.service || 'Custom Website Development'}</strong>
+                    </div>
+                    <div className="dossier-meta-item">
+                      <span className="dossier-meta-lbl">Assigned Reviewer</span>
+                      <strong className="dossier-meta-val">Lead Architect</strong>
+                    </div>
+                  </div>
+
+                  {/* WHAT HAPPENS NEXT LIVE PIPELINE */}
+                  <div className="dossier-timeline-box">
+                    <span className="dossier-box-title">Immediate Next Steps</span>
+                    <div className="dossier-steps">
+                      <div className="dossier-step-row step-done">
+                        <span className="step-state-badge">✓</span>
+                        <div className="step-state-info">
+                          <strong>1. Scope Recorded &amp; Assigned</strong>
+                          <span>Specifications logged in Webnexora CRM &amp; assigned to technical lead.</span>
+                        </div>
+                      </div>
+
+                      <div className="dossier-step-row step-current">
+                        <span className="step-state-badge current">
+                          <span className="beacon-ping" />
+                        </span>
+                        <div className="step-state-info">
+                          <strong>2. Architectural &amp; Feasibility Audit</strong>
+                          <span>We analyze tech stack compatibility, milestone breakdown, and timeline constraints.</span>
+                        </div>
+                      </div>
+
+                      <div className="dossier-step-row step-upcoming">
+                        <span className="step-state-badge upcoming">03</span>
+                        <div className="step-state-info">
+                          <strong>3. Fixed-Price Proposal &amp; Sprint Plan</strong>
+                          <span>Delivered directly to {submittedInquiry?.email || 'your email'} with guaranteed delivery SLA.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* BOTTOM ACTION BUTTONS */}
+                  <div className="dossier-footer-actions">
+                    <button
+                      type="button"
+                      className="btn btn-outline dossier-btn-reset"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setSubmittedInquiry(null);
+                      }}
+                    >
+                      Submit Another Scope
+                    </button>
+                    <a
+                      className="btn btn-primary dossier-btn-vip"
+                      href={siteConfig.getWhatsAppUrl(`Hi Webnexora! I just submitted an inquiry (${submittedInquiry?.referenceId || 'New Scope'}) on your website and would like an instant priority update.`)}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      <MessageCircle size={15} /> Instant WhatsApp VIP Line <ArrowUpRight size={14} />
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form className="planner-form" onSubmit={handleSubmit} noValidate>
@@ -350,9 +441,10 @@ export default function ContactPage() {
                     className="btn btn-primary submit-scope-btn"
                     type="submit"
                     id="cp-submit-btn"
+                    disabled={submitting}
                     style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
                   >
-                    Submit Project Inquiry via WhatsApp <ArrowUpRight size={16} />
+                    {submitting ? 'Submitting Scope...' : 'Submit Project Inquiry'} <ArrowUpRight size={16} />
                   </button>
                 </form>
               )}

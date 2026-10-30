@@ -434,6 +434,31 @@
   box-shadow: 0 4px 12px rgba(18, 18, 18, 0.16);
 }
 
+.admin-btn-site {
+  font-weight: 700;
+  gap: 7px;
+}
+
+.admin-btn-site .site-globe-icon {
+  color: #15803D;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.admin-btn-site .site-arrow-icon {
+  color: #8C8980;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.admin-btn-site:hover .site-globe-icon {
+  color: var(--lime);
+  transform: rotate(20deg);
+}
+
+.admin-btn-site:hover .site-arrow-icon {
+  color: #FFFFFF;
+  transform: translate(2px, -2px);
+}
+
 .admin-btn-logout {
   display: inline-flex;
   align-items: center;
