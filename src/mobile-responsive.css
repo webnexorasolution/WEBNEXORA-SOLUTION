@@ -1,0 +1,134 @@
+/* Mobile-first refinement layer for Webnexora Solution.
+   Keeps existing components and interactions intact while tightening layouts
+   for phones, small tablets, touch input, and narrow landscape screens. */
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-width: 320px; }
+#root, main { min-width: 0; }
+img, video, iframe, svg { max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid rgba(18,18,18,.75); outline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .container, .footer-container { width: min(100% - 40px, 900px); }
+  .section { padding: 76px 0; }
+  .hero { min-height: auto; padding: 124px 0 64px; }
+  .hero-container { gap: 36px; }
+  .hero-bento-grid { gap: 16px; }
+}
+
+@media (max-width: 900px) {
+  .navbar { top: 10px; }
+  .nav-container { width: calc(100% - 28px); height: 58px; padding: 6px 8px 6px 14px; }
+  .logo-text { font-size: 16px; }
+  .mobile-drawer { width: calc(100% - 28px); }
+  .mobile-drawer.open { max-height: min(76vh, 520px); overflow-y: auto; }
+  .mobile-link, .mobile-cta-btn { min-height: 46px; display: flex; align-items: center; }
+  .hero { padding-top: 112px; }
+  .hero-bento-grid { grid-template-columns: 1fr 1fr; }
+  .contact-grid { gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: 82px; }
+  [id] { scroll-margin-top: 82px; }
+  .container, .footer-container { width: calc(100% - 36px); }
+  .section { padding: 64px 0; }
+  .section-head { margin-bottom: 34px; }
+  .section-head h2 { font-size: clamp(28px, 7vw, 38px); line-height: 1.16; }
+  .section-head p { font-size: 15px; }
+  .hero { padding: 108px 0 54px; }
+  .hero-container { gap: 28px; }
+  .hero-copy { max-width: 100%; }
+  .hero-copy h1 { font-size: clamp(32px, 8vw, 46px); line-height: 1.12; margin-bottom: 16px; }
+  .hero-lead { font-size: 15.5px; line-height: 1.7; margin-bottom: 22px; }
+  .hero-actions { width: 100%; gap: 10px; margin-bottom: 22px; }
+  .hero-actions .btn { flex: 1 1 180px; }
+  .hero-proof-bar { gap: 8px; }
+  .proof-chip { font-size: 11.5px; padding: 6px 10px; }
+  .hero-bento-grid { grid-template-columns: 1fr; gap: 14px; }
+  .bento-card { padding: 22px; border-radius: 20px; }
+  .contact-section { padding: 64px 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .contact-form-wrap { padding: 30px 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .footer-cta-bar { padding: 22px 0; }
+  .footer-cta-inner { padding: 28px 22px; gap: 18px; }
+  .footer-cta-inner p { font-size: 14px; }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 22px; }
+  .footer-main { padding: 30px 0; }
+  .footer-bottom { padding: 20px 0; }
+  .cookie-banner { left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: auto; padding: 17px; border-radius: 18px; }
+  .cookie-banner-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .btn-cookie-primary, .btn-cookie-secondary { min-height: 42px; }
+  .scroll-top-btn { width: 44px; height: 44px; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 560px) {
+  .container, .footer-container { width: calc(100% - 30px); }
+  .section { padding: 54px 0; }
+  .navbar { top: 8px; }
+  .nav-container { width: calc(100% - 20px); height: 54px; padding-left: 11px; }
+  .logo-icon svg { width: 24px; height: 24px; }
+  .logo-text { font-size: 14px; gap: 5px; }
+  .logo-badge { font-size: 8px; padding: 3px 6px; }
+  .hamburger { width: 36px; height: 36px; }
+  .mobile-drawer { width: calc(100% - 20px); margin-top: 8px; padding: 12px; border-radius: 20px; }
+  .mobile-link { padding: 12px 14px; font-size: 14px; }
+  .hero { padding: 96px 0 44px; }
+  .hero-copy h1 { font-size: clamp(30px, 9vw, 39px); letter-spacing: -.035em; }
+  .hero-lead { font-size: 14.5px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn, .hero-actions a { width: 100%; min-height: 48px; }
+  .hero-proof-bar { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .proof-chip { justify-content: center; white-space: normal; text-align: center; }
+  .bento-card { padding: 18px; border-radius: 18px; }
+  .bento-card-top { gap: 10px; flex-wrap: wrap; }
+  .lime-metric-block { flex-wrap: wrap; gap: 8px; }
+  .contact-info h2 { font-size: clamp(28px, 8vw, 36px); }
+  .contact-info > p { font-size: 14.5px; }
+  .contact-item { padding: 13px; gap: 11px; }
+  .ci-icon { width: 40px; height: 40px; }
+  .ci-content strong { font-size: 13px; overflow-wrap: anywhere; }
+  .ci-content span { font-size: 11.5px; overflow-wrap: anywhere; }
+  .contact-form-wrap { padding: 23px 17px; border-radius: 19px; }
+  .contact-form h3 { font-size: 21px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; min-height: 48px; padding: 12px 14px; font-size: 16px; }
+  .form-group textarea { min-height: 130px; }
+  .submit-btn { min-height: 50px; }
+  .footer-cta-inner { padding: 24px 17px; border-radius: 19px; }
+  .footer-cta-inner h3 { font-size: 21px; }
+  .footer-cta-inner p { font-size: 13px; }
+  .footer-btn { width: 100%; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-logo-text { font-size: 19px; }
+  .footer-tagline { white-space: normal !important; }
+  .footer-contact-card, .fcc-val, .fcc-sub { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+  .footer-bottom-inner, .footer-copyright-wrap, .footer-legal { justify-content: center; text-align: center; }
+  .footer-legal { gap: 9px; }
+  .cookie-banner { padding: 15px; }
+  .cookie-banner p { font-size: 11.5px; }
+  .cookie-banner-actions { gap: 8px; }
+  .btn-cookie-primary, .btn-cookie-secondary { padding: 9px 10px; font-size: 11.5px; }
+}
+
+@media (max-width: 380px) {
+  .logo-text { font-size: 13px; }
+  .logo-badge { display: none; }
+  .container, .footer-container { width: calc(100% - 24px); }
+  .hero-copy h1 { font-size: 29px; }
+  .hero-proof-bar { grid-template-columns: 1fr; }
+  .cookie-banner-actions { grid-template-columns: 1fr; }
+}
+
+/* Touch-first sizing and motion preferences */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .nav-link, .mobile-link, .social-link, .action-circle-btn { min-height: 44px; }
+  .glass-card:hover, .bento-card:hover, .contact-item:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  [data-aos] { opacity: 1; transform: none; }
+}
