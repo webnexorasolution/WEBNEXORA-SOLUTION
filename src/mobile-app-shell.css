@@ -117,3 +117,33 @@
     transition: none;
   }
 }
+
+/* Keep the hero trust points aligned and easy to scan on narrow screens. */
+@media (max-width: 600px) {
+  .hero-proof-bar {
+    width: min(100%, 340px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 8px;
+    margin-inline: auto;
+  }
+
+  .hero-proof-bar .proof-chip {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+    padding: 9px 14px;
+    gap: 10px;
+    border-radius: 14px;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .hero-proof-bar .chk {
+    flex: 0 0 18px;
+  }
+}
