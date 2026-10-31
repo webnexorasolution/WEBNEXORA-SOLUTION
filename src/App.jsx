@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, NavLink } from 'react-router-dom';
 import { Home as HomeIcon, CircleUserRound, Layers3, BriefcaseBusiness, MessageCircle } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -35,15 +35,15 @@ function MobileTabBar() {
           ? location.pathname === '/'
           : location.pathname === path || (path === '/portfolio' && location.pathname.startsWith('/portfolio'));
         return (
-          <a
+          <NavLink
             key={path}
-            href={path}
-            className={`mobile-tab${active ? ' active' : ''}`}
+            to={path}
+            className={({ isActive }) => `mobile-tab${isActive ? ' active' : ''}`}
             aria-current={active ? 'page' : undefined}
           >
             <span className="mobile-tab-icon"><Icon size={19} strokeWidth={active ? 2.4 : 1.9} /></span>
             <span className="mobile-tab-label">{label}</span>
-          </a>
+          </NavLink>
         );
       })}
     </nav>
