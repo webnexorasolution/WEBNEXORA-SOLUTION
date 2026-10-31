@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { Home as HomeIcon, CircleUserRound, Layers3, BriefcaseBusiness, MessageCircle } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -16,11 +17,43 @@ import AdminDashboard from './pages/AdminDashboard';
 import { ArrowUp } from 'lucide-react';
 import './App.css';
 
+const mobileTabs = [
+  { label: 'Home', path: '/', icon: HomeIcon },
+  { label: 'About', path: '/about', icon: CircleUserRound },
+  { label: 'Services', path: '/services', icon: Layers3 },
+  { label: 'Work', path: '/portfolio', icon: BriefcaseBusiness },
+  { label: 'Contact', path: '/contact', icon: MessageCircle },
+];
+
+function MobileTabBar() {
+  const location = useLocation();
+
+  return (
+    <nav className="mobile-tab-bar" aria-label="Quick navigation">
+      {mobileTabs.map(({ label, path, icon: Icon }) => {
+        const active = path === '/'
+          ? location.pathname === '/'
+          : location.pathname === path || (path === '/portfolio' && location.pathname.startsWith('/portfolio'));
+        return (
+          <a
+            key={path}
+            href={path}
+            className={`mobile-tab${active ? ' active' : ''}`}
+            aria-current={active ? 'page' : undefined}
+          >
+            <span className="mobile-tab-icon"><Icon size={19} strokeWidth={active ? 2.4 : 1.9} /></span>
+            <span className="mobile-tab-label">{label}</span>
+          </a>
+        );
+      })}
+    </nav>
+  );
+}
+
 function useAOSObserver() {
   const location = useLocation();
 
   useEffect(() => {
-    // Automatically capture marketing campaign UTM parameters
     captureUTMParams();
 
     const observer = new IntersectionObserver(
@@ -74,6 +107,7 @@ export default function App() {
         </Routes>
       </main>
       {!isAdmin && <Footer />}
+      {!isAdmin && <MobileTabBar />}
       {!isAdmin && <ScrollTopBtn />}
       {!isAdmin && <CookieConsent />}
     </>
@@ -134,18 +168,10 @@ function CookieConsent() {
           </p>
         </div>
         <div className="cookie-banner-actions">
-          <button
-            type="button"
-            className="btn-cookie-secondary"
-            onClick={() => handleConsent('essential')}
-          >
+          <button type="button" className="btn-cookie-secondary" onClick={() => handleConsent('essential')}>
             Essential Only
           </button>
-          <button
-            type="button"
-            className="btn-cookie-primary"
-            onClick={() => handleConsent('all')}
-          >
+          <button type="button" className="btn-cookie-primary" onClick={() => handleConsent('all')}>
             Accept All
           </button>
         </div>
