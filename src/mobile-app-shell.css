@@ -1,0 +1,149 @@
+/* Native-app inspired mobile shell. Desktop styles remain untouched. */
+.mobile-tab-bar {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-tab-bar {
+    position: fixed;
+    z-index: 1200;
+    left: 12px;
+    right: 12px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: center;
+    gap: 2px;
+    min-height: 64px;
+    padding: 7px 6px;
+    border: 1px solid rgba(18, 18, 18, 0.1);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.94);
+    -webkit-backdrop-filter: blur(22px) saturate(1.35);
+    backdrop-filter: blur(22px) saturate(1.35);
+    box-shadow: 0 12px 36px rgba(24, 22, 18, 0.16), 0 2px 8px rgba(24, 22, 18, 0.06);
+  }
+
+  .mobile-tab {
+    display: flex;
+    min-width: 0;
+    min-height: 48px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border-radius: 15px;
+    color: #77746B;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .18s ease, background .18s ease, transform .18s ease;
+  }
+
+  .mobile-tab:active {
+    transform: scale(.94);
+  }
+
+  .mobile-tab-icon {
+    display: grid;
+    width: 30px;
+    height: 25px;
+    place-items: center;
+  }
+
+  .mobile-tab-label {
+    max-width: 100%;
+    overflow: hidden;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mobile-tab.active {
+    color: #121212;
+  }
+
+  .mobile-tab.active .mobile-tab-icon {
+    width: 34px;
+    border-radius: 999px;
+    background: var(--lime, #EEFD44);
+  }
+
+  .mobile-tab.active .mobile-tab-label {
+    color: #121212;
+  }
+
+  .scroll-top-btn {
+    right: 16px;
+    bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+
+  .cookie-banner {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    max-height: min(58vh, 360px);
+    overflow-y: auto;
+  }
+
+  main {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .navbar {
+    top: max(8px, env(safe-area-inset-top));
+  }
+}
+
+@media (max-width: 380px) {
+  .mobile-tab-bar {
+    left: 8px;
+    right: 8px;
+    min-height: 61px;
+    padding-inline: 3px;
+  }
+
+  .mobile-tab-label {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-tab {
+    transition: none;
+  }
+}
+
+/* Keep the hero trust points aligned and easy to scan on narrow screens. */
+@media (max-width: 600px) {
+  .hero-proof-bar {
+    width: min(100%, 340px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 8px;
+    margin-inline: auto;
+  }
+
+  .hero-proof-bar .proof-chip {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+    padding: 9px 14px;
+    gap: 10px;
+    border-radius: 14px;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .hero-proof-bar .chk {
+    flex: 0 0 18px;
+  }
+}
