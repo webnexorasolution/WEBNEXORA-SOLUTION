@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import './Navbar.css';
 
 const navItems = [
+  { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Portfolio', path: '/portfolio' },
@@ -25,41 +26,40 @@ export default function Navbar() {
 
   return (
     <header className={`navbar${scrolled ? ' scrolled' : ''}`} id="navbar">
-      <div className="container nav-container">
+      <div className="nav-container">
         {/* LOGO */}
         <Link className="nav-logo" to="/" aria-label="Webnexora Solution Home" onClick={closeDrawer}>
           <img
-            src="/webnexora-brand-mark.png"
+            src="/webnexora-round-mark.png"
             alt="Webnexora Solution Logo"
             className="nav-brand-logo-img"
           />
           <span className="logo-text">
-            Webnexora <span className="logo-text-solution">Solution</span>
+            Webnexora <span className="logo-badge">Solution</span>
           </span>
         </Link>
 
-        {/* RIGHT GROUP: DESKTOP NAV LINKS + CTA */}
-        <div className="nav-right-group">
-          <nav className="nav-links" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  `nav-link${isActive ? ' active' : ''}`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
+        {/* DESKTOP NAV LINKS */}
+        <nav className="nav-links" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `nav-link${isActive ? ' active' : ''}`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
 
-          <div className="nav-actions">
-            <Link className="nav-cta" to="/contact" id="nav-cta-btn">
-              <span>Get a Free Quote</span>
-              <ArrowUpRight size={15} className="cta-arrow" />
-            </Link>
-          </div>
+        {/* RIGHT ACTIONS: CTA */}
+        <div className="nav-actions">
+          <Link className="nav-cta" to="/contact" id="nav-cta-btn">
+            <span>Get a Free Quote</span>
+            <ArrowUpRight size={15} className="cta-arrow" />
+          </Link>
         </div>
 
         {/* MOBILE HAMBURGER TOGGLE */}
@@ -77,15 +77,6 @@ export default function Navbar() {
 
       {/* MOBILE DRAWER */}
       <div className={`mobile-drawer${open ? ' open' : ''}`}>
-        <NavLink
-          to="/"
-          onClick={closeDrawer}
-          className={({ isActive }) =>
-            `mobile-link${isActive ? ' active' : ''}`
-          }
-        >
-          Home
-        </NavLink>
         {navItems.map((item) => (
           <NavLink
             key={item.path}

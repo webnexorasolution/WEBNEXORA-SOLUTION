@@ -1,6 +1,6 @@
 /* POSITIVUS HERO SECTION */
 .positivus-hero-wrapper {
-  padding: 40px 0 70px;
+  padding: 105px 0 70px;
   background-color: #FFFFFF;
   position: relative;
   overflow: hidden;
@@ -201,12 +201,21 @@
   margin-top: 16px;
 }
 
+.client-logos-track {
+  width: 100%;
+}
+
 .client-logos-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 28px;
+  width: 100%;
+}
+
+.client-logos-row-dup {
+  display: none;
 }
 
 .client-logo-item {
@@ -636,6 +645,9 @@
 }
 
 @media (max-width: 820px) {
+  .positivus-hero-wrapper {
+    padding: 85px 0 50px;
+  }
   .hero-top-grid {
     grid-template-columns: 1fr;
   }
@@ -653,8 +665,59 @@
     width: 100%;
     text-align: center;
   }
+
+  /* Single-line infinite ticker marquee on mobile */
+  .hero-logos-bar {
+    overflow: hidden;
+    position: relative;
+    padding: 24px 0 16px;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .client-logos-track {
+    display: flex;
+    width: max-content;
+    gap: 36px;
+    animation: techLogosScroll 22s linear infinite;
+  }
+
+  .client-logos-track:hover {
+    animation-play-state: paused;
+  }
+
   .client-logos-row {
-    gap: 20px;
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap !important;
+    gap: 36px;
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  .client-logos-row-dup {
+    display: flex;
+  }
+
+  .client-logo-item {
+    gap: 8px;
+  }
+
+  .tech-logo-svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .tech-logo-name {
+    font-size: 18px;
+  }
+}
+
+@keyframes techLogosScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 18px));
   }
 }
