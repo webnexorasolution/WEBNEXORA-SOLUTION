@@ -69,198 +69,196 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT: WEBNEXORA DIGITAL ENGINEERING & ORBITAL CORE */}
+          {/* RIGHT: FULL-SIZE NEO-BRUTALIST DIGITAL WORKSTATION CONSOLE */}
           <div className="hero-visual">
-            <div className="hero-art-wrapper">
-              <svg
-                className="hero-art-svg"
-                viewBox="0 0 500 360"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-label="Webnexora Web Engineering &amp; Digital Growth Ecosystem"
-              >
-                {/* Background Planetary Orbital Rings (Echoing Official Logo) */}
-                <ellipse
-                  cx="250"
-                  cy="180"
-                  rx="220"
-                  ry="90"
-                  stroke="#191A23"
-                  strokeWidth="2"
-                  transform="rotate(-15 250 180)"
-                />
-                <ellipse
-                  cx="250"
-                  cy="180"
-                  rx="185"
-                  ry="72"
-                  stroke="#B9FF66"
-                  strokeWidth="3"
-                  transform="rotate(-15 250 180)"
-                />
-                <ellipse
-                  cx="250"
-                  cy="180"
-                  rx="150"
-                  ry="56"
-                  stroke="#D8D8D8"
-                  strokeWidth="2"
-                  strokeDasharray="6 6"
-                  transform="rotate(-15 250 180)"
-                />
+            <div className="hero-console-stage">
+              {/* Background Ambient Planetary Orbits */}
+              <div className="console-orbit-bg" aria-hidden="true">
+                <svg className="orbit-svg" viewBox="0 0 640 480" fill="none">
+                  <ellipse cx="320" cy="240" rx="300" ry="140" stroke="#191A23" strokeWidth="1.5" strokeDasharray="4 6" transform="rotate(-12 320 240)" />
+                  <ellipse cx="320" cy="240" rx="260" ry="110" stroke="#B9FF66" strokeWidth="2.5" transform="rotate(-12 320 240)" />
+                  <path d="M110 90 C110 98 105 102 97 102 C105 102 110 106 110 114 C110 106 115 102 123 102 C115 102 110 98 110 90 Z" fill="#191A23" />
+                  <path d="M540 80 C540 90 533 95 523 95 C533 95 540 100 540 110 C540 100 547 95 557 95 C547 95 540 90 540 80 Z" fill="#B9FF66" stroke="#191A23" strokeWidth="1.5" />
+                  <circle cx="580" cy="290" r="5" fill="#191A23" />
+                  <circle cx="580" cy="290" r="2.5" fill="#B9FF66" />
+                </svg>
+              </div>
 
-                {/* Decorative 4-Pointed Stars */}
-                <path
-                  d="M100 80 C100 88 95 92 87 92 C95 92 100 96 100 104 C100 96 105 92 113 92 C105 92 100 88 100 80 Z"
-                  fill="#191A23"
-                />
-                <path
-                  d="M400 65 C400 75 393 80 383 80 C393 80 400 85 400 95 C400 85 407 80 417 80 C407 80 400 75 400 65 Z"
-                  fill="#B9FF66"
-                  stroke="#191A23"
-                  strokeWidth="1.5"
-                />
-                <path
-                  d="M420 255 C420 262 416 266 409 266 C416 266 420 270 420 277 C420 270 424 266 431 266 C424 266 420 262 420 255 Z"
-                  fill="#191A23"
-                />
+              {/* Main Neo-Brutalist Digital Console */}
+              <div className="hero-digital-console">
+                {/* Browser Header Bar */}
+                <div className="console-browser-header">
+                  <div className="console-traffic-dots">
+                    <span className="dot dot-red" />
+                    <span className="dot dot-amber" />
+                    <span className="dot dot-green" />
+                  </div>
 
-                {/* CENTRAL FLOATING 3D DIGITAL APPLICATION BROWSER CONSOLE */}
-                <g className="floating-core-console">
-                  {/* Isometric Shadow Slab */}
-                  <rect
-                    x="138"
-                    y="76"
-                    width="244"
-                    height="184"
-                    rx="22"
-                    fill="#191A23"
-                  />
-                  {/* Main Console Surface */}
-                  <rect
-                    x="132"
-                    y="70"
-                    width="244"
-                    height="184"
-                    rx="22"
-                    fill="#FFFFFF"
-                    stroke="#191A23"
-                    strokeWidth="2.5"
-                  />
+                  <div className="console-url-pill">
+                    <span className="lock-icon">🔒</span>
+                    <span className="url-text">webnexora.com/scale</span>
+                    <span className="live-status-dot" title="Edge Production Online" />
+                  </div>
 
-                  {/* Browser Window Header */}
-                  <line x1="132" y1="108" x2="376" y2="108" stroke="#191A23" strokeWidth="2" />
-                  {/* Traffic Light Dots */}
-                  <circle cx="154" cy="89" r="4.5" fill="#191A23" />
-                  <circle cx="168" cy="89" r="4.5" fill="#191A23" />
-                  <circle cx="182" cy="89" r="4.5" fill="#B9FF66" stroke="#191A23" strokeWidth="1" />
+                  <div className="console-tag-badge">
+                    <span className="tag-pulse" /> PRODUCTION
+                  </div>
+                </div>
 
-                  {/* URL Address Pill */}
-                  <rect x="206" y="80" width="154" height="18" rx="9" fill="#F3F3F3" stroke="#191A23" strokeWidth="1" />
-                  <text x="222" y="93" fontFamily="'Space Grotesk', sans-serif" fontSize="10" fontWeight="700" fill="#191A23">
-                    webnexora.com/scale
-                  </text>
+                {/* Console Workspace Content */}
+                <div className="console-workspace">
+                  {/* Top Bar: Agency Branding & Live Uptime */}
+                  <div className="console-brand-row">
+                    <div className="console-brand-identity">
+                      <img
+                        src="/webnexora-round-mark.png"
+                        alt="Webnexora Mark"
+                        className="console-brand-logo"
+                      />
+                      <div className="console-brand-meta">
+                        <span className="console-brand-title">Webnexora Engine v2.4</span>
+                        <span className="console-brand-sub">Modern Web &amp; Mobile Ecosystem</span>
+                      </div>
+                    </div>
+                    <div className="console-uptime-pill">
+                      <span className="chk-mini">✓</span> 99.9% Uptime Verified
+                    </div>
+                  </div>
 
-                  {/* Center Canvas: Stylized Official Agency Monogram W */}
-                  <g transform="translate(204, 122)">
-                    {/* Outer Cyan Ring */}
-                    <ellipse cx="48" cy="38" rx="44" ry="16" stroke="#00E5FF" strokeWidth="2.4" transform="rotate(-14 48 38)" />
-                    {/* W Ribbon Paths */}
-                    <path
-                      d="M14 18 L34 58 L48 30 L62 58 L82 18"
-                      stroke="#191A23"
-                      strokeWidth="6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M14 18 L34 58 L48 30 L62 58 L82 18"
-                      stroke="#B9FF66"
-                      strokeWidth="3.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    {/* Sparkle Node */}
-                    <circle cx="82" cy="18" r="4" fill="#00E5FF" stroke="#191A23" strokeWidth="1.5" />
-                  </g>
+                  {/* Main Dual Metric Cards Grid */}
+                  <div className="console-metrics-grid">
+                    {/* Card A: Google Lighthouse Speed Score (99) */}
+                    <div className="metric-box speed-metric-box">
+                      <div className="metric-box-top">
+                        <span className="metric-title">Performance Vitals</span>
+                        <span className="metric-badge-lime">Google 99</span>
+                      </div>
+                      <div className="speed-dial-wrap">
+                        <div className="speed-dial-circle">
+                          <svg className="speed-dial-svg" viewBox="0 0 84 84">
+                            <circle cx="42" cy="42" r="35" stroke="#EAEAEA" strokeWidth="7" fill="none" />
+                            <circle
+                              cx="42"
+                              cy="42"
+                              r="35"
+                              stroke="#B9FF66"
+                              strokeWidth="7"
+                              strokeDasharray="220"
+                              strokeDashoffset="18"
+                              strokeLinecap="round"
+                              fill="none"
+                            />
+                          </svg>
+                          <div className="speed-dial-val">
+                            <span className="dial-num">99</span>
+                            <span className="dial-sub">/ 100</span>
+                          </div>
+                        </div>
+                        <div className="speed-stats-col">
+                          <div className="speed-stat-item">
+                            <span className="stat-dot" />
+                            <span className="stat-label">FCP:</span>
+                            <span className="stat-val">0.38s (Fast)</span>
+                          </div>
+                          <div className="speed-stat-item">
+                            <span className="stat-dot" />
+                            <span className="stat-label">LCP:</span>
+                            <span className="stat-val">0.72s (Ideal)</span>
+                          </div>
+                          <div className="speed-stat-item">
+                            <span className="stat-dot" />
+                            <span className="stat-label">CLS:</span>
+                            <span className="stat-val">0.00 (Zero Shift)</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-                  {/* Mini Code Line Mockups */}
-                  <rect x="152" y="124" width="38" height="6" rx="3" fill="#191A23" />
-                  <rect x="152" y="136" width="46" height="5" rx="2.5" fill="#B9FF66" stroke="#191A23" strokeWidth="0.8" />
-                  <rect x="152" y="147" width="28" height="5" rx="2.5" fill="#D0D0D0" />
-                  <rect x="152" y="158" width="34" height="5" rx="2.5" fill="#191A23" />
-                  <rect x="152" y="169" width="44" height="5" rx="2.5" fill="#D0D0D0" />
+                    {/* Card B: Conversion & Pipeline Growth */}
+                    <div className="metric-box growth-metric-box">
+                      <div className="metric-box-top">
+                        <span className="metric-title">Conversion Engine</span>
+                        <span className="metric-badge-dark">+184% Lift</span>
+                      </div>
+                      <div className="growth-chart-wrap">
+                        <svg className="growth-chart-svg" viewBox="0 0 200 70" fill="none">
+                          <defs>
+                            <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#B9FF66" stopOpacity="0.55" />
+                              <stop offset="100%" stopColor="#B9FF66" stopOpacity="0.0" />
+                            </linearGradient>
+                          </defs>
+                          {/* Grid line */}
+                          <line x1="0" y1="65" x2="200" y2="65" stroke="#E2E2E2" strokeWidth="1" strokeDasharray="3 3" />
+                          {/* Shaded Area */}
+                          <path
+                            d="M6 58 C38 54, 70 42, 106 32 C142 22, 168 12, 194 6 L194 65 L6 65 Z"
+                            fill="url(#growthGrad)"
+                          />
+                          {/* Baseline line */}
+                          <path
+                            d="M6 58 C38 54, 70 42, 106 32 C142 22, 168 12, 194 6"
+                            stroke="#191A23"
+                            strokeWidth="2.8"
+                            strokeLinecap="round"
+                          />
+                          {/* Data Nodes */}
+                          <circle cx="6" cy="58" r="3" fill="#191A23" />
+                          <circle cx="106" cy="32" r="3.5" fill="#191A23" />
+                          <circle cx="194" cy="6" r="4.5" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
+                        </svg>
+                        <div className="growth-stats-row">
+                          <span className="growth-sub-label">Avg. Inquiries</span>
+                          <span className="growth-metric-val">28 Qualified / Wk</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                  {/* Mini Conversion Growth Trend Bar */}
-                  <rect x="152" y="202" width="204" height="30" rx="8" fill="#F3F3F3" stroke="#191A23" strokeWidth="1.5" />
-                  <path d="M164 221 L184 215 L210 219 L238 211 L264 215 L296 209 L342 212" stroke="#191A23" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="342" cy="212" r="3.5" fill="#B9FF66" stroke="#191A23" strokeWidth="1.2" />
-                </g>
+                  {/* Bottom Console Strip: Live Code & Frameworks */}
+                  <div className="console-code-footer">
+                    <div className="console-code-snippet">
+                      <span className="code-kw">const</span> <span className="code-var">project</span> = <span className="code-fn">await</span> <span className="code-obj">Webnexora</span>.<span className="code-fn">scale</span>({'{'} <span className="code-key">speed</span>: <span className="code-str">'99'</span>, <span className="code-key">mobile</span>: <span className="code-bool">true</span> {'}'});
+                    </div>
+                    <div className="console-stack-chips">
+                      <span className="stack-pill">React 19</span>
+                      <span className="stack-pill">Next.js</span>
+                      <span className="stack-pill highlight">Capacitor</span>
+                      <span className="stack-pill">Edge CDN</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                {/* 4 SATELLITE FLOATING BADGES (Neo-Brutalist Agency Signals) */}
-                {/* 1. Lightning Performance 99 Speed (Top Left) */}
-                <g transform="translate(16, 68)">
-                  <g className="badge-float-1">
-                    <rect x="0" y="4" width="112" height="40" rx="12" fill="#191A23" />
-                    <rect x="-2" y="2" width="112" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
-                    <circle cx="18" cy="22" r="9" fill="#B9FF66" stroke="#191A23" strokeWidth="1.2" />
-                    <path d="M18 17 L15 22 L20 22 L17 27" stroke="#191A23" strokeWidth="1.6" strokeLinecap="round" />
-                    <text x="34" y="26" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="700" fill="#191A23">
-                      99 Speed
-                    </text>
-                  </g>
-                </g>
+              {/* 4 FLOATING NEO-BRUTALIST SATELLITE BADGES */}
+              {/* Badge 1: Top Right - Mobile Apps */}
+              <div className="console-satellite-badge sat-badge-tr">
+                <span className="sat-icon-wrap">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#191A23" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                  </svg>
+                </span>
+                <span className="sat-text">iOS &amp; Android Apps</span>
+              </div>
 
-                {/* 2. Mobile Apps / Capacitor Badge (Top Right) */}
-                <g transform="translate(338, 68)">
-                  <g className="badge-float-2">
-                    <rect x="0" y="4" width="146" height="42" rx="12" fill="#191A23" />
-                    <rect x="-2" y="2" width="146" height="42" rx="12" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
-                    {/* Crisp Vector Smartphone Icon in Dark Circular Pill */}
-                    <circle cx="19" cy="23" r="10" fill="#191A23" />
-                    <rect x="14.5" y="15.5" width="9" height="15" rx="2" fill="none" stroke="#FFFFFF" strokeWidth="1.2" />
-                    <line x1="17.5" y1="17.5" x2="20.5" y2="17.5" stroke="#B9FF66" strokeWidth="1" strokeLinecap="round" />
-                    <circle cx="19" cy="27.5" r="0.75" fill="#B9FF66" />
-                    <text x="36" y="27" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="700" fill="#191A23">
-                      iOS &amp; Android
-                    </text>
-                  </g>
-                </g>
+              {/* Badge 2: Top Left - Speed */}
+              <div className="console-satellite-badge sat-badge-tl">
+                <span className="sat-icon-circle-lime">⚡</span>
+                <span className="sat-text">Sub-Second Load</span>
+              </div>
 
-                {/* 3. Conversion Benchmark +184% (Bottom Right) */}
-                <g transform="translate(336, 218)">
-                  <g className="badge-float-3">
-                    <rect x="0" y="4" width="144" height="44" rx="12" fill="#191A23" />
-                    <rect x="-2" y="2" width="144" height="44" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
-                    <circle cx="19" cy="24" r="9" fill="#191A23" />
-                    <text x="14.5" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="800" fill="#B9FF66">
-                      ↗
-                    </text>
-                    <text x="36" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12.5" fontWeight="700" fill="#191A23">
-                      +184% Growth
-                    </text>
-                  </g>
-                </g>
+              {/* Badge 3: Bottom Right - Growth Lift */}
+              <div className="console-satellite-badge sat-badge-br">
+                <span className="sat-arrow-dark">↗</span>
+                <span className="sat-text">+184% Growth Lift</span>
+              </div>
 
-                {/* 4. Cloud CDN / Sub-Second Edge Badge (Bottom Left) */}
-                <g transform="translate(16, 218)">
-                  <g className="badge-float-4">
-                    <rect x="0" y="4" width="120" height="40" rx="12" fill="#191A23" />
-                    <rect x="-2" y="2" width="120" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
-                    <circle cx="18" cy="22" r="9" fill="#191A23" />
-                    <path d="M19 16 L15 22 L20 22 L17 28" stroke="#B9FF66" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                    <text x="34" y="26" fontFamily="'Space Grotesk', sans-serif" fontSize="11.5" fontWeight="700" fill="#191A23">
-                      Cloud CDN
-                    </text>
-                  </g>
-                </g>
-
-                {/* 5. Planetary Core Satellite Dots */}
-                <circle cx="72" cy="254" r="7" fill="#191A23" />
-                <circle cx="72" cy="254" r="3" fill="#B9FF66" />
-                <circle cx="440" cy="180" r="5" fill="#191A23" />
-                <circle cx="440" cy="180" r="2" fill="#00E5FF" />
-              </svg>
+              {/* Badge 4: Bottom Left - Fixed Price */}
+              <div className="console-satellite-badge sat-badge-bl">
+                <span className="sat-chk-dark">✓</span>
+                <span className="sat-text">100% Fixed-Price</span>
+              </div>
             </div>
           </div>
         </div>
