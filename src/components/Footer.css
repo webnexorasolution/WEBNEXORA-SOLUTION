@@ -211,15 +211,40 @@
   flex-direction: column;
 }
 
+.footer-accordion-header {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: default;
+  pointer-events: none;
+}
+
+.footer-accordion-meta {
+  display: none;
+}
+
+.footer-accordion-body {
+  display: block !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.footer-accordion-body-inner {
+  overflow: visible !important;
+}
+
 .footer-heading {
   font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14.5px;
+  font-weight: 750;
   color: #121212;
   letter-spacing: -0.015em;
   margin-bottom: 18px;
-  position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .footer-links-grid {
@@ -232,14 +257,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  color: #4A4841;
+  padding: 5px 0;
+  color: #55534B;
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 550;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
+  transition: color 0.18s ease, transform 0.18s ease;
   letter-spacing: -0.01em;
 }
 
@@ -248,7 +271,7 @@
   height: 4px;
   border-radius: 50%;
   background: #A8A59B;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.18s ease;
   flex-shrink: 0;
 }
 
@@ -258,17 +281,14 @@
 
 .fni-arrow {
   opacity: 0;
-  transform: translate(-4px, 4px);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(-3px, 3px);
+  transition: all 0.18s ease;
   color: #121212;
 }
 
 .footer-nav-item:hover {
-  background: #FFFFFF;
   color: #121212;
-  padding-left: 12px;
-  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.05);
-  border: 1px solid #E5E2DA;
+  transform: translateX(2px);
 }
 
 .footer-nav-item:hover .fni-dot {
@@ -281,11 +301,11 @@
   transform: translate(0, 0);
 }
 
-/* ── EXECUTIVE CONTACT ITEMS (Clean, No White Card Background) ── */
+/* ── EXECUTIVE CONTACT ITEMS ── */
 .footer-contact-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .footer-contact-card {
@@ -295,13 +315,12 @@
   padding: 4px 0;
   background: transparent;
   border: none;
-  box-shadow: none;
   text-decoration: none;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer-contact-card:hover {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 .fcc-icon-wrap {
@@ -316,7 +335,7 @@
 }
 
 .footer-contact-card:hover .fcc-icon-wrap {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .fcc-icon-dark {
@@ -343,16 +362,10 @@
   overflow: hidden;
 }
 
-.fcc-title-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .fcc-val {
   font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13.5px;
+  font-weight: 550;
   color: #2E2C26;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -361,44 +374,6 @@
 
 .footer-contact-card:hover .fcc-val {
   color: #000000;
-}
-
-.fcc-live-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(34, 197, 94, 0.12);
-  color: #15803D;
-  font-size: 9px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 1.5px 6px;
-  border-radius: 9999px;
-  border: 1px solid rgba(34, 197, 94, 0.25);
-}
-
-.live-pulse-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #16A34A;
-  box-shadow: 0 0 6px #16A34A;
-  animation: pulseDot 1.8s infinite;
-}
-
-@keyframes pulseDot {
-  0% { opacity: 1; transform: scale(0.9); }
-  50% { opacity: 0.4; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(0.9); }
-}
-
-.fcc-sub {
-  font-size: 11px;
-  font-weight: 500;
-  color: #7E7C74;
-  margin-top: 1px;
-  white-space: nowrap;
 }
 
 .footer-email-card {
@@ -439,26 +414,10 @@
   border-color: #121212;
 }
 
-.copy-tooltip {
-  display: none;
-}
-
-.footer-last-updated {
-  font-size: 11px;
-  font-weight: 700;
-  color: #7E7C74;
-  padding: 3px 10px;
-  background: #EAE7DE;
-  border-radius: 9999px;
-  margin-left: 6px;
-}
-
-/* ── BOTTOM BAR (Elite Studio Signature Bar) ── */
+/* ── BOTTOM BAR ── */
 .footer-bottom {
-  padding: 24px 0;
+  padding: 24px 0 28px;
   border-top: 1px solid #E2DFD6;
-  font-size: 12.5px;
-  color: #7E7C74;
   background: var(--bg);
 }
 
@@ -467,17 +426,18 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 18px;
 }
 
 .footer-copyright-wrap {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .footer-copyright {
+  font-size: 13px;
   font-weight: 500;
   color: #6A6860;
   margin: 0;
@@ -491,8 +451,8 @@
   border: 1px solid #E2DFD6;
   padding: 3px 10px;
   border-radius: 9999px;
-  font-size: 10.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 650;
   color: #383630;
   box-shadow: 0 1px 4px rgba(18, 18, 18, 0.03);
 }
@@ -508,16 +468,17 @@
 .footer-legal {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
+  padding-right: 48px;
 }
 
 .footer-legal-link {
   color: #6A6860;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 12px;
-  transition: color 0.18s;
+  font-weight: 550;
+  font-size: 12.5px;
+  transition: color 0.18s ease;
 }
 
 .footer-legal-link:hover {
@@ -525,30 +486,27 @@
 }
 
 .footer-sep {
-  color: #CAC7BC;
+  color: #D2CEC3;
+  font-size: 12px;
 }
 
-.footer-admin-btn {
+.footer-admin-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  background: #121212;
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 700;
+  gap: 5px;
+  color: #6A6860;
+  font-size: 12px;
+  font-weight: 600;
   text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.18);
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(18, 18, 18, 0.05);
+  transition: all 0.18s ease;
 }
 
-.footer-admin-btn:hover {
-  background: #000000;
-  color: var(--lime);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(18, 18, 18, 0.28);
+.footer-admin-link:hover {
+  background: #121212;
+  color: #FFFFFF;
 }
 
 /* ── RESPONSIVE ── */
@@ -563,32 +521,329 @@
   .footer-cta-inner {
     flex-direction: column;
     text-align: center;
-    padding: 28px 24px;
+    padding: 32px 24px;
+    gap: 20px;
+  }
+  .footer-cta-text-wrap {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-cta-inner .eyebrow {
+    align-self: center;
+    margin-inline: auto;
   }
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 32px 24px;
+  }
+  .footer-legal {
+    padding-right: 0;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .footer-cta-bar {
+    padding: 20px 0;
+  }
+
+  .footer-cta-inner {
+    padding: 26px 18px;
+    border-radius: 20px;
+    gap: 16px;
+  }
+
+  .footer-cta-inner h3 {
+    font-size: clamp(20px, 5.5vw, 24px);
+    line-height: 1.25;
+  }
+
+  .footer-cta-inner p {
+    font-size: 13.5px;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  .footer-btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .footer-main {
+    padding: 28px 0 20px;
+  }
+
+  /* Mobile Accordion Bento Architecture */
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
-  .footer-tagline {
-    white-space: normal !important;
+
+  .footer-brand {
+    margin-bottom: 6px;
   }
+
+  /* Accordion Bento Cards on Mobile */
+  .footer-accordion {
+    background: #FFFFFF;
+    border: 1px solid #DFDBD0;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(18, 18, 18, 0.03);
+    overflow: hidden;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .footer-accordion.is-open {
+    border-color: #CAC7BD;
+    box-shadow: 0 4px 14px rgba(18, 18, 18, 0.06);
+  }
+
+  .footer-accordion-header {
+    pointer-events: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.18s ease;
+  }
+
+  .footer-accordion-header:active {
+    background: #FAF8F5;
+  }
+
+  .footer-accordion-header .footer-heading {
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 750;
+    color: #121212;
+    letter-spacing: -0.015em;
+  }
+
+  .footer-accordion-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-accordion-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    background: #F4F2EC;
+    border: 1px solid #E5E1D8;
+    color: #6A6860;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-accordion-chevron {
+    color: #121212;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+  }
+
+  .footer-accordion.is-open .footer-accordion-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Smooth 60fps CSS Grid Accordion Transition */
+  .footer-accordion-body {
+    display: grid !important;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .footer-accordion.is-open .footer-accordion-body {
+    grid-template-rows: 1fr;
+  }
+
+  .footer-accordion-body-inner {
+    overflow: hidden !important;
+  }
+
+  .footer-accordion-body-inner .footer-links-grid {
+    padding: 6px 12px 12px 12px;
+    border-top: 1px solid #F0EDE6;
+    gap: 3px;
+  }
+
+  .footer-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    background: transparent;
+    color: #383630;
+    font-size: 13.5px;
+    font-weight: 550;
+    min-height: 42px;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+
+  .footer-nav-item:active,
+  .footer-nav-item:hover {
+    background: #F4F2EC;
+    color: #121212;
+    transform: translateX(3px);
+  }
+
+  .fni-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #C4C0B5;
+    transition: background 0.18s ease, transform 0.18s ease;
+    flex-shrink: 0;
+  }
+
+  .footer-nav-item:active .fni-dot,
+  .footer-nav-item:hover .fni-dot {
+    background: #121212;
+    transform: scale(1.3);
+  }
+
+  .fni-label {
+    flex: 1;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .footer-nav-item .fni-arrow {
+    display: flex !important;
+    opacity: 0.4;
+    transform: none;
+    color: #76746C;
+    transition: opacity 0.18s ease, transform 0.18s ease, color 0.18s ease;
+    flex-shrink: 0;
+  }
+
+  .footer-nav-item:active .fni-arrow,
+  .footer-nav-item:hover .fni-arrow {
+    opacity: 1;
+    color: #121212;
+    transform: translate(2px, -2px);
+  }
+
+  /* Matching Bento Card for Contact Info on Mobile */
+  .footer-col-contact {
+    background: #FFFFFF;
+    border: 1px solid #DFDBD0;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(18, 18, 18, 0.03);
+    padding: 16px 18px;
+    margin-top: 2px;
+  }
+
+  .footer-col-contact .footer-heading {
+    font-size: 15px;
+    font-weight: 750;
+    color: #121212;
+    margin-bottom: 12px;
+  }
+
+  .footer-contact-list {
+    gap: 8px;
+  }
+
+  .footer-contact-card {
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: #FAF8F5;
+    border: 1px solid #EFECE5;
+  }
+
+  .footer-contact-card:active {
+    background: #F4F2EC;
+  }
+
+  .fcc-val {
+    font-size: 13px;
+  }
+
+  /* Mobile Bottom Bar: Clean, unified, centered */
+  .footer-bottom {
+    padding: 22px 0 calc(90px + env(safe-area-inset-bottom)) !important;
+  }
+
   .footer-bottom-inner {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 12px;
   }
+
   .footer-copyright-wrap {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
+
+  .footer-copyright {
+    font-size: 12px;
+    color: #727068;
+  }
+
+  .footer-status-pill {
+    font-size: 10.5px;
+    padding: 3px 10px;
+  }
+
   .footer-legal {
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    padding-right: 0;
+  }
+
+  .footer-admin-link {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-grid {
+    gap: 8px;
+  }
+
+  .footer-accordion-header {
+    padding: 12px 14px;
+    min-height: 48px;
+  }
+
+  .footer-accordion-header .footer-heading {
+    font-size: 14px;
+  }
+
+  .footer-nav-item {
+    font-size: 12.5px;
+    padding: 8px 10px;
+    min-height: 38px;
+  }
+
+  .footer-col-contact {
+    padding: 14px 14px;
+  }
+
+  .fcc-val {
+    font-size: 12px;
   }
 }

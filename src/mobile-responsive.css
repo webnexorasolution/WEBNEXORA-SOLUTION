@@ -43,26 +43,20 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
   .hero-copy { max-width: 100%; }
   .hero-copy h1 { font-size: clamp(32px, 8vw, 46px); line-height: 1.12; margin-bottom: 16px; }
   .hero-lead { font-size: 15.5px; line-height: 1.7; margin-bottom: 22px; }
-  .hero-actions { width: 100%; gap: 10px; margin-bottom: 22px; }
-  .hero-actions .btn { flex: 1 1 180px; }
-  .hero-proof-bar { gap: 8px; }
-  .proof-chip { font-size: 11.5px; padding: 6px 10px; }
+  .hero-actions { width: 100%; max-width: 460px; gap: 12px; margin: 0 auto 22px; justify-content: center; }
+  .hero-actions .btn { flex: 1 1 auto; min-width: 160px; min-height: 48px; }
+  .hero-proof-bar { gap: 8px; justify-content: center; }
+  .proof-chip { font-size: 11.5px; padding: 6px 12px; }
   .hero-bento-grid { grid-template-columns: 1fr; gap: 14px; }
   .bento-card { padding: 22px; border-radius: 20px; }
   .contact-section { padding: 64px 0; }
   .contact-grid { grid-template-columns: 1fr; gap: 28px; }
   .contact-form-wrap { padding: 30px 24px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
-  .footer-cta-bar { padding: 22px 0; }
-  .footer-cta-inner { padding: 28px 22px; gap: 18px; }
-  .footer-cta-inner p { font-size: 14px; }
-  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 22px; }
-  .footer-main { padding: 30px 0; }
-  .footer-bottom { padding: 20px 0; }
-  .cookie-banner { left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: auto; padding: 17px; border-radius: 18px; }
+  .cookie-banner { left: 12px; right: 12px; bottom: calc(88px + env(safe-area-inset-bottom)); width: auto; padding: 17px; border-radius: 18px; }
   .cookie-banner-actions { display: grid; grid-template-columns: 1fr 1fr; }
   .btn-cookie-primary, .btn-cookie-secondary { min-height: 42px; }
-  .scroll-top-btn { width: 44px; height: 44px; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+  .scroll-top-btn { width: 44px; height: 44px; right: 16px; bottom: calc(88px + env(safe-area-inset-bottom)); }
 }
 
 @media (max-width: 560px) {
@@ -79,9 +73,9 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
   .hero { padding: 96px 0 44px; }
   .hero-copy h1 { font-size: clamp(30px, 9vw, 39px); letter-spacing: -.035em; }
   .hero-lead { font-size: 14.5px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn, .hero-actions a { width: 100%; min-height: 48px; }
-  .hero-proof-bar { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 100%; gap: 10px; margin-bottom: 22px; }
+  .hero-actions .btn, .hero-actions a { width: 100%; min-height: 48px; height: 48px; flex: none; padding: 0 20px; font-size: 14px; }
+  .hero-proof-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; }
   .proof-chip { justify-content: center; white-space: normal; text-align: center; }
   .bento-card { padding: 18px; border-radius: 18px; }
   .bento-card-top { gap: 10px; flex-wrap: wrap; }
@@ -97,16 +91,6 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
   .form-group input, .form-group select, .form-group textarea { width: 100%; min-height: 48px; padding: 12px 14px; font-size: 16px; }
   .form-group textarea { min-height: 130px; }
   .submit-btn { min-height: 50px; }
-  .footer-cta-inner { padding: 24px 17px; border-radius: 19px; }
-  .footer-cta-inner h3 { font-size: 21px; }
-  .footer-cta-inner p { font-size: 13px; }
-  .footer-btn { width: 100%; }
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-  .footer-logo-text { font-size: 19px; }
-  .footer-tagline { white-space: normal !important; }
-  .footer-contact-card, .fcc-val, .fcc-sub { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
-  .footer-bottom-inner, .footer-copyright-wrap, .footer-legal { justify-content: center; text-align: center; }
-  .footer-legal { gap: 9px; }
   .cookie-banner { padding: 15px; }
   .cookie-banner p { font-size: 11.5px; }
   .cookie-banner-actions { gap: 8px; }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, MessageCircle, Mail, ArrowUpRight, Lock, Sparkles, ShieldCheck, Copy, Check } from 'lucide-react';
+import { Phone, MessageCircle, Mail, ArrowUpRight, Lock, Sparkles, Copy, Check, ChevronDown } from 'lucide-react';
 import siteConfig from '../config/site';
 import './Footer.css';
 
@@ -26,6 +26,10 @@ const serviceLinks = [
 
 export default function Footer() {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [openSections, setOpenSections] = useState({
+    quickLinks: false,
+    services: false,
+  });
 
   const handleCopyEmail = (e) => {
     e.preventDefault();
@@ -33,6 +37,13 @@ export default function Footer() {
     navigator.clipboard.writeText(siteConfig.contact.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const toggleSection = (sectionKey) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [sectionKey]: !prev[sectionKey],
+    }));
   };
 
   return (
@@ -119,49 +130,87 @@ export default function Footer() {
           </div>
 
           {/* QUICK LINKS */}
-          <div className="footer-col">
-            <h4 className="footer-heading">Quick Links</h4>
-            <nav className="footer-links-grid" aria-label="Footer quick links">
-              {quickLinks.map((l) => (
-                <Link key={l.path} to={l.path} className="footer-nav-item">
-                  <span className="fni-dot" />
-                  <span className="fni-label">{l.label}</span>
-                  <ArrowUpRight size={13} className="fni-arrow" />
-                </Link>
-              ))}
-            </nav>
+          <div className={`footer-col footer-col-links footer-accordion ${openSections.quickLinks ? 'is-open' : ''}`}>
+            <button
+              type="button"
+              className="footer-accordion-header"
+              onClick={() => toggleSection('quickLinks')}
+              aria-expanded={openSections.quickLinks}
+              aria-controls="footer-quick-links-content"
+              aria-label="Toggle Quick Links menu"
+            >
+              <h4 className="footer-heading">Quick Links</h4>
+              <div className="footer-accordion-meta">
+                <span className="footer-accordion-badge">{quickLinks.length}</span>
+                <ChevronDown size={16} className="footer-accordion-chevron" />
+              </div>
+            </button>
+            <div className="footer-accordion-body" id="footer-quick-links-content">
+              <div className="footer-accordion-body-inner">
+                <nav className="footer-links-grid" aria-label="Footer quick links">
+                  {quickLinks.map((l) => (
+                    <Link key={l.label} to={l.path} className="footer-nav-item">
+                      <span className="fni-dot" />
+                      <span className="fni-label">{l.label}</span>
+                      <ArrowUpRight size={13} className="fni-arrow" />
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </div>
           </div>
 
           {/* SERVICES */}
-          <div className="footer-col">
-            <h4 className="footer-heading">Services</h4>
-            <nav className="footer-links-grid" aria-label="Footer services">
-              {serviceLinks.map((s) => (
-                <Link key={s.label} to={s.path} className="footer-nav-item">
-                  <span className="fni-dot" />
-                  <span className="fni-label">{s.label}</span>
-                  <ArrowUpRight size={13} className="fni-arrow" />
-                </Link>
-              ))}
-            </nav>
+          <div className={`footer-col footer-col-services footer-accordion ${openSections.services ? 'is-open' : ''}`}>
+            <button
+              type="button"
+              className="footer-accordion-header"
+              onClick={() => toggleSection('services')}
+              aria-expanded={openSections.services}
+              aria-controls="footer-services-content"
+              aria-label="Toggle Services menu"
+            >
+              <h4 className="footer-heading">Services</h4>
+              <div className="footer-accordion-meta">
+                <span className="footer-accordion-badge">{serviceLinks.length}</span>
+                <ChevronDown size={16} className="footer-accordion-chevron" />
+              </div>
+            </button>
+            <div className="footer-accordion-body" id="footer-services-content">
+              <div className="footer-accordion-body-inner">
+                <nav className="footer-links-grid" aria-label="Footer services">
+                  {serviceLinks.map((s) => (
+                    <Link key={s.label} to={s.path} className="footer-nav-item">
+                      <span className="fni-dot" />
+                      <span className="fni-label">{s.label}</span>
+                      <ArrowUpRight size={13} className="fni-arrow" />
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </div>
           </div>
 
-          {/* CONTACT INFO (Clean & Minimalist Contact Cards) */}
-          <div className="footer-col">
+          {/* CONTACT INFO */}
+          <div className="footer-col footer-col-contact">
             <h4 className="footer-heading">Get in Touch</h4>
             <div className="footer-contact-list">
               <a className="footer-contact-card" href={`tel:${siteConfig.contact.phoneRaw}`} id="footer-phone">
                 <div className="fcc-icon-wrap fcc-icon-dark">
                   <Phone size={15} strokeWidth={2.2} />
                 </div>
-                <span className="fcc-val">{siteConfig.contact.phone}</span>
+                <div className="fcc-details">
+                  <span className="fcc-val">{siteConfig.contact.phone}</span>
+                </div>
               </a>
 
-              <a className="footer-contact-card fcc-card-wa" href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener" id="footer-wa">
+              <a className="footer-contact-card fcc-card-wa" href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" id="footer-wa">
                 <div className="fcc-icon-wrap fcc-icon-wa">
                   <MessageCircle size={15} strokeWidth={2.2} />
                 </div>
-                <span className="fcc-val">{siteConfig.contact.phone}</span>
+                <div className="fcc-details">
+                  <span className="fcc-val">{siteConfig.contact.phone}</span>
+                </div>
               </a>
 
               <div className="footer-contact-card footer-email-card" id="footer-email">
@@ -169,7 +218,9 @@ export default function Footer() {
                   <div className="fcc-icon-wrap fcc-icon-cyan">
                     <Mail size={15} strokeWidth={2.2} />
                   </div>
-                  <span className="fcc-val">{siteConfig.contact.email}</span>
+                  <div className="fcc-details">
+                    <span className="fcc-val">{siteConfig.contact.email}</span>
+                  </div>
                 </a>
                 <button
                   type="button"
@@ -179,7 +230,6 @@ export default function Footer() {
                   aria-label="Copy email to clipboard"
                 >
                   {copiedEmail ? <Check size={13} color="#22C55E" /> : <Copy size={13} />}
-                  <span className="copy-tooltip">{copiedEmail ? 'Copied!' : 'Copy'}</span>
                 </button>
               </div>
             </div>
@@ -187,7 +237,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* BOTTOM BAR (Elite Studio Signature Bar) */}
+      {/* BOTTOM BAR */}
       <div className="footer-bottom">
         <div className="footer-container footer-bottom-inner">
           <div className="footer-copyright-wrap">
@@ -196,7 +246,6 @@ export default function Footer() {
               <span className="status-ping-dot" />
               <span>All Systems Operational</span>
             </div>
-            <span className="footer-last-updated">Updated: Oct 2026</span>
           </div>
 
           <div className="footer-legal">
@@ -206,9 +255,9 @@ export default function Footer() {
             <span className="footer-sep">·</span>
             <Link to="/contact" className="footer-legal-link">Support</Link>
             <span className="footer-sep">·</span>
-            <Link to="/admin" className="footer-admin-btn" title="Agency Staff Portal" id="footer-admin-link">
+            <Link to="/admin" className="footer-admin-link" title="Agency Staff Portal" id="footer-admin-link">
               <Lock size={11} strokeWidth={2.4} />
-              <span>Admin Console</span>
+              <span>Admin</span>
             </Link>
           </div>
         </div>
