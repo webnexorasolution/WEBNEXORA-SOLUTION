@@ -11,6 +11,7 @@ import {
   Palette,
   Search,
   TrendingUp,
+  Smartphone,
 } from 'lucide-react';
 import CustomSelect from './ui/CustomSelect';
 import siteConfig from '../config/site';
@@ -19,7 +20,7 @@ import './Contact.css';
 const serviceOptions = [
   { value: 'Website Development', label: 'Website Development', icon: <Globe size={16} /> },
   { value: 'E-Commerce Website', label: 'E-Commerce Website', icon: <ShoppingBag size={16} /> },
-  { value: 'WordPress Development', label: 'WordPress Development', icon: <Layers size={16} /> },
+  { value: 'Mobile App Development', label: 'Mobile App (Capacitor)', icon: <Smartphone size={16} /> },
   { value: 'UI/UX Design', label: 'UI/UX Design', icon: <Palette size={16} /> },
   { value: 'SEO Services', label: 'SEO Services', icon: <Search size={16} /> },
   { value: 'Digital Marketing', label: 'Digital Marketing', icon: <TrendingUp size={16} /> },

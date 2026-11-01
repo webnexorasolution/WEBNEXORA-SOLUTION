@@ -53,11 +53,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 3.5px;
-  background: var(--lime, #EEFD44);
+  height: 3px;
+  background: var(--lime, #B9FF66);
   z-index: 10001;
   transition: width 0.08s ease-out;
-  box-shadow: 0 0 10px rgba(238, 253, 68, 0.7);
+  box-shadow: none;
 }
 
 /* ACCESSIBILITY: SKIP TO CONTENT */

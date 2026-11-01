@@ -18,7 +18,7 @@ const quickLinks = [
 const serviceLinks = [
   { label: 'Website Development', path: '/services' },
   { label: 'E-Commerce Solutions', path: '/services' },
-  { label: 'WordPress Development', path: '/services' },
+  { label: 'Mobile App Development', path: '/services' },
   { label: 'UI/UX Design Systems', path: '/services' },
   { label: 'SEO & Performance Tuning', path: '/services' },
   { label: 'Digital Growth Marketing', path: '/services' },
@@ -79,20 +79,13 @@ export default function Footer() {
           {/* BRAND COLUMN */}
           <div className="footer-brand">
             <Link className="footer-logo-wrap" to="/">
-              <span className="footer-logo-icon">
-                <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-                  <rect width="32" height="32" rx="10" fill="#121212" />
-                  <path
-                    d="M8 11L12 21L16 13L20 21L24 11"
-                    stroke="#EEFD44"
-                    strokeWidth="2.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              <img
+                src="/webnexora-brand-mark.png"
+                alt="Webnexora Solution"
+                className="footer-brand-logo-img"
+              />
               <span className="footer-logo-text">
-                Webnexora <span className="footer-logo-badge">Solution</span>
+                Webnexora <span className="footer-logo-solution">Solution</span>
               </span>
             </Link>
 

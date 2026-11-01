@@ -1,144 +1,235 @@
-/* PORTFOLIO — Warm Limestone & White Bento Cards */
-.portfolio-section {
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-  padding: 96px 0;
+/* POSITIVUS CTA BANNER & CASE STUDY */
+.portfolio-section-wrap {
+  background-color: #FFFFFF;
 }
 
-.port-orb {
-  width: 480px;
-  height: 480px;
-  bottom: -100px;
-  left: -100px;
-  background: rgba(238, 253, 68, 0.12);
+/* ── 1. CTA BANNER CARD ── */
+.cta-banner-section {
+  padding: 30px 0 60px;
 }
 
-.project-grid {
+.cta-banner-card {
+  background-color: #F3F3F3;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+  padding: 60px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px;
-}
-
-.project-card {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: #FFFFFF;
-  border: var(--stroke);
-  box-shadow: var(--neu-shadow);
-  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.28s;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: #D2CEC3;
-  box-shadow: var(--neu-shadow-hover);
-}
-
-.project-img {
+  grid-template-columns: 1fr 340px;
+  align-items: center;
+  gap: 40px;
   position: relative;
-  height: 230px;
   overflow: hidden;
-  background: #EAE7DF;
-  border-bottom: 1px solid #E2DFD6;
 }
 
-.project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  display: block;
-}
-
-.project-card:hover .project-img img {
-  transform: scale(1.06);
-}
-
-/* OVERLAY */
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(236, 233, 226, 0) 30%, rgba(255, 255, 255, 0.95));
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 22px;
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.port-view-btn {
-  font-size: 13px;
-  padding: 10px 22px;
-  background: #121212;
-  border: 1px solid #121212;
-  box-shadow: 0 4px 14px rgba(18, 18, 18, 0.25);
-  color: #FFFFFF;
-  font-weight: 700;
-  border-radius: 9999px;
-  transition: background 0.2s;
-}
-
-.port-view-btn:hover {
-  background: #262626;
-  color: var(--lime);
-}
-
-/* CONTENT */
-.project-content {
-  padding: 26px 26px 28px;
+.cta-banner-left {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  align-items: flex-start;
+  gap: 22px;
+  max-width: 530px;
+  z-index: 2;
 }
 
-.project-tag {
+.cta-banner-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.2vw, 36px);
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+}
+
+.cta-banner-text {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+.cta-banner-btn {
+  padding: 18px 36px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  background: var(--dark);
+  color: #FFFFFF;
+  border: 1px solid var(--dark);
+}
+
+.cta-banner-btn:hover {
+  background: #2E303E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(25, 26, 35, 0.2);
+}
+
+.cta-banner-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-art-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cta-art-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.floating-sphere {
+  animation: floatSphere 3.6s ease-in-out infinite alternate;
+}
+
+@keyframes floatSphere {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-7px); }
+}
+
+.floating-star {
+  animation: floatStar 4.2s ease-in-out 0.3s infinite alternate;
+}
+
+@keyframes floatStar {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-5px) scale(1.06); }
+}
+
+/* ── 2. CASE STUDY SECTION ── */
+.positivus-casestudy-section {
+  padding: 40px 0 70px;
+}
+
+.casestudy-dark-card {
+  background-color: #191A23;
+  color: #FFFFFF;
+  border-radius: var(--radius-card);
+  padding: 60px 50px;
+  box-shadow: 0px 5px 0px #0F1017;
+  position: relative;
+  overflow: hidden;
+}
+
+.casestudy-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.casestudy-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  padding-right: 20px;
+}
+
+.casestudy-tag-badge {
   display: inline-block;
-  align-self: flex-start;
-  background: #F4F2EC;
-  border: 1px solid #EAE7DE;
-  color: #4A4841;
-  padding: 4px 12px;
-  border-radius: 9999px;
+  background-color: rgba(185, 255, 102, 0.18);
+  color: var(--lime);
+  border: 1px solid var(--lime);
+  padding: 2px 8px;
+  border-radius: var(--radius-badge);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
-.project-content h3 {
+.casestudy-col-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.casestudy-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #D5D5D5;
+  margin: 0;
+}
+
+.casestudy-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-heading);
   font-size: 19px;
-  font-weight: 800;
-  color: #121212;
-  margin-bottom: 10px;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  color: var(--lime);
+  text-decoration: none;
+  transition: gap 0.2s ease, transform 0.2s ease;
+  width: fit-content;
 }
 
-.project-content p {
-  color: #6A6860;
-  font-size: 14px;
-  line-height: 1.68;
+.casestudy-action-link:hover {
+  color: #FFFFFF;
+  gap: 14px;
+  transform: translateX(2px);
 }
 
-.portfolio-bottom {
-  text-align: center;
-  margin-top: 50px;
+.casestudy-arrow-icon {
+  color: var(--lime);
+  transition: transform 0.2s ease;
 }
 
-@media (max-width: 900px) {
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.casestudy-action-link:hover .casestudy-arrow-icon {
+  transform: translate(2px, -2px);
+  color: #FFFFFF;
 }
-@media (max-width: 560px) {
-  .project-grid { grid-template-columns: 1fr; }
+
+.casestudy-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -20px;
+  width: 1px;
+  background-color: #2F313D;
+}
+
+.portfolio-bottom-row {
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 960px) {
+  .cta-banner-card {
+    grid-template-columns: 1fr;
+    padding: 44px 30px;
+  }
+  .cta-banner-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .casestudy-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .casestudy-col {
+    padding-right: 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #2F313D;
+  }
+  .casestudy-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .casestudy-divider {
+    display: none;
+  }
+  .casestudy-dark-card {
+    padding: 44px 30px;
+  }
 }

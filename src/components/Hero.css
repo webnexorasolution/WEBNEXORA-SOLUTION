@@ -1,70 +1,129 @@
-/* HERO SECTION — Warm Limestone Canvas & Authentic Bento Grid */
-.hero {
+/* POSITIVUS HERO SECTION */
+.positivus-hero-wrapper {
+  padding: 40px 0 70px;
+  background-color: #FFFFFF;
   position: relative;
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  padding: 130px 0 80px;
   overflow: hidden;
-  background: transparent;
 }
 
 .hero-container {
   display: flex;
   flex-direction: column;
-  gap: 52px;
-  position: relative;
-  z-index: 2;
+  gap: 50px;
 }
 
-/* ── HERO COPY (CENTERED / SPACIOUS) ── */
+/* TOP ROW: 2-COLUMN SPLIT */
+.hero-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
 .hero-copy {
-  max-width: 860px;
-  margin: 0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
   align-items: center;
-}
-
-.hero-copy h1 {
+  gap: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-dark);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-heading);
-  font-size: clamp(34px, 4.4vw, 56px);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.016em;
-  color: #121212;
-  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  color: var(--dark);
 }
 
-.hero-highlight {
+.eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--lime);
+  border: 1px solid var(--dark);
+}
+
+.hero-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4.2vw, 54px);
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+
+.hero-title-badge {
+  background-color: var(--lime);
+  color: var(--dark);
+  padding: 0 8px;
+  border-radius: 6px;
   display: inline;
-  background: linear-gradient(180deg, transparent 65%, rgba(238, 253, 68, 0.88) 65%);
-  padding: 0 4px;
 }
 
 .hero-lead {
-  font-size: 17.5px;
-  line-height: 1.78;
-  color: #5D5B53;
-  max-width: 700px;
-  margin-bottom: 30px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+  max-width: 520px;
+  margin-bottom: 32px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.hero-btn-main {
+  padding: 18px 34px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  background: var(--dark);
+  color: #FFFFFF;
+  border: 1px solid var(--dark);
+  box-shadow: 0 4px 14px rgba(25, 26, 35, 0.15);
+}
+
+.hero-btn-main:hover {
+  background: #2E303E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(25, 26, 35, 0.25);
+}
+
+.hero-btn-secondary {
+  padding: 18px 34px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
+.hero-btn-secondary:hover {
+  background: var(--dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
 }
 
 .hero-proof-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
+  gap: 10px;
 }
 
 .proof-chip {
@@ -72,169 +131,206 @@
   align-items: center;
   gap: 8px;
   background: #FFFFFF;
-  border: var(--stroke);
-  padding: 6px 14px;
-  border-radius: 9999px;
+  border: 1px solid var(--border-dark);
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
   font-size: 12.5px;
-  font-weight: 700;
-  color: #383630;
-  box-shadow: 0 1px 3px rgba(32, 28, 22, 0.03);
+  font-weight: 600;
+  color: var(--dark);
+  box-shadow: 0 2px 0 var(--dark);
 }
 
 .chk {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
-  background: #121212;
+  background: var(--dark);
   color: var(--lime);
-  font-size: 10px;
-  font-weight: 900;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   HERO BENTO SHOWCASE (Styled in the exact theme)
-   ───────────────────────────────────────────────────────────── */
+/* RIGHT: MEGAPHONE ARTWORK */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.megaphone-art-wrap {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.megaphone-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Floating micro-animations */
+.floating-core-console,
+.floating-megaphone {
+  animation: floatCoreConsole 4.5s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes floatCoreConsole {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-7px) rotate(0.8deg); }
+}
+
+.badge-float-1 { animation: floatBadge 3.2s ease-in-out infinite alternate; }
+.badge-float-2 { animation: floatBadge 3.8s ease-in-out 0.4s infinite alternate; }
+.badge-float-3 { animation: floatBadge 4.2s ease-in-out 0.8s infinite alternate; }
+.badge-float-4 { animation: floatBadge 3.5s ease-in-out 0.2s infinite alternate; }
+
+@keyframes floatBadge {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-6px); }
+}
+
+/* TECH STACK LOGO BAR */
+.hero-logos-bar {
+  padding: 36px 0 20px;
+  border-top: 1px solid #EAEAEA;
+  margin-top: 16px;
+}
+
+.client-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.client-logo-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.82;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.client-logo-item:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.tech-logo-svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.tech-logo-name {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  color: #191A23;
+  letter-spacing: -0.015em;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* ── BENTO SHOWCASE (Styled in Positivus Neo-Brutalist Theme) ── */
 .hero-bento-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  grid-template-rows: auto auto;
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: 1.25fr 1.75fr;
+  gap: 24px;
+  margin-top: 20px;
 }
 
 .bento-card {
-  background: #FFFFFF;
-  border: var(--stroke);
-  border-radius: 24px;
-  box-shadow: var(--neu-shadow);
-  padding: 26px 28px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
-              box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.25s;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-dark);
+  border-radius: 35px;
+  box-shadow: 0px 5px 0px var(--border-dark);
+  padding: 34px;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .bento-card:hover {
-  transform: translateY(-4px);
-  border-color: #D2CEC3;
-  box-shadow: var(--neu-shadow-hover);
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 0px var(--border-dark);
 }
 
 .bento-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
-}
-
-.bento-card-title-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.bento-card-title-group strong {
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 800;
-  color: #121212;
-}
-
-.bento-icon-box {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: #F4F2EC;
-  border: 1px solid #EAE7DE;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bento-pill-muted {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #7A7870;
-  background: #F4F2EC;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  border: 1px solid #EAE7DE;
+  margin-bottom: 20px;
 }
 
 .bento-pill-dark {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
-  font-weight: 800;
+  background: var(--dark);
   color: #FFFFFF;
-  background: #121212;
   padding: 5px 12px;
-  border-radius: 9999px;
-  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.bento-pill-muted {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666666;
+  letter-spacing: 0.05em;
 }
 
 .bento-trend-pill {
-  font-size: 11.5px;
-  font-weight: 800;
-  color: #121212;
-  background: rgba(0, 0, 0, 0.08);
+  background: var(--dark);
+  color: var(--lime);
   padding: 4px 10px;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
 }
 
-/* ── CARD 1: SIGNATURE ELECTRIC LIME CARD ── */
+/* Card 1 Lime Highlight */
 .hero-card-lime {
-  background: var(--lime) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 10px 32px rgba(238, 253, 68, 0.28) !important;
-  color: #121212;
-  justify-content: space-between;
-}
-
-.hero-card-lime:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 42px rgba(238, 253, 68, 0.42) !important;
+  background: var(--lime);
+  color: var(--dark);
 }
 
 .lime-metric-block {
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin: 12px 0 10px;
+  flex-direction: column;
+  margin-bottom: 16px;
 }
 
 .lime-huge-number {
   font-family: var(--font-heading);
-  font-size: clamp(40px, 4.5vw, 56px);
-  font-weight: 900;
-  color: #121212;
+  font-size: 52px;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.035em;
 }
 
 .lime-metric-label {
   font-size: 14px;
-  font-weight: 800;
-  color: #2E2D1F;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
 }
 
 .lime-card-desc {
-  font-size: 14.5px;
-  color: #2E2D1F !important;
-  font-weight: 600;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.55;
   margin-bottom: 20px;
+  color: var(--dark);
 }
 
 .lime-tags-row {
@@ -246,103 +342,80 @@
 .lime-tag-chip {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  background: #121212;
-  color: #FFFFFF;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 11.5px;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-dark);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
   font-weight: 700;
-  box-shadow: 0 2px 6px rgba(18, 18, 18, 0.2);
-  transition: transform 0.2s ease;
+  color: var(--dark);
 }
 
-.lime-tag-chip:hover {
-  transform: translateY(-1px);
-}
-
-.chip-icon {
-  color: #EEFD44;
-  flex-shrink: 0;
-}
-
-/* ── CARD 2: SPRINT ROADMAP & MILESTONE TIMELINE ── */
+/* Card 2 Sprints */
 .hero-card-sprints {
-  justify-content: space-between;
+  background: #FFFFFF;
 }
 
-.roadmap-icon-box {
-  background: #F4F2EC !important;
-  border: 1px solid #EAE7DE !important;
-  color: #121212 !important;
-  box-shadow: none !important;
-}
-
-.bento-title-text-wrap {
+.bento-card-title-group {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.bento-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--dark);
+  color: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bento-heading-text {
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 800;
-  color: #121212;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .bento-title-sub {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #7E7C74;
-  letter-spacing: 0.02em;
-  margin-top: 1px;
+  font-size: 12px;
+  color: #777777;
+  display: block;
 }
 
 .sprint-status-pill-live {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: #F4F2EC;
-  color: #121212;
-  font-size: 11px;
+  gap: 7px;
+  background: #E8F8ED;
+  border: 1px solid #16A34A;
+  color: #16A34A;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
   font-weight: 700;
-  padding: 4px 11px;
-  border-radius: 9999px;
-  border: 1px solid #E2DFD6;
 }
 
 .sprint-pulse-beacon {
-  width: 6.5px;
-  height: 6.5px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #22C55E;
-  box-shadow: 0 0 6px rgba(34, 197, 94, 0.85);
-  animation: sprintBeaconPulse 2s infinite ease-in-out;
+  background: #16A34A;
 }
 
-@keyframes sprintBeaconPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.55; }
-}
-
-/* Visual Milestone Stages Stack */
 .milestone-stages-stack {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin: 6px 0 14px;
-  background: #FAF8F5;
-  border: 1px solid #EAE7DE;
-  border-radius: 18px;
-  padding: 16px 16px;
+  margin: 18px 0;
 }
 
 .milestone-stage-row {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .milestone-row-top {
@@ -354,232 +427,129 @@
 .milestone-label-group {
   display: flex;
   align-items: center;
-  gap: 9px;
-}
-
-/* Step badges */
-.milestone-step-badge {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 800;
-  flex-shrink: 0;
-}
-
-.milestone-step-badge.done {
-  background: #121212;
-  color: #EEFD44;
-}
-
-.milestone-step-badge.active {
-  background: #121212;
-  position: relative;
-}
-
-.badge-pulse-inner {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #EEFD44;
-  box-shadow: 0 0 6px #EEFD44;
-  animation: radarPing 1.8s infinite ease-in-out;
-}
-
-.milestone-step-badge.queued {
-  background: #EAE7DE;
-  color: #7E7C74;
-  font-size: 9.5px;
-  font-weight: 700;
-}
-
-/* Label text */
-.milestone-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: #121212;
-  letter-spacing: -0.012em;
-}
-
-.stage-queued .milestone-name {
-  color: #78766E;
+  gap: 8px;
+  font-size: 13.5px;
   font-weight: 600;
 }
 
-/* Right indicators */
-.milestone-pct {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-
-.milestone-pct.done {
-  color: #15803D;
-  background: #E8F7ED;
-  padding: 2px 7px;
-  border-radius: 6px;
-}
-
-.milestone-pct.queued {
-  color: #8C8980;
-  background: #F0EEE7;
-  padding: 2px 7px;
-  border-radius: 6px;
+.milestone-step-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
   font-weight: 700;
-  font-size: 10.5px;
+}
+
+.milestone-step-badge.done {
+  background: var(--dark);
+  color: var(--lime);
+}
+
+.milestone-step-badge.active {
+  background: var(--lime);
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
+.milestone-step-badge.queued {
+  background: #EEEEEE;
+  color: #888888;
+}
+
+.milestone-pct {
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .milestone-badge-pill.active {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   font-size: 11px;
-  font-weight: 800;
-  background: #121212;
-  color: #FFFFFF;
-  padding: 3px 9px;
-  border-radius: 9999px;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  background: var(--lime);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
 }
 
-.pill-pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #EEFD44;
-  box-shadow: 0 0 6px #EEFD44;
-  animation: radarPing 1.8s infinite ease-in-out;
-}
-
-@keyframes radarPing {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.55; }
-}
-
-/* Progress bar track & fills */
 .milestone-bar-track {
   width: 100%;
   height: 6px;
-  background: #EAE7DE;
-  border-radius: 9999px;
+  background: #EEEEEE;
+  border-radius: 999px;
   overflow: hidden;
-  position: relative;
-}
-
-.milestone-bar-fill {
-  height: 100%;
-  border-radius: 9999px;
-  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
 }
 
 .milestone-bar-fill.done {
-  background: #121212;
+  height: 100%;
+  background: var(--dark);
 }
 
 .milestone-bar-fill.active {
-  background: linear-gradient(90deg, #121212 0%, #2A2A2A 50%, #EEFD44 100%);
+  height: 100%;
+  background: var(--lime);
 }
 
-.bar-spark-glow {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 8px;
-  background: #EEFD44;
-  box-shadow: 0 0 8px #EEFD44;
-  border-radius: 50%;
-}
-
-.milestone-bar-fill.queued {
-  background: transparent;
-}
-
-/* Bottom Guarantee Bar */
 .delivery-guarantee-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  border-top: 1px solid #EAE7DE;
+  border-top: 1px solid #ECECEC;
+  padding-top: 14px;
+  font-size: 13px;
+  color: #555555;
 }
 
 .guarantee-meta {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11.5px;
-  color: #55534D;
-  font-weight: 600;
-}
-
-.guarantee-icon {
-  color: #15803D;
-  flex-shrink: 0;
 }
 
 .guarantee-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* Card 3 Speed & Card 4 Metrics */
+.hero-card-speed,
+.hero-card-metrics {
+  background: #F3F3F3;
+}
+
+.speed-badge-green {
+  background: var(--lime);
+  color: var(--dark);
+  border: 1px solid var(--dark);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
   font-size: 11px;
   font-weight: 700;
-  color: #121212;
-  background: #F4F2EC;
-  padding: 3px 9px;
-  border-radius: 6px;
-  border: 1px solid #E2DFD6;
-}
-
-.guarantee-dot {
-  color: #15803D;
-  font-size: 9px;
-}
-
-/* ── CARD 3: SPEED & LIGHTHOUSE SCORE ── */
-.speed-badge-green {
-  font-size: 10.5px;
-  font-weight: 700;
-  background: #E8F7ED;
-  color: #15803D;
-  padding: 3px 10px;
-  border-radius: 9999px;
 }
 
 .speed-number-wrap {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: 8px 0 16px;
+  margin: 12px 0 16px;
 }
 
 .speed-num {
   font-family: var(--font-heading);
-  font-size: 48px;
-  font-weight: 900;
-  color: #121212;
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--dark);
   line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.speed-meta {
-  display: flex;
-  flex-direction: column;
 }
 
 .speed-meta strong {
-  font-size: 14px;
-  font-weight: 800;
-  color: #121212;
+  display: block;
+  font-size: 15px;
 }
 
 .speed-meta small {
-  font-size: 11.5px;
-  color: #7E7C74;
+  color: #666666;
+  font-size: 13px;
 }
 
 .speed-chips-grid {
@@ -592,97 +562,99 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 11px;
-  font-weight: 700;
-  background: #F4F2EC;
-  border: 1px solid #EAE7DE;
-  color: #4A4841;
-  padding: 4px 10px;
-  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-dark);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
 }
 
-/* ── CARD 4: CLIENT OUTCOMES & METRICS ── */
 .star-rating-pill {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-dark);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
   font-size: 12px;
-  font-weight: 800;
-  background: #F4F2EC;
-  border: 1px solid #EAE7DE;
-  color: #121212;
-  padding: 3px 10px;
-  border-radius: 9999px;
+  font-weight: 700;
 }
 
 .metrics-split-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 12px 0 20px;
-  background: #F9F8F5;
-  border: 1px solid #EAE7DF;
-  border-radius: 16px;
-  padding: 12px 18px;
+  justify-content: space-around;
+  margin: 18px 0;
 }
 
 .m-split-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
 .m-split-num {
+  display: block;
   font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 800;
-  color: #121212;
+  font-size: 32px;
+  font-weight: 700;
   line-height: 1.1;
 }
 
 .m-split-lbl {
-  font-size: 10.5px;
+  font-size: 12px;
+  color: #666666;
+  text-transform: uppercase;
   font-weight: 600;
-  color: #7E7C74;
 }
 
 .m-divider {
   width: 1px;
-  height: 24px;
-  background: #DCD8CE;
+  height: 36px;
+  background: #D5D5D5;
 }
 
 .bento-action-link {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  font-size: 12.5px;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 14px;
   font-weight: 700;
-  color: #121212;
-  text-decoration: none;
-  padding-top: 6px;
-  transition: color 0.18s;
+  color: var(--dark);
+  text-decoration: underline;
 }
 
-.bento-action-link:hover {
-  color: #55534D;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 960px) {
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .hero-top-grid {
+    gap: 30px;
+  }
   .hero-bento-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 600px) {
-  .hero {
-    padding: 100px 0 60px;
+@media (max-width: 820px) {
+  .hero-top-grid {
+    grid-template-columns: 1fr;
   }
-  .hero-proof-bar {
-    flex-direction: column;
-    align-items: center;
+  .hero-visual {
+    order: 2;
+  }
+  .hero-copy {
+    order: 1;
+  }
+  .hero-heading {
+    font-size: 36px;
+  }
+  .hero-btn-main,
+  .hero-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .client-logos-row {
+    gap: 20px;
+    justify-content: center;
   }
 }

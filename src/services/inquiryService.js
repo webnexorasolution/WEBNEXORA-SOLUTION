@@ -55,10 +55,10 @@ const INITIAL_INQUIRIES = [
     company: 'GreenRoot Organics',
     email: 'sneha@greenroot.in',
     phone: '+91 97665 33210',
-    service: 'WordPress CMS Development',
+    service: 'Mobile App Development (Capacitor)',
     budget: '₹50,000 – ₹1,50,000',
     timeline: 'Within 1 Month',
-    message: 'Redesigning our existing organic brand blog and online store into a clean, super-fast WordPress WooCommerce store.',
+    message: 'Looking to launch a cross-platform mobile application for iOS and Android using Capacitor framework connected to our backend.',
     status: 'Converted',
     createdAt: new Date(Date.now() - 1000 * 60 * 60 * 72).toISOString(), // 3 days ago
     source: 'Home Contact Section',

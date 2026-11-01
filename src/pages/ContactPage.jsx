@@ -23,6 +23,7 @@ import {
   Check,
   AlertCircle,
   ShieldCheck,
+  Smartphone,
 } from 'lucide-react';
 import CustomSelect from '../components/ui/CustomSelect';
 import siteConfig from '../config/site';
@@ -32,7 +33,7 @@ import './ContactPage.css';
 const servicesList = [
   { value: 'Custom Website Development', label: 'Custom Website Development', icon: <Globe size={16} /> },
   { value: 'E-Commerce Storefront', label: 'E-Commerce Storefront', icon: <ShoppingBag size={16} /> },
-  { value: 'WordPress CMS Development', label: 'WordPress CMS Development', icon: <Layers size={16} /> },
+  { value: 'Mobile App Development', label: 'Mobile App (Capacitor Framework)', icon: <Smartphone size={16} /> },
   { value: 'UI/UX Design & Prototyping', label: 'UI/UX Design & Prototyping', icon: <Palette size={16} /> },
   { value: 'SEO & Performance Optimization', label: 'SEO & Performance Optimization', icon: <Search size={16} /> },
   { value: 'Digital Marketing & Growth', label: 'Digital Marketing & Growth', icon: <TrendingUp size={16} /> },

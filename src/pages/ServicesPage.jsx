@@ -51,22 +51,22 @@ const detailedServices = [
     tech: ['Shopify Custom', 'WooCommerce', 'Headless Storefronts', 'Stripe'],
   },
   {
-    id: 'wordpress',
-    badge: 'Easy Management',
+    id: 'mobile-apps',
+    badge: 'iOS & Android',
     title: (
       <>
-        WordPress &amp; <span className="title-highlight">Headless CMS.</span>
+        Mobile Apps &amp; <span className="title-highlight">Capacitor.</span>
       </>
     ),
-    tagline: 'User-friendly content management platforms your team can easily update.',
-    desc: 'Get the flexibility of WordPress without the security vulnerabilities or sluggish performance. We build lightweight, custom block themes that give your marketing team full editing power while maintaining strict design guardrails.',
+    tagline: 'High-performance cross-platform mobile apps for iOS and Android built with web standards.',
+    desc: 'Deploy native iOS and Android apps from a unified modern web codebase using Capacitor framework. We build fast, fluid mobile experiences with full device API access, offline support, and App Store readiness.',
     deliverables: [
-      'Custom Gutenberg block theme built without bloated third-party page builders',
-      'Intuitive admin dashboard customized specifically for your team workflow',
-      'Hardened security protection against brute force and automated exploits',
-      'Automated daily backup systems and database speed optimization',
+      'Native iOS (Swift/Xcode) & Android (Kotlin/Gradle) production packages',
+      'Capacitor native plugin integration (Camera, Push Notifications, Biometrics, Storage)',
+      'Cross-platform codebase efficiency with 100% native runtime performance',
+      'End-to-end Apple App Store & Google Play Console submission guidance',
     ],
-    tech: ['Custom WordPress Themes', 'Gutenberg Blocks', 'PHP 8.3', 'MySQL'],
+    tech: ['Capacitor Framework', 'iOS & Swift', 'Android & Kotlin', 'Native Plugins'],
   },
   {
     id: 'ui-ux',

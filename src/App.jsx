@@ -92,7 +92,6 @@ export default function App() {
       <a href="#main-content" className="skip-to-content">
         Skip to main content
       </a>
-      <ScrollProgressBar />
       <ScrollToTop />
       {!isAdmin && <Navbar />}
       <main id="main-content">
@@ -111,30 +110,6 @@ export default function App() {
       {!isAdmin && <ScrollTopBtn />}
       {!isAdmin && <CookieConsent />}
     </>
-  );
-}
-
-function ScrollProgressBar() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const currentProgress = (window.scrollY / totalHeight) * 100;
-        setProgress(Math.min(100, Math.max(0, currentProgress)));
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div
-      className="scroll-progress-bar"
-      style={{ width: `${progress}%` }}
-      aria-hidden="true"
-    />
   );
 }
 
