@@ -220,7 +220,7 @@
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE: BALANCED NEO-BRUTALIST PROPORTIONS */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .positivus-services-section {
     padding: 45px 0 60px;
   }

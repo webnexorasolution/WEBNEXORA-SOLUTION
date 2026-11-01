@@ -233,3 +233,36 @@
     padding: 44px 30px;
   }
 }
+
+@media (max-width: 600px) {
+  .cta-banner-card {
+    padding: 28px 20px;
+    border-radius: 26px;
+    gap: 20px;
+  }
+  .cta-banner-heading {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+  .cta-banner-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .cta-banner-btn {
+    padding: 15px 24px;
+    font-size: 16px;
+  }
+  .casestudy-dark-card {
+    padding: 28px 20px;
+    border-radius: 26px;
+  }
+  .casestudy-columns-grid {
+    gap: 26px;
+  }
+  .casestudy-col-title {
+    font-size: 19px;
+  }
+  .casestudy-desc {
+    font-size: 14px;
+  }
+}
