@@ -21,7 +21,7 @@ export default function Hero() {
         {/* TOP ROW: 2-COLUMN SPLIT (COPY LEFT, MEGAPHONE ART RIGHT) */}
         <div className="hero-top-grid">
           {/* LEFT: WEBNEXORA REAL COPY IN POSITIVUS TYPOGRAPHY */}
-          <div className="hero-copy" data-aos>
+          <div className="hero-copy">
             <div className="eyebrow hero-eyebrow">
               <span className="eyebrow-dot" />
               Website Development &amp; Digital Strategy
@@ -70,7 +70,7 @@ export default function Hero() {
           </div>
 
           {/* RIGHT: WEBNEXORA DIGITAL ENGINEERING & ORBITAL CORE */}
-          <div className="hero-visual" data-aos>
+          <div className="hero-visual">
             <div className="hero-art-wrapper">
               <svg
                 className="hero-art-svg"
@@ -197,43 +197,64 @@ export default function Hero() {
                   <circle cx="342" cy="212" r="3.5" fill="#B9FF66" stroke="#191A23" strokeWidth="1.2" />
                 </g>
 
-                {/* 3 SATELLITE FLOATING BADGES (Neo-Brutalist Agency Signals) */}
-                {/* 1. Lightning Performance 99 Badge (Top Left) */}
-                <g className="badge-float-1" transform="translate(42, 140)">
-                  <rect x="0" y="4" width="112" height="40" rx="12" fill="#191A23" />
-                  <rect x="-2" y="2" width="112" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
-                  <circle cx="18" cy="22" r="9" fill="#B9FF66" stroke="#191A23" strokeWidth="1.2" />
-                  <path d="M17 17 L15 22 L19 22 L17 27" stroke="#191A23" strokeWidth="1.6" strokeLinecap="round" />
-                  <text x="34" y="26" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="700" fill="#191A23">
-                    99 Speed
-                  </text>
+                {/* 4 SATELLITE FLOATING BADGES (Neo-Brutalist Agency Signals) */}
+                {/* 1. Lightning Performance 99 Speed (Top Left) */}
+                <g transform="translate(16, 68)">
+                  <g className="badge-float-1">
+                    <rect x="0" y="4" width="112" height="40" rx="12" fill="#191A23" />
+                    <rect x="-2" y="2" width="112" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
+                    <circle cx="18" cy="22" r="9" fill="#B9FF66" stroke="#191A23" strokeWidth="1.2" />
+                    <path d="M18 17 L15 22 L20 22 L17 27" stroke="#191A23" strokeWidth="1.6" strokeLinecap="round" />
+                    <text x="34" y="26" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="700" fill="#191A23">
+                      99 Speed
+                    </text>
+                  </g>
                 </g>
 
                 {/* 2. Mobile Apps / Capacitor Badge (Top Right) */}
-                <g className="badge-float-2" transform="translate(348, 110)">
-                  <rect x="0" y="4" width="130" height="42" rx="12" fill="#191A23" />
-                  <rect x="-2" y="2" width="130" height="42" rx="12" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
-                  <text x="14" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="13" fontWeight="700" fill="#191A23">
-                    📱 iOS &amp; Android
-                  </text>
+                <g transform="translate(346, 68)">
+                  <g className="badge-float-2">
+                    <rect x="0" y="4" width="134" height="42" rx="12" fill="#191A23" />
+                    <rect x="-2" y="2" width="134" height="42" rx="12" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
+                    <text x="14" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12.5" fontWeight="700" fill="#191A23">
+                      📱 iOS &amp; Android
+                    </text>
+                  </g>
                 </g>
 
                 {/* 3. Conversion Benchmark +184% (Bottom Right) */}
-                <g className="badge-float-3" transform="translate(328, 215)">
-                  <rect x="0" y="4" width="144" height="44" rx="12" fill="#191A23" />
-                  <rect x="-2" y="2" width="144" height="44" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
-                  <circle cx="19" cy="24" r="9" fill="#191A23" />
-                  <text x="15" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="800" fill="#B9FF66">
-                    ↗
-                  </text>
-                  <text x="36" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="13" fontWeight="700" fill="#191A23">
-                    +184% Growth
-                  </text>
+                <g transform="translate(336, 218)">
+                  <g className="badge-float-3">
+                    <rect x="0" y="4" width="144" height="44" rx="12" fill="#191A23" />
+                    <rect x="-2" y="2" width="144" height="44" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
+                    <circle cx="19" cy="24" r="9" fill="#191A23" />
+                    <text x="14.5" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="800" fill="#B9FF66">
+                      ↗
+                    </text>
+                    <text x="36" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12.5" fontWeight="700" fill="#191A23">
+                      +184% Growth
+                    </text>
+                  </g>
                 </g>
 
-                {/* 4. Planetary Core Satellite Dot */}
-                <circle cx="68" cy="240" r="8" fill="#191A23" />
-                <circle cx="68" cy="240" r="3.5" fill="#B9FF66" />
+                {/* 4. Cloud CDN / Sub-Second Edge Badge (Bottom Left) */}
+                <g transform="translate(16, 218)">
+                  <g className="badge-float-4">
+                    <rect x="0" y="4" width="118" height="40" rx="12" fill="#191A23" />
+                    <rect x="-2" y="2" width="118" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
+                    <circle cx="18" cy="22" r="9" fill="#191A23" />
+                    <path d="M19 16 L15 22 L20 22 L17 28" stroke="#B9FF66" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    <text x="34" y="26" fontFamily="'Space Grotesk', sans-serif" fontSize="11.5" fontWeight="700" fill="#191A23">
+                      ⚡ Cloud CDN
+                    </text>
+                  </g>
+                </g>
+
+                {/* 5. Planetary Core Satellite Dots */}
+                <circle cx="72" cy="254" r="7" fill="#191A23" />
+                <circle cx="72" cy="254" r="3" fill="#B9FF66" />
+                <circle cx="440" cy="180" r="5" fill="#191A23" />
+                <circle cx="440" cy="180" r="2" fill="#00E5FF" />
               </svg>
             </div>
           </div>

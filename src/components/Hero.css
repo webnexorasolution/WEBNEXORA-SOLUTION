@@ -1,6 +1,6 @@
 /* POSITIVUS HERO SECTION */
 .positivus-hero-wrapper {
-  padding: 105px 0 70px;
+  padding: 92px 0 48px;
   background-color: #FFFFFF;
   position: relative;
   overflow: hidden;
@@ -9,7 +9,7 @@
 .hero-container {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 36px;
 }
 
 /* TOP ROW: 2-COLUMN SPLIT */
@@ -17,7 +17,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 
 .hero-copy {
@@ -40,7 +40,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: var(--dark);
 }
 
@@ -54,12 +54,12 @@
 
 .hero-heading {
   font-family: var(--font-heading);
-  font-size: clamp(38px, 4.2vw, 54px);
+  font-size: clamp(38px, 4vw, 52px);
   font-weight: 600;
   color: var(--dark);
-  line-height: 1.18;
+  line-height: 1.16;
   letter-spacing: -0.025em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero-title-badge {
@@ -72,24 +72,24 @@
 
 .hero-lead {
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 17.5px;
+  line-height: 1.58;
   color: #333333;
   max-width: 520px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .hero-btn-main {
-  padding: 18px 34px;
-  font-size: 18px;
+  padding: 16px 30px;
+  font-size: 16px;
   font-weight: 500;
   border-radius: var(--radius-btn);
   background: var(--dark);
@@ -105,8 +105,8 @@
 }
 
 .hero-btn-secondary {
-  padding: 18px 34px;
-  font-size: 18px;
+  padding: 16px 30px;
+  font-size: 16px;
   font-weight: 500;
   border-radius: var(--radius-btn);
   background: transparent;
@@ -151,25 +151,35 @@
   color: var(--lime);
 }
 
-/* RIGHT: MEGAPHONE ARTWORK */
+/* RIGHT: DIGITAL APPLICATION & ORBITAL ECOSYSTEM ARTWORK */
 .hero-visual {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
+.hero-art-wrapper,
 .megaphone-art-wrap {
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
+.hero-art-svg,
 .megaphone-svg {
   width: 100%;
   height: auto;
+  max-width: 520px;
+  min-height: 320px;
   overflow: visible;
+  display: block;
 }
 
 /* Floating micro-animations */
