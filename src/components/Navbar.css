@@ -1,4 +1,4 @@
-/* POSITIVUS NAVBAR — Clean Full-Width Header with Outline CTA */
+/* POSITIVUS NAVBAR — Sleek Compact Header with Round Logo */
 .navbar {
   position: sticky;
   top: 0;
@@ -6,13 +6,13 @@
   right: 0;
   z-index: 1000;
   background: #FFFFFF;
-  padding: 24px 0;
+  padding: 12px 0;
   transition: padding 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #EFEFEF;
 }
 
 .navbar.scrolled {
-  padding: 16px 0;
+  padding: 8px 0;
   background: #FFFFFF;
   border-bottom: 1px solid #191A23;
   box-shadow: 0 4px 14px rgba(25, 26, 35, 0.05);
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   width: 100%;
 }
 
@@ -30,34 +30,38 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .nav-brand-logo-img {
-  width: 44px;
-  height: 32px;
-  object-fit: contain;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--dark);
+  box-shadow: 0 2px 6px rgba(25, 26, 35, 0.12);
   transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .nav-logo:hover .nav-brand-logo-img {
-  transform: scale(1.08);
+  transform: scale(1.08) rotate(-2deg);
 }
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--dark);
   letter-spacing: -0.025em;
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 }
 
 .logo-text-solution {
+  font-size: 19px;
   font-weight: 500;
   color: #555555;
   letter-spacing: -0.01em;
@@ -67,7 +71,7 @@
 .nav-right-group {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 26px;
   margin-left: auto;
 }
 
@@ -75,18 +79,18 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 24px;
 }
 
 .nav-link {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--dark);
   text-decoration: none;
   position: relative;
   transition: color 0.18s ease;
-  padding: 6px 0;
+  padding: 4px 0;
 }
 
 .nav-link:hover {
@@ -113,15 +117,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 13px 26px;
+  gap: 6px;
+  padding: 10px 20px;
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 500;
   color: var(--dark);
   background: transparent;
   border: 1px solid var(--dark);
-  border-radius: var(--radius-btn);
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.22s ease;
   white-space: nowrap;
@@ -136,6 +140,10 @@
 
 .cta-arrow {
   transition: transform 0.2s ease;
+}
+
+.nav-cta:hover .cta-arrow {
+  transform: translate(2px, -2px);
 }
 
 .nav-cta:hover .cta-arrow {
