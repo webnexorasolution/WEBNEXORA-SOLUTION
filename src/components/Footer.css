@@ -1,6 +1,6 @@
 /* FOOTER — Warm Limestone & Pure White Floating Bento Card */
 .footer {
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: var(--font-body);
   position: relative;
@@ -418,7 +418,7 @@
 .footer-bottom {
   padding: 24px 0 28px;
   border-top: 1px solid #E2DFD6;
-  background: var(--bg);
+  background: transparent;
 }
 
 .footer-bottom-inner {

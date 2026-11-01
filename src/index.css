@@ -88,7 +88,17 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(ellipse 90% 80% at 50% 0%, rgba(255, 255, 255, 0.45) 0%, transparent 80%),
+    linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 29px,
+      rgba(28, 25, 20, 0.052) 29px,
+      rgba(28, 25, 20, 0.052) 30px
+    );
+  background-size: 100% 100%, 100% 30px;
   color: var(--text);
   line-height: 1.68;
   overflow-x: hidden;
