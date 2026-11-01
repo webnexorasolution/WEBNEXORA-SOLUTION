@@ -164,38 +164,61 @@ const services = [
     features: ['High-Converting Funnels', 'Social & Search Ad Strategy', 'Analytics & ROI Reporting'],
     illustration: (
       <svg width="200" height="160" viewBox="0 0 200 160" fill="none">
-        {/* Analytics frame */}
-        <rect x="30" y="24" width="140" height="112" rx="14" fill="#292A32" stroke="#FFFFFF" strokeWidth="2" />
-        {/* Window controls / header line */}
-        <circle cx="44" cy="37" r="3" fill="#FFFFFF" fillOpacity="0.5" />
-        <circle cx="53" cy="37" r="3" fill="#FFFFFF" fillOpacity="0.5" />
+        {/* Outer Shadow Slab */}
+        <rect x="33" y="27" width="138" height="110" rx="14" fill="#000000" opacity="0.45" />
+        {/* Main Analytics Window Surface */}
+        <rect x="30" y="24" width="138" height="110" rx="14" fill="#191A23" stroke="#FFFFFF" strokeWidth="2" />
+
+        {/* Window controls / header bar */}
+        <circle cx="44" cy="37" r="3" fill="#FF5F56" />
+        <circle cx="53" cy="37" r="3" fill="#FFBD2E" />
         <circle cx="62" cy="37" r="3" fill="#B9FF66" />
-        <line x1="30" y1="48" x2="170" y2="48" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.25" />
-        {/* Baseline grid */}
-        <line x1="42" y1="120" x2="158" y2="120" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="3 3" />
-        {/* 4 Growing Bars */}
-        <rect x="48" y="94" width="16" height="26" rx="3" fill="#FFFFFF" fillOpacity="0.9" />
-        <rect x="72" y="80" width="16" height="40" rx="3" fill="#FFFFFF" fillOpacity="0.9" />
-        <rect x="96" y="66" width="16" height="54" rx="3" fill="#FFFFFF" fillOpacity="0.9" />
-        <rect x="120" y="52" width="16" height="68" rx="3" fill="#B9FF66" stroke="#191A23" strokeWidth="1" />
+        {/* Header line & pill */}
+        <rect x="76" y="32" width="60" height="10" rx="5" fill="#292A32" />
+        <line x1="30" y1="47" x2="168" y2="47" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.2" />
+
+        {/* Subtle Horizontal gridlines */}
+        <line x1="42" y1="72" x2="156" y2="72" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" strokeDasharray="2 3" />
+        <line x1="42" y1="96" x2="156" y2="96" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" strokeDasharray="2 3" />
+        <line x1="42" y1="120" x2="156" y2="120" stroke="#FFFFFF" strokeWidth="1.2" strokeOpacity="0.28" />
+
+        {/* 4 Ascending Analytics Bars with multi-opacity shades */}
+        <rect x="46" y="94" width="16" height="26" rx="3.5" fill="#FFFFFF" fillOpacity="0.32" />
+        <rect x="70" y="80" width="16" height="40" rx="3.5" fill="#FFFFFF" fillOpacity="0.52" />
+        <rect x="94" y="66" width="16" height="54" rx="3.5" fill="#FFFFFF" fillOpacity="0.78" />
+        <rect x="118" y="52" width="18" height="68" rx="3.5" fill="#B9FF66" stroke="#191A23" strokeWidth="1" />
+
         {/* Smooth upward growth trend line */}
         <path
-          d="M44 98 L74 84 L100 68 L142 50"
+          d="M44 98 C66 94 90 76 128 44"
           stroke="#B9FF66"
-          strokeWidth="3"
+          strokeWidth="3.2"
           strokeLinecap="round"
-          strokeLinejoin="round"
         />
-        {/* Crisp Arrow Head pointing up-right */}
-        <path
-          d="M128 50 L142 50 L142 64"
-          stroke="#B9FF66"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {/* Trend Indicator Dot */}
-        <circle cx="142" cy="50" r="3" fill="#191A23" stroke="#B9FF66" strokeWidth="2" />
+
+        {/* Proper Diagonal Arrow Head pointing up-right */}
+        <polygon points="134,39 122,43 129,51" fill="#B9FF66" />
+
+        {/* Glowing Indicator Node */}
+        <circle cx="128" cy="44" r="3.5" fill="#191A23" stroke="#B9FF66" strokeWidth="2" />
+
+        {/* Floating Growth Badge with Neo-Brutalist Shadow */}
+        <rect x="100" y="15" width="60" height="20" rx="6" fill="#000000" opacity="0.4" />
+        <rect x="98" y="13" width="60" height="20" rx="6" fill="#B9FF66" stroke="#191A23" strokeWidth="1.4" />
+        <text
+          x="128"
+          y="27"
+          textAnchor="middle"
+          fontFamily="'Space Grotesk', sans-serif"
+          fontSize="10"
+          fontWeight="800"
+          fill="#191A23"
+        >
+          +184% ↗
+        </text>
+
+        {/* Sparkle */}
+        <path d="M164 62 C164 66 161 68 157 68 C161 68 164 70 164 74 C164 70 167 68 171 68 C167 68 164 66 164 62 Z" fill="#B9FF66" />
       </svg>
     ),
   },

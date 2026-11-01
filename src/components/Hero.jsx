@@ -212,12 +212,17 @@ export default function Hero() {
                 </g>
 
                 {/* 2. Mobile Apps / Capacitor Badge (Top Right) */}
-                <g transform="translate(346, 68)">
+                <g transform="translate(338, 68)">
                   <g className="badge-float-2">
-                    <rect x="0" y="4" width="134" height="42" rx="12" fill="#191A23" />
-                    <rect x="-2" y="2" width="134" height="42" rx="12" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
-                    <text x="14" y="28" fontFamily="'Space Grotesk', sans-serif" fontSize="12.5" fontWeight="700" fill="#191A23">
-                      📱 iOS &amp; Android
+                    <rect x="0" y="4" width="146" height="42" rx="12" fill="#191A23" />
+                    <rect x="-2" y="2" width="146" height="42" rx="12" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
+                    {/* Crisp Vector Smartphone Icon in Dark Circular Pill */}
+                    <circle cx="19" cy="23" r="10" fill="#191A23" />
+                    <rect x="14" y="16.5" width="10" height="15" rx="2.5" fill="#B9FF66" stroke="#191A23" strokeWidth="0.8" />
+                    <line x1="16.5" y1="18.5" x2="21.5" y2="18.5" stroke="#191A23" strokeWidth="0.8" strokeLinecap="round" />
+                    <circle cx="19" cy="28.5" r="0.75" fill="#191A23" />
+                    <text x="36" y="27" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="700" fill="#191A23">
+                      iOS &amp; Android
                     </text>
                   </g>
                 </g>
@@ -240,12 +245,12 @@ export default function Hero() {
                 {/* 4. Cloud CDN / Sub-Second Edge Badge (Bottom Left) */}
                 <g transform="translate(16, 218)">
                   <g className="badge-float-4">
-                    <rect x="0" y="4" width="118" height="40" rx="12" fill="#191A23" />
-                    <rect x="-2" y="2" width="118" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
+                    <rect x="0" y="4" width="120" height="40" rx="12" fill="#191A23" />
+                    <rect x="-2" y="2" width="120" height="40" rx="12" fill="#FFFFFF" stroke="#191A23" strokeWidth="2" />
                     <circle cx="18" cy="22" r="9" fill="#191A23" />
                     <path d="M19 16 L15 22 L20 22 L17 28" stroke="#B9FF66" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     <text x="34" y="26" fontFamily="'Space Grotesk', sans-serif" fontSize="11.5" fontWeight="700" fill="#191A23">
-                      ⚡ Cloud CDN
+                      Cloud CDN
                     </text>
                   </g>
                 </g>

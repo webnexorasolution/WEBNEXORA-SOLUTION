@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Smartphone,
@@ -8,8 +9,9 @@ import {
   Award,
   Check,
   ArrowUpRight,
+  Plus,
+  Minus,
 } from 'lucide-react';
-import { CardSplitAccordian } from '@/components/ui/card-split-accordian';
 import siteConfig from '../config/site';
 import './ServicesPage.css';
 
@@ -153,6 +155,12 @@ const faqs = [
 ];
 
 export default function ServicesPage() {
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const toggleFaq = (idx) => {
+    setOpenFaq(openFaq === idx ? -1 : idx);
+  };
+
   return (
     <div className="services-page">
       {/* HERO */}
@@ -276,29 +284,56 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* FAQ SECTION */}
-      <section className="section faq-section">
+      {/* FAQ SECTION (POSITIVUS NEO-BRUTALIST ACCORDION STACK) */}
+      <section className="section faq-section positivus-faq-section" id="faq">
         <div className="container">
-          <div className="section-head" data-aos>
-            <div className="eyebrow">
-              <span className="eyebrow-dot" /> Clear Answers
-            </div>
-            <h2>
-              Frequently Asked{' '}
-              <span className="title-highlight">Questions.</span>
+          <div className="section-head section-header-row" data-aos>
+            <h2 className="section-title-badge">
+              <span className="title-badge">Frequently Asked Questions</span>
             </h2>
-            <p>Everything you need to know about working with Webnexora Solution.</p>
+            <p className="section-head-desc">
+              Everything you need to know about working with Webnexora Solution, from project timelines to post-launch support.
+            </p>
           </div>
 
-          <div className="faq-motion-list" style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '820px', margin: '0 auto' }} data-aos>
-            {faqs.map((faq, index) => (
-              <CardSplitAccordian
-                key={faq.q}
-                title={faq.q}
-                description={faq.a}
-                defaultOpen={index === 0}
-              />
-            ))}
+          <div className="faq-accordion-stack" data-aos>
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              const num = String(idx + 1).padStart(2, '0');
+              return (
+                <article
+                  key={faq.q}
+                  className={`faq-item-card ${isOpen ? 'active-open' : ''}`}
+                >
+                  <button
+                    type="button"
+                    className="faq-item-header"
+                    onClick={() => toggleFaq(idx)}
+                    aria-expanded={isOpen}
+                    id={`faq-btn-${num}`}
+                  >
+                    <div className="faq-title-group">
+                      <span className="faq-number">{num}</span>
+                      <span className="faq-question">{faq.q}</span>
+                    </div>
+                    <span className={`faq-toggle-circle ${isOpen ? 'open' : ''}`}>
+                      {isOpen ? (
+                        <Minus size={22} strokeWidth={2.8} />
+                      ) : (
+                        <Plus size={22} strokeWidth={2.8} />
+                      )}
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="faq-item-body">
+                      <div className="faq-body-divider" />
+                      <p className="faq-body-text">{faq.a}</p>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

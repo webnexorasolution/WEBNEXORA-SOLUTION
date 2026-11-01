@@ -16,20 +16,50 @@ export function CardSplitAccordian({
       layout
       transition={{ layout: { duration: 0.3, type: "spring", stiffness: 350, damping: 25 } }}
       onClick={() => setIsOpen(!isOpen)}
-      className={`card-split-accordian p-4 rounded-xl bg-muted overflow-hidden ${className}`}
-      style={{ cursor: "pointer", userSelect: "none" }}
+      className={`card-split-accordian ${className}`}
+      style={{
+        cursor: "pointer",
+        userSelect: "none",
+        backgroundColor: isOpen ? "var(--lime, #B9FF66)" : "#F3F3F3",
+        border: "1px solid var(--border-dark, #191A23)",
+        borderRadius: "32px",
+        boxShadow: "0 5px 0 var(--border-dark, #191A23)",
+        padding: "28px 36px",
+        transition: "background-color 0.25s ease, box-shadow 0.25s ease",
+        overflow: "hidden",
+      }}
     >
-      <motion.div layout className="flex items-center justify-between" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <motion.h3 layout className="text-lg font-medium" style={{ margin: 0 }}>
+      <motion.div layout style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
+        <motion.h3
+          layout
+          style={{
+            margin: 0,
+            fontFamily: "var(--font-heading, 'Space Grotesk', sans-serif)",
+            fontSize: "20px",
+            fontWeight: 600,
+            color: "var(--dark, #191A23)",
+          }}
+        >
           {title}
         </motion.h3>
         <motion.span
           layout
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--blue, #4f46e5)" }}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "42px",
+            height: "42px",
+            borderRadius: "50%",
+            backgroundColor: isOpen ? "#FFFFFF" : "#F3F3F3",
+            border: "1px solid var(--border-dark, #191A23)",
+            color: "var(--dark, #191A23)",
+            flexShrink: 0,
+          }}
         >
-          <ChevronDown size={18} strokeWidth={2.5} />
+          <ChevronDown size={20} strokeWidth={2.6} />
         </motion.span>
       </motion.div>
       <AnimatePresence>
@@ -39,9 +69,26 @@ export function CardSplitAccordian({
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="mt-2 text-muted-foreground"
+            style={{
+              paddingTop: "18px",
+              marginTop: "16px",
+              borderTop: "1px solid var(--border-dark, #191A23)",
+            }}
           >
-            {children || <p style={{ margin: "8px 0 0 0" }}>{description}</p>}
+            {children || (
+              <p
+                style={{
+                  margin: 0,
+                  fontFamily: "var(--font-body, 'Space Grotesk', sans-serif)",
+                  fontSize: "16.5px",
+                  lineHeight: 1.65,
+                  color: "var(--dark, #191A23)",
+                  fontWeight: 500,
+                }}
+              >
+                {description}
+              </p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
