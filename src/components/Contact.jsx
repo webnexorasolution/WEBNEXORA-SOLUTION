@@ -127,7 +127,7 @@ export default function Contact() {
           {/* Guaranteed SLA & Confidentiality Banner */}
           <div className="contact-sla-badge">
             <span className="sla-dot" />
-            <span>Guaranteed initial response within 2 hours · 100% Confidential Consultation</span>
+            <span>Guaranteed 2-Hour Response · 100% Confidential</span>
           </div>
         </div>
 

@@ -80,7 +80,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Link className="footer-logo-wrap" to="/">
               <img
-                src="/webnexora-brand-mark.png"
+                src="/webnexora-round-mark.png"
                 alt="Webnexora Solution"
                 className="footer-brand-logo-img"
               />
@@ -89,19 +89,14 @@ export default function Footer() {
               </span>
             </Link>
 
-            <div className="footer-eng-chip">
-              <span className="eng-dot" /> Full-Cycle Web Engineering &amp; Growth Studio
-            </div>
-
             <p className="footer-desc">
               Custom web applications, e-commerce storefronts, and digital flagships engineered for scale.
             </p>
 
-            {/* ONE-LINED TAGLINE PILL */}
             <div className="footer-tagline-wrap">
               <div className="footer-tagline">
-                <Sparkles size={11} className="tagline-sparkle" />
-                <span>{siteConfig.tagline}</span>
+                <span className="eng-dot" />
+                <span>Full-Cycle Web Engineering &amp; Growth Studio</span>
               </div>
             </div>
 
