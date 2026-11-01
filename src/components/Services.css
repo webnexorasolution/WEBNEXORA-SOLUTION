@@ -10,13 +10,16 @@
   gap: 36px;
 }
 
-/* BASE SERVICE CARD */
+/* BASE SERVICE CARD (DESKTOP: 2-COLUMN GRID) */
 .service-card {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 200px;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "info visual"
+    "action visual";
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 20px 24px;
   padding: 44px;
   border-radius: var(--radius-card);
   border: 1px solid var(--border-dark);
@@ -45,13 +48,11 @@
   color: #FFFFFF;
 }
 
-/* LEFT COLUMN */
-.service-card-left {
+/* 1. INFO AREA (TITLE, DESC, BULLETS) */
+.service-card-info {
+  grid-area: info;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  gap: 20px;
 }
 
 /* TITLE WITH BADGE PILLS */
@@ -84,7 +85,7 @@
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.55;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   opacity: 0.9;
 }
 
@@ -126,7 +127,14 @@
   color: var(--dark);
 }
 
-/* CARD ACTION LINK */
+/* 2. ACTION AREA (CTA LINK) */
+.service-card-action {
+  grid-area: action;
+  align-self: end;
+  display: flex;
+  align-items: center;
+}
+
 .service-card-link {
   display: inline-flex;
   align-items: center;
@@ -136,7 +144,6 @@
   font-size: 18px;
   font-weight: 500;
   width: fit-content;
-  margin-top: 10px;
 }
 
 .service-card-link.link-light {
@@ -177,8 +184,9 @@
   text-decoration: underline;
 }
 
-/* RIGHT ILLUSTRATION COLUMN */
-.service-card-right {
+/* 3. VISUAL AREA (ILLUSTRATION) */
+.service-card-visual {
+  grid-area: visual;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,7 +211,7 @@
   justify-content: center;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE DESIGN FOR TABLETS */
 @media (max-width: 960px) {
   .services-cards-grid {
     grid-template-columns: 1fr;
@@ -211,16 +219,123 @@
   }
 }
 
-@media (max-width: 600px) {
+/* RESPONSIVE DESIGN FOR MOBILE: BALANCED NEO-BRUTALIST PROPORTIONS */
+@media (max-width: 768px) {
+  .positivus-services-section {
+    padding: 45px 0 60px;
+  }
+
   .service-card {
-    grid-template-columns: 1fr;
-    padding: 34px 24px;
-    gap: 24px;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "info info"
+      "action visual";
+    align-items: end;
+    gap: 16px 14px;
+    padding: 28px 22px 22px;
+    border-radius: 28px;
+    box-shadow: 0px 4px 0px var(--border-dark);
+    min-height: auto;
   }
-  .service-card-right {
-    justify-content: flex-start;
+
+  .service-card-title {
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 10px;
   }
+
+  .svc-title-pill {
+    padding: 1px 8px;
+    border-radius: 6px;
+    margin-bottom: 2px;
+  }
+
+  .service-card-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .service-features-list {
+    gap: 7px;
+  }
+
+  .service-feature-item {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .feat-icon-dot {
+    width: 17px;
+    height: 17px;
+  }
+
+  .service-card-action {
+    margin-top: 4px;
+  }
+
+  .service-card-link {
+    gap: 10px;
+    font-size: 16px;
+  }
+
+  .service-arrow-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .service-card-visual {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
   .service-illustration-wrap {
-    max-width: 160px;
+    max-width: 125px;
+    max-height: 100px;
+  }
+
+  .service-illustration-wrap svg {
+    width: 100%;
+    height: auto;
+    max-width: 125px;
+    max-height: 100px;
+    display: block;
+  }
+}
+
+/* NARROW PHONES (< 420px) */
+@media (max-width: 420px) {
+  .service-card {
+    padding: 24px 18px 20px;
+    border-radius: 24px;
+    gap: 14px 10px;
+  }
+
+  .service-card-title {
+    font-size: 19px;
+  }
+
+  .service-card-desc {
+    font-size: 13.5px;
+  }
+
+  .service-feature-item {
+    font-size: 12.5px;
+  }
+
+  .service-card-link {
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .service-arrow-circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .service-illustration-wrap {
+    max-width: 110px;
+    max-height: 88px;
   }
 }

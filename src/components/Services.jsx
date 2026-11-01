@@ -227,22 +227,20 @@ export default function Services() {
                 data-aos
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                {/* LEFT INFO COLUMN */}
-                <div className="service-card-left">
-                  <div>
-                    <h3 className="service-card-title">
-                      <span className={`svc-title-pill ${s.badgeTheme}`}>
-                        {s.line1}
-                      </span>
-                      <br />
-                      <span className={`svc-title-pill ${s.badgeTheme}`}>
-                        {s.line2}
-                      </span>
-                    </h3>
-                    <p className="service-card-desc">{s.desc}</p>
-                  </div>
+                {/* INFO (TITLE, DESCRIPTION, FEATURES) */}
+                <div className="service-card-info">
+                  <h3 className="service-card-title">
+                    <span className={`svc-title-pill ${s.badgeTheme}`}>
+                      {s.line1}
+                    </span>
+                    <br />
+                    <span className={`svc-title-pill ${s.badgeTheme}`}>
+                      {s.line2}
+                    </span>
+                  </h3>
+                  <p className="service-card-desc">{s.desc}</p>
 
-                  {/* Real Feature Bullets */}
+                  {/* Feature Bullets */}
                   <ul className="service-features-list">
                     {s.features.map((feat) => (
                       <li key={feat} className="service-feature-item">
@@ -253,22 +251,24 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  {/* Circular Arrow Button (↗) + Learn more */}
+                {/* ACTION (CIRCULAR ARROW + LEARN MORE) */}
+                <div className="service-card-action">
                   <Link
                     to="/services"
                     className={`service-card-link ${isDark ? 'link-dark' : 'link-light'}`}
                     id={`svc-btn-${s.id}`}
                   >
                     <span className={`service-arrow-circle ${isDark ? 'circle-white' : 'circle-dark'}`}>
-                      <ArrowUpRight size={22} strokeWidth={2.4} />
+                      <ArrowUpRight size={20} strokeWidth={2.4} />
                     </span>
                     <span className="service-link-text">Learn more</span>
                   </Link>
                 </div>
 
-                {/* RIGHT ILLUSTRATION COLUMN */}
-                <div className="service-card-right">
+                {/* VISUAL (VECTOR ILLUSTRATION) */}
+                <div className="service-card-visual">
                   <div className="service-illustration-wrap">
                     {s.illustration}
                   </div>
