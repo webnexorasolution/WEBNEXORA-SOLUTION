@@ -218,9 +218,9 @@ export default function Hero() {
                     <rect x="-2" y="2" width="146" height="42" rx="12" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
                     {/* Crisp Vector Smartphone Icon in Dark Circular Pill */}
                     <circle cx="19" cy="23" r="10" fill="#191A23" />
-                    <rect x="14" y="16.5" width="10" height="15" rx="2.5" fill="#B9FF66" stroke="#191A23" strokeWidth="0.8" />
-                    <line x1="16.5" y1="18.5" x2="21.5" y2="18.5" stroke="#191A23" strokeWidth="0.8" strokeLinecap="round" />
-                    <circle cx="19" cy="28.5" r="0.75" fill="#191A23" />
+                    <rect x="14.5" y="15.5" width="9" height="15" rx="2" fill="none" stroke="#FFFFFF" strokeWidth="1.2" />
+                    <line x1="17.5" y1="17.5" x2="20.5" y2="17.5" stroke="#B9FF66" strokeWidth="1" strokeLinecap="round" />
+                    <circle cx="19" cy="27.5" r="0.75" fill="#B9FF66" />
                     <text x="36" y="27" fontFamily="'Space Grotesk', sans-serif" fontSize="12" fontWeight="700" fill="#191A23">
                       iOS &amp; Android
                     </text>
