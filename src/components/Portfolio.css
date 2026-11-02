@@ -1,6 +1,6 @@
 /* POSITIVUS CTA BANNER & CASE STUDY */
 .portfolio-section-wrap {
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 /* ── 1. CTA BANNER CARD ── */
@@ -82,22 +82,182 @@
   overflow: visible;
 }
 
-.floating-sphere {
-  animation: floatSphere 3.6s ease-in-out infinite alternate;
+/* ── ANIMATED 2D AGENCY LAUNCH ENGINE ── */
+.cta-launch-engine {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 10px 24px rgba(25, 26, 35, 0.08));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-@keyframes floatSphere {
+.cta-banner-card:hover .cta-launch-engine {
+  transform: scale(1.03);
+}
+
+/* 1. Orbit Rotations */
+.cta-orbit-cw {
+  transform-origin: 170px 115px;
+  animation: ctaSpinCW 32s linear infinite;
+}
+
+.cta-orbit-ccw {
+  transform-origin: 170px 115px;
+  animation: ctaSpinCCW 24s linear infinite;
+}
+
+@keyframes ctaSpinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ctaSpinCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* 2. Pulsing Radar Waves */
+.cta-radar-ring {
+  fill: none;
+  stroke: #B9FF66;
+  stroke-width: 1.8px;
+  opacity: 0;
+  transform-origin: 170px 115px;
+}
+
+.cta-radar-1 {
+  animation: ctaPulseRadar 3.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.cta-radar-2 {
+  animation: ctaPulseRadar 3.4s cubic-bezier(0.2, 0.8, 0.2, 1) 1.7s infinite;
+}
+
+@keyframes ctaPulseRadar {
+  0% {
+    r: 40px;
+    opacity: 0.85;
+    stroke-width: 2.2px;
+  }
+  70% {
+    opacity: 0.35;
+  }
+  100% {
+    r: 108px;
+    opacity: 0;
+    stroke-width: 0.8px;
+  }
+}
+
+/* 3. Central Reactor Chassis Bob */
+.cta-reactor-chassis {
+  animation: ctaFloatChassis 4s ease-in-out infinite alternate;
+}
+
+@keyframes ctaFloatChassis {
   0% { transform: translateY(0px); }
-  100% { transform: translateY(-7px); }
+  100% { transform: translateY(-6px); }
 }
 
-.floating-star {
-  animation: floatStar 4.2s ease-in-out 0.3s infinite alternate;
+.cta-core-glow-sphere {
+  animation: ctaCoreGlow 2.4s ease-in-out infinite alternate;
 }
 
-@keyframes floatStar {
+@keyframes ctaCoreGlow {
+  0% { transform: scale(0.92); opacity: 0.85; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+.cta-core-pulse-radial {
+  animation: ctaCoreRadialGlow 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes ctaCoreRadialGlow {
+  0% { opacity: 0.4; transform: scale(0.9); }
+  100% { opacity: 0.9; transform: scale(1.15); }
+}
+
+/* 4. Satellite Rocket Floating & Flame Flicker */
+.cta-sat-rocket {
+  animation: ctaFloatRocket 3.8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ctaFloatRocket {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(-1.5deg); }
+  100% { transform: translateY(-11px) rotate(1deg); }
+}
+
+.cta-rocket-flame {
+  animation: ctaFlameFlicker 0.6s ease-in-out infinite alternate;
+  transform-origin: 0px 22px;
+}
+
+@keyframes ctaFlameFlicker {
+  0% { transform: scale(0.9); opacity: 0.85; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* 5. Code Capsule Float */
+.cta-sat-code {
+  animation: ctaFloatCode 4.4s ease-in-out 0.4s infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ctaFloatCode {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(-2deg); }
+}
+
+/* 6. Target Beacon Pulse */
+.cta-sat-beacon {
+  animation: ctaFloatBeacon 4s ease-in-out 0.8s infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ctaFloatBeacon {
   0% { transform: translateY(0px) scale(1); }
-  100% { transform: translateY(-5px) scale(1.06); }
+  100% { transform: translateY(-5px) scale(1.04); }
+}
+
+.cta-beacon-blinker {
+  animation: ctaBlinkBeacon 1.8s ease-in-out infinite;
+}
+
+@keyframes ctaBlinkBeacon {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* 7. Sparkle Twinkles */
+.cta-sparkle-1 {
+  animation: ctaTwinkle 3.2s ease-in-out infinite alternate;
+  transform-origin: 298px 172px;
+}
+
+.cta-sparkle-2 {
+  animation: ctaTwinkle 2.6s ease-in-out 1s infinite alternate;
+  transform-origin: 84px 30px;
+}
+
+@keyframes ctaTwinkle {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+  50% { transform: scale(1.15) rotate(45deg); opacity: 1; }
+  100% { transform: scale(0.85) rotate(90deg); opacity: 0.7; }
+}
+
+.cta-banner-card:hover .cta-sat-rocket {
+  animation-duration: 2.2s;
+}
+
+.cta-banner-card:hover .cta-orbit-cw {
+  animation-duration: 16s;
+}
+
+.cta-banner-card:hover .cta-orbit-ccw {
+  animation-duration: 12s;
 }
 
 /* ── 2. CASE STUDY SECTION ── */

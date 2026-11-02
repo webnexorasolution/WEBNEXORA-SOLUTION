@@ -10,6 +10,7 @@ import {
   Activity,
   Code2,
   Target,
+  Smartphone,
 } from 'lucide-react';
 import siteConfig from '../config/site';
 import './Hero.css';
@@ -69,195 +70,146 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT: FULL-SIZE NEO-BRUTALIST DIGITAL WORKSTATION CONSOLE */}
-          <div className="hero-visual">
+          {/* RIGHT: BOLD 2D DIGITAL ARCHITECTURE CONSOLE (SIMPLE, 2D NOT 3D, NO GRAPHS) */}
+          <div className="hero-visual" data-aos>
             <div className="hero-console-stage">
-              {/* Background Ambient Planetary Orbits */}
-              <div className="console-orbit-bg" aria-hidden="true">
-                <svg className="orbit-svg" viewBox="0 0 640 480" fill="none">
-                  <ellipse cx="320" cy="240" rx="300" ry="140" stroke="#191A23" strokeWidth="1.5" strokeDasharray="4 6" transform="rotate(-12 320 240)" />
-                  <ellipse cx="320" cy="240" rx="260" ry="110" stroke="#B9FF66" strokeWidth="2.5" transform="rotate(-12 320 240)" />
-                  <path d="M110 90 C110 98 105 102 97 102 C105 102 110 106 110 114 C110 106 115 102 123 102 C115 102 110 98 110 90 Z" fill="#191A23" />
-                  <path d="M540 80 C540 90 533 95 523 95 C533 95 540 100 540 110 C540 100 547 95 557 95 C547 95 540 90 540 80 Z" fill="#B9FF66" stroke="#191A23" strokeWidth="1.5" />
-                  <circle cx="580" cy="290" r="5" fill="#191A23" />
-                  <circle cx="580" cy="290" r="2.5" fill="#B9FF66" />
-                </svg>
-              </div>
-
-              {/* Main Neo-Brutalist Digital Console */}
-              <div className="hero-digital-console">
-                {/* Browser Header Bar */}
-                <div className="console-browser-header">
-                  <div className="console-traffic-dots">
+              {/* Main 2D Neo-Brutalist Window */}
+              <div className="hero-console-window">
+                {/* 1. Chrome Header Bar */}
+                <div className="console-top-bar">
+                  <div className="console-dots">
                     <span className="dot dot-red" />
                     <span className="dot dot-amber" />
                     <span className="dot dot-green" />
                   </div>
-
-                  <div className="console-url-pill">
-                    <span className="lock-icon">🔒</span>
-                    <span className="url-text">webnexora.com/scale</span>
-                    <span className="live-status-dot" title="Edge Production Online" />
+                  <div className="console-url-capsule">
+                    <span className="url-secure-beacon" />
+                    <span className="url-text">webnexora.com/build</span>
                   </div>
-
-                  <div className="console-tag-badge">
-                    <span className="tag-pulse" /> PRODUCTION
-                  </div>
+                  <span className="console-status-badge">
+                    <span className="live-dot" /> PRODUCTION READY
+                  </span>
                 </div>
 
-                {/* Console Workspace Content */}
-                <div className="console-workspace">
-                  {/* Top Bar: Agency Branding & Live Uptime */}
-                  <div className="console-brand-row">
-                    <div className="console-brand-identity">
-                      <img
-                        src="/webnexora-round-mark.png"
-                        alt="Webnexora Mark"
-                        className="console-brand-logo"
-                      />
-                      <div className="console-brand-meta">
-                        <span className="console-brand-title">Webnexora Engine v2.4</span>
+                {/* 2. Main Console Body */}
+                <div className="console-body">
+                  {/* Console Header Row */}
+                  <div className="console-header-row">
+                    <div className="console-brand-meta">
+                      <div className="brand-dot-pulse" />
+                      <div>
+                        <strong className="console-brand-name">Webnexora Engine v2.4</strong>
                         <span className="console-brand-sub">Modern Web &amp; Mobile Ecosystem</span>
                       </div>
                     </div>
-                    <div className="console-uptime-pill">
-                      <span className="chk-mini">✓</span> 99.9% Uptime Verified
-                    </div>
+                    <span className="console-uptime-pill">
+                      <Check size={12} strokeWidth={3} /> 99.9% Uptime Verified
+                    </span>
                   </div>
 
-                  {/* Main Dual Metric Cards Grid */}
-                  <div className="console-metrics-grid">
-                    {/* Card A: Google Lighthouse Speed Score (99) */}
-                    <div className="metric-box speed-metric-box">
-                      <div className="metric-box-top">
-                        <span className="metric-title">Performance Vitals</span>
-                        <span className="metric-badge-lime">Google 99</span>
+                  {/* 2-Column Vitals & Deliverables Panels (100% Graph-Free) */}
+                  <div className="console-panels-grid">
+                    {/* Panel 1: Performance Vitals */}
+                    <div className="console-sub-panel panel-vitals">
+                      <div className="sub-panel-top">
+                        <span className="sub-panel-label">CORE WEB VITALS</span>
+                        <span className="google-badge">Google 99</span>
                       </div>
-                      <div className="speed-dial-wrap">
-                        <div className="speed-dial-circle">
-                          <svg className="speed-dial-svg" viewBox="0 0 84 84">
-                            <circle cx="42" cy="42" r="35" stroke="#EAEAEA" strokeWidth="7" fill="none" />
-                            <circle
-                              cx="42"
-                              cy="42"
-                              r="35"
-                              stroke="#B9FF66"
-                              strokeWidth="7"
-                              strokeDasharray="220"
-                              strokeDashoffset="18"
-                              strokeLinecap="round"
-                              fill="none"
-                            />
-                          </svg>
-                          <div className="speed-dial-val">
-                            <span className="dial-num">99</span>
-                            <span className="dial-sub">/ 100</span>
-                          </div>
+                      <div className="vitals-score-row">
+                        <div className="vitals-circle-gauge">
+                          <span className="gauge-number">99</span>
+                          <span className="gauge-denom">/100</span>
                         </div>
-                        <div className="speed-stats-col">
-                          <div className="speed-stat-item">
-                            <span className="stat-dot" />
-                            <span className="stat-label">FCP:</span>
-                            <span className="stat-val">0.38s (Fast)</span>
+                        <div className="vitals-checklist">
+                          <div className="vital-item">
+                            <span className="vital-dot lime" />
+                            <span><strong>0.38s</strong> FCP (Instant)</span>
                           </div>
-                          <div className="speed-stat-item">
-                            <span className="stat-dot" />
-                            <span className="stat-label">LCP:</span>
-                            <span className="stat-val">0.72s (Ideal)</span>
+                          <div className="vital-item">
+                            <span className="vital-dot lime" />
+                            <span><strong>0.72s</strong> LCP (Ideal)</span>
                           </div>
-                          <div className="speed-stat-item">
-                            <span className="stat-dot" />
-                            <span className="stat-label">CLS:</span>
-                            <span className="stat-val">0.00 (Zero Shift)</span>
+                          <div className="vital-item">
+                            <span className="vital-dot lime" />
+                            <span><strong>0.00</strong> CLS (Zero Shift)</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Card B: Conversion & Pipeline Growth */}
-                    <div className="metric-box growth-metric-box">
-                      <div className="metric-box-top">
-                        <span className="metric-title">Conversion Engine</span>
-                        <span className="metric-badge-dark">+184% Lift</span>
+                    {/* Panel 2: Production Deliverables (Agency Stack, NO GRAPHS) */}
+                    <div className="console-sub-panel panel-deliverables">
+                      <div className="sub-panel-top">
+                        <span className="sub-panel-label">DELIVERY STANDARD</span>
+                        <span className="fixed-badge">Fixed-Price</span>
                       </div>
-                      <div className="growth-chart-wrap">
-                        <svg className="growth-chart-svg" viewBox="0 0 200 70" fill="none">
-                          <defs>
-                            <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#B9FF66" stopOpacity="0.55" />
-                              <stop offset="100%" stopColor="#B9FF66" stopOpacity="0.0" />
-                            </linearGradient>
-                          </defs>
-                          {/* Grid line */}
-                          <line x1="0" y1="65" x2="200" y2="65" stroke="#E2E2E2" strokeWidth="1" strokeDasharray="3 3" />
-                          {/* Shaded Area */}
-                          <path
-                            d="M6 58 C38 54, 70 42, 106 32 C142 22, 168 12, 194 6 L194 65 L6 65 Z"
-                            fill="url(#growthGrad)"
-                          />
-                          {/* Baseline line */}
-                          <path
-                            d="M6 58 C38 54, 70 42, 106 32 C142 22, 168 12, 194 6"
-                            stroke="#191A23"
-                            strokeWidth="2.8"
-                            strokeLinecap="round"
-                          />
-                          {/* Data Nodes */}
-                          <circle cx="6" cy="58" r="3" fill="#191A23" />
-                          <circle cx="106" cy="32" r="3.5" fill="#191A23" />
-                          <circle cx="194" cy="6" r="4.5" fill="#B9FF66" stroke="#191A23" strokeWidth="2" />
-                        </svg>
-                        <div className="growth-stats-row">
-                          <span className="growth-sub-label">Avg. Inquiries</span>
-                          <span className="growth-metric-val">28 Qualified / Wk</span>
+                      <div className="deliverables-checklist">
+                        <div className="deliverable-item">
+                          <span className="deliv-chk"><Check size={11} strokeWidth={3} /></span>
+                          <span>Custom Web App (React 19 &amp; Next.js)</span>
                         </div>
+                        <div className="deliverable-item">
+                          <span className="deliv-chk"><Check size={11} strokeWidth={3} /></span>
+                          <span>Native Mobile Apps (iOS &amp; Android)</span>
+                        </div>
+                        <div className="deliverable-item">
+                          <span className="deliv-chk"><Check size={11} strokeWidth={3} /></span>
+                          <span>Technical SEO &amp; Schema Tuned</span>
+                        </div>
+                      </div>
+                      <div className="delivery-sla-row">
+                        <span className="sla-dot" />
+                        <span>Rapid 10–14 Day Delivery Guarantee</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Bottom Console Strip: Live Code & Frameworks */}
-                  <div className="console-code-footer">
-                    <div className="console-code-snippet">
-                      <span className="code-kw">const</span> <span className="code-var">project</span> = <span className="code-fn">await</span> <span className="code-obj">Webnexora</span>.<span className="code-fn">scale</span>({'{'} <span className="code-key">speed</span>: <span className="code-str">'99'</span>, <span className="code-key">mobile</span>: <span className="code-bool">true</span> {'}'});
+                  {/* Terminal Code Strip */}
+                  <div className="console-code-strip">
+                    <div className="code-text-line">
+                      <span className="code-keyword">const</span>{' '}
+                      <span className="code-var">project</span> ={' '}
+                      <span className="code-keyword">await</span>{' '}
+                      <span className="code-fn">Webnexora</span>.
+                      <span className="code-method">launch</span>(&#123;{' '}
+                      <span className="code-prop">stack</span>: <span className="code-str">'Next.js'</span>,{' '}
+                      <span className="code-prop">speed</span>: <span className="code-str">'99'</span>,{' '}
+                      <span className="code-prop">mobile</span>: <span className="code-bool">true</span> &#125;);
                     </div>
-                    <div className="console-stack-chips">
+                    <div className="code-stack-chips">
                       <span className="stack-pill">React 19</span>
                       <span className="stack-pill">Next.js</span>
-                      <span className="stack-pill highlight">Capacitor</span>
+                      <span className="stack-pill lime">Capacitor</span>
                       <span className="stack-pill">Edge CDN</span>
+                      <span className="stack-pill">TypeScript</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* 4 FLOATING NEO-BRUTALIST SATELLITE BADGES */}
-              {/* Badge 1: Top Right - Mobile Apps */}
-              <div className="console-satellite-badge sat-badge-tr">
-                <span className="sat-icon-wrap">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#191A23" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                    <line x1="12" y1="18" x2="12.01" y2="18" />
-                  </svg>
-                </span>
-                <span className="sat-text">iOS &amp; Android Apps</span>
-              </div>
-
-              {/* Badge 2: Top Left - Speed */}
-              <div className="console-satellite-badge sat-badge-tl">
-                <span className="sat-icon-circle-lime">⚡</span>
+              {/* 4 PROMINENT 2D SATELLITE FLOATING BADGES */}
+              {/* Satellite 1: Top-Left */}
+              <div className="satellite-pill pill-top-left">
+                <span className="sat-icon-lime"><Zap size={14} /></span>
                 <span className="sat-text">Sub-Second Load</span>
               </div>
 
-              {/* Badge 3: Bottom Right - Growth Lift */}
-              <div className="console-satellite-badge sat-badge-br">
-                <span className="sat-arrow-dark">↗</span>
-                <span className="sat-text">+184% Growth Lift</span>
+              {/* Satellite 2: Top-Right */}
+              <div className="satellite-pill pill-top-right">
+                <span className="sat-icon-dark"><Smartphone size={14} /></span>
+                <span className="sat-text">iOS &amp; Android Apps</span>
               </div>
 
-              {/* Badge 4: Bottom Left - Fixed Price */}
-              <div className="console-satellite-badge sat-badge-bl">
-                <span className="sat-chk-dark">✓</span>
+              {/* Satellite 3: Bottom-Left */}
+              <div className="satellite-pill pill-bottom-left">
+                <span className="sat-icon-check"><Check size={13} strokeWidth={3} /></span>
                 <span className="sat-text">100% Fixed-Price</span>
+              </div>
+
+              {/* Satellite 4: Bottom-Right */}
+              <div className="satellite-pill pill-bottom-right">
+                <span className="sat-icon-shield"><ShieldCheck size={13} strokeWidth={2.6} /></span>
+                <span className="sat-text">Production Ready</span>
               </div>
             </div>
           </div>

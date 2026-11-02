@@ -1,7 +1,7 @@
 /* POSITIVUS SERVICES SECTION */
 .positivus-services-section {
   padding: 60px 0 80px;
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 .services-cards-grid {
@@ -13,14 +13,14 @@
 /* BASE SERVICE CARD (DESKTOP: 2-COLUMN GRID) */
 .service-card {
   display: grid;
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr 225px;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "info visual"
     "action visual";
   align-items: center;
   gap: 20px 24px;
-  padding: 44px;
+  padding: 40px 42px;
   border-radius: var(--radius-card);
   border: 1px solid var(--border-dark);
   box-shadow: var(--card-shadow);
@@ -184,7 +184,7 @@
   text-decoration: underline;
 }
 
-/* 3. VISUAL AREA (ILLUSTRATION) */
+/* 3. VISUAL AREA (ELEVATED NEO-BRUTALIST ISOMETRIC VECTOR ART) */
 .service-card-visual {
   grid-area: visual;
   display: flex;
@@ -196,12 +196,122 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 200px;
-  transition: transform 0.3s ease;
+  max-width: 230px;
+  width: 100%;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.service-2d-svg,
+.iso-svg {
+  width: 100%;
+  height: auto;
+  max-width: 230px;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .service-card:hover .service-illustration-wrap {
-  transform: scale(1.05);
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* Ambient 2D Keyframes */
+.svc-float-slow,
+.iso-float-slow {
+  animation: svcFloatSlow 3.8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.svc-float-fast,
+.iso-float-fast {
+  animation: svcFloatFast 2.8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.iso-pulse-beacon {
+  animation: isoPulse 2.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.iso-blink-caret {
+  animation: isoBlink 1.1s step-end infinite;
+}
+
+.iso-hero-pillar {
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.service-card:hover .iso-hero-pillar {
+  filter: drop-shadow(0 0 12px rgba(185, 255, 102, 0.75));
+}
+
+.service-card:hover .svc-float-slow,
+.service-card:hover .iso-float-slow {
+  animation-play-state: paused;
+  transform: translateY(-5px);
+}
+
+.service-card:hover .svc-float-fast,
+.service-card:hover .iso-float-fast {
+  animation-play-state: paused;
+  transform: translateY(-3px);
+}
+
+@keyframes svcFloatSlow {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes svcFloatFast {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes isoFloatSlow {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes isoFloatFast {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes isoPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes isoBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* BOTTOM ROW */
@@ -291,15 +401,15 @@
   }
 
   .service-illustration-wrap {
-    max-width: 125px;
-    max-height: 100px;
+    max-width: 140px;
+    max-height: 115px;
   }
 
   .service-illustration-wrap svg {
     width: 100%;
     height: auto;
-    max-width: 125px;
-    max-height: 100px;
+    max-width: 140px;
+    max-height: 115px;
     display: block;
   }
 }
@@ -335,7 +445,12 @@
   }
 
   .service-illustration-wrap {
-    max-width: 110px;
-    max-height: 88px;
+    max-width: 122px;
+    max-height: 98px;
+  }
+
+  .service-illustration-wrap svg {
+    max-width: 122px;
+    max-height: 98px;
   }
 }

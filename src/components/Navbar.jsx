@@ -58,7 +58,9 @@ export default function Navbar() {
         <div className="nav-actions">
           <Link className="nav-cta" to="/contact" id="nav-cta-btn">
             <span>Get a Free Quote</span>
-            <ArrowUpRight size={15} className="cta-arrow" />
+            <span className="nav-cta-circle">
+              <ArrowUpRight size={14} strokeWidth={2.6} />
+            </span>
           </Link>
         </div>
 
@@ -94,7 +96,10 @@ export default function Navbar() {
           to="/contact"
           onClick={closeDrawer}
         >
-          Get a Free Quote <ArrowUpRight size={15} />
+          <span>Get a Free Quote</span>
+          <span className="nav-cta-circle">
+            <ArrowUpRight size={15} strokeWidth={2.6} />
+          </span>
         </Link>
       </div>
     </header>
